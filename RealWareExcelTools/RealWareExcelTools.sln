@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35013.160
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools", "RealWareExcelTools\RealWareExcelTools.csproj", "{9D553D5E-7B3A-42D3-A010-FAE160B4F520}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools.Core", "RealWareExcelTools.Core\RealWareExcelTools.Core.csproj", "{04D4E3A5-7A20-44E3-9287-8D973F4A052A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		TulsaCounty.Debug|Any CPU = TulsaCounty.Debug|Any CPU
+		TulsaCounty.Release|Any CPU = TulsaCounty.Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9D553D5E-7B3A-42D3-A010-FAE160B4F520}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9D553D5E-7B3A-42D3-A010-FAE160B4F520}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9D553D5E-7B3A-42D3-A010-FAE160B4F520}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9D553D5E-7B3A-42D3-A010-FAE160B4F520}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9D553D5E-7B3A-42D3-A010-FAE160B4F520}.TulsaCounty.Debug|Any CPU.ActiveCfg = TulsaCounty.Debug|Any CPU
+		{9D553D5E-7B3A-42D3-A010-FAE160B4F520}.TulsaCounty.Debug|Any CPU.Build.0 = TulsaCounty.Debug|Any CPU
+		{9D553D5E-7B3A-42D3-A010-FAE160B4F520}.TulsaCounty.Release|Any CPU.ActiveCfg = TulsaCounty.Release|Any CPU
+		{9D553D5E-7B3A-42D3-A010-FAE160B4F520}.TulsaCounty.Release|Any CPU.Build.0 = TulsaCounty.Release|Any CPU
+		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.TulsaCounty.Debug|Any CPU.ActiveCfg = TulsaCounty.Debug|Any CPU
+		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.TulsaCounty.Debug|Any CPU.Build.0 = TulsaCounty.Debug|Any CPU
+		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.TulsaCounty.Release|Any CPU.ActiveCfg = TulsaCounty.Release|Any CPU
+		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.TulsaCounty.Release|Any CPU.Build.0 = TulsaCounty.Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D35952BD-FB78-4D5A-9A5E-7B72DA893B5A}
+	EndGlobalSection
+EndGlobal
