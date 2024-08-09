@@ -1,12 +1,25 @@
-﻿<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui">
+﻿<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="OnRibbonLoad">
 	<ribbon>
 		<tabs>
-			<tab id="tabRealWare" label="RealWare">
-				<group id="grpConnection" label="Connection">
-					<toggleButton id="btnConnectToRealWare" label="Connect to RealWare" onAction="ConnectToRealWareClick" />
+			<tab id="tabRealWare" 
+				 label="RealWare">
+				<group id="grpConnection" 
+					   label="Connection">
+					<toggleButton id="btnConnectToRealWare" 
+								  onAction="OnConnectToRealWareClick"
+								  getImage="GetConnectToRealWareIcon" 
+								  getPressed="GetConnectToRealWarePressed"
+								  getLabel="GetConnectToRealWareLabel"
+								  size="large"/>
 				</group>
-				<group id="grpListbuilder" label="List Builder">
-					<button id="btnImportFromListBuilder" label="Import from ListBuilder" onAction="ImportFromRealWareClick" />
+				<group id="grpListbuilder" 
+					   label="List Builder">
+					<button id="btnImportFromListBuilder" 
+							label="Import from ListBuilder"
+							getImage="GetImportFromListBuilderImage"
+							getEnabled="GetImportFromListBuilderEnabled"
+							onAction="OnImportFromRealWareClick"
+							size="large"/>
 				</group>
 			</tab>
 		</tabs>

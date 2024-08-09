@@ -253,6 +253,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="app.config" />
     <None Include="packages.config" />
@@ -279,7 +280,9 @@
     </Compile>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\ico_realware_connection_valid_128x128.png" />
+  </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\RealWareExcelTools.Core\RealWareExcelTools.Core.csproj">
       <Project>{04D4E3A5-7A20-44E3-9287-8D973F4A052A}</Project>
@@ -288,6 +291,18 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Ribbon\RealWareRibbon.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_realware_connection_invalid.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_realware_listbuilder.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_realware_connection_invalid_128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_realware_listbuilder_128x128.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

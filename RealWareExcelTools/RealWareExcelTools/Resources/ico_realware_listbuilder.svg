@@ -1,0 +1,23 @@
+﻿<?xml version='1.0' encoding='UTF-8'?>
+<svg viewBox="-2 -5 32 32" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g transform="translate(0, 0)">
+    <g transform="translate(0, 0)">
+      <g id="Layer_1" transform="translate(-2, -4)" style="enable-background:new 0 0 32 32">
+        <g id="Grid">
+          <g class="st1">
+            <path d="M22, 12L30, 12L30, 18L22, 18L22, 12zM12, 12L12, 18L20, 18L20, 12L12, 12zM10, 18L10, 12L2, 12L2, 18L10, 18zM22, 26L30, 26L30, 20L22, 20L22, 26zM12, 20L12, 26L20, 26L20, 20L12, 20zM10, 26L10, 20L2, 20L2, 26L10, 26z" fill="#727272" opacity="0.5" class="Black" />
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+  <g transform="translate(0, 0)">
+    <g transform="translate(0, 0)">
+      <g id="Layer_1" transform="translate(-2, -4)" style="enable-background:new 0 0 32 32">
+        <g id="Grid">
+          <rect x="2" y="4" width="28" height="6" fill="#11CCD6" />
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
