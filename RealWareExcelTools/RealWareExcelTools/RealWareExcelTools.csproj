@@ -304,6 +304,13 @@
   <ItemGroup>
     <None Include="Resources\ico_realware_listbuilder_128x128.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_realware_batch_128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Modules\AccountSelection\" />
+    <Folder Include="Modules\ListbuilderImportModule\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

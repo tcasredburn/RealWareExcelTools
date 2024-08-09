@@ -13,6 +13,13 @@ namespace RealWareExcelTools.Ribbon
 
         private Microsoft.Office.Core.IRibbonUI ribbon;
 
+        private readonly ThisAddIn _addIn;
+
+        public RealWareRibbon(ThisAddIn addIn)
+        {
+            _addIn = addIn;
+        }
+
         public void OnRibbonLoad(Microsoft.Office.Core.IRibbonUI ribbonUI)
         {
             this.ribbon = ribbonUI;
@@ -70,6 +77,19 @@ namespace RealWareExcelTools.Ribbon
             => Resources.ico_realware_listbuilder_128x128;
 
         public bool GetImportFromListBuilderEnabled(IRibbonControl control)
+            => true;
+        #endregion
+
+        #region BatchAccounts
+        public void OnBatchAccountsClick(IRibbonControl control)
+        {
+            MessageBox.Show("TODO: Batch data wizard for RealWare");
+        }
+
+        public Bitmap GetBatchAccountsImage(IRibbonControl control)
+            => Resources.ico_realware_batch_128x128;
+
+        public bool GetBatchAccountsEnabled(IRibbonControl control)
             => true;
         #endregion
     }

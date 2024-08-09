@@ -21,6 +21,15 @@
 							onAction="OnImportFromRealWareClick"
 							size="large"/>
 				</group>
+				<group id="grpAPI"
+					   label="API">
+					<button id="btnBatchAccounts"
+							label="Batch Accounts"
+							getImage="GetBatchAccountsImage"
+							getEnabled="GetBatchAccountsEnabled"
+							onAction="OnBatchAccountsClick"
+							size="large"/>
+				</group>
 			</tab>
 		</tabs>
 	</ribbon>

@@ -1,7 +1,6 @@
 ﻿using Microsoft.Office.Core;
 using RealWareExcelTools.Core.Modules;
 using RealWareExcelTools.Core.Settings;
-using RealWareExcelTools.Ribbon;
 using System.Windows.Forms;
 
 namespace RealWareExcelTools
@@ -30,7 +29,7 @@ namespace RealWareExcelTools
         }
 
         protected override IRibbonExtensibility CreateRibbonExtensibilityObject()
-            => new Ribbon.RealWareRibbon();
+            => new Ribbon.RealWareRibbon(this);
 
         public Microsoft.Office.Tools.CustomTaskPane CreateTab(string tabName, UserControl tabControl)
             => this.CustomTaskPanes.Add(tabControl, tabName);
