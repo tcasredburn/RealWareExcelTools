@@ -1,6 +1,7 @@
 ﻿using Microsoft.Office.Core;
 using RealWareExcelTools.Core.Modules;
 using RealWareExcelTools.Core.Settings;
+using System;
 using System.Windows.Forms;
 
 namespace RealWareExcelTools
@@ -9,6 +10,15 @@ namespace RealWareExcelTools
     {
         private IRealWareExcelModule[] modules;
         public AddinSettings settings { get; private set; }
+
+        internal void SaveSettings(AddinSettings addinSettings)
+        {
+            this.settings = addinSettings;
+
+            // Start all modules
+            foreach (var module in modules)
+                module.OnRefreshSettings(addinSettings);
+        }
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
@@ -45,7 +55,9 @@ namespace RealWareExcelTools
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
+
         
+
         #endregion
     }
 }

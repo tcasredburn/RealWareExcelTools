@@ -78,6 +78,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.SurfaceMaterial = DevExpress.XtraEditors.SurfaceMaterial.Acrylic;
             this.Text = "RealWare Excel Tools Settings";
+            this.Shown += new System.EventHandler(this.SettingsForm_Shown);
             this.ResumeLayout(false);
 
         }

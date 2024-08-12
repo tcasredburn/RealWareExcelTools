@@ -1,4 +1,5 @@
 ﻿using RealWareExcelTools.Core.Modules;
+using RealWareExcelTools.Core.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +25,11 @@ namespace RealWareExcelTools.Modules
         public void OnStop()
         {
             //throw new NotImplementedException();
+        }
+
+        public void OnRefreshSettings(AddinSettings addinSettings)
+        {
+
         }
     }
 }

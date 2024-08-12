@@ -8,7 +8,9 @@ namespace RealWareExcelTools.Core.Settings
 
         public static AddinSettings ReadSettingsFromFile()
         {
-            if (!System.IO.File.Exists(SETTINGS_FILE_NAME))
+            string filePath = GetFullSettingFilePath();
+
+            if (!System.IO.File.Exists(filePath))
             {
                 var result = CreateSettingsFile();
                 return result;
@@ -17,7 +19,7 @@ namespace RealWareExcelTools.Core.Settings
             {
                 try
                 {
-                    string data = System.IO.File.ReadAllText(SETTINGS_FILE_NAME);
+                    string data = System.IO.File.ReadAllText(filePath);
 
                     return Newtonsoft.Json.JsonConvert.DeserializeObject<AddinSettings>(data);
                 }
@@ -36,6 +38,7 @@ namespace RealWareExcelTools.Core.Settings
 
             try
             {
+                string filePath = GetFullSettingFilePath();
                 System.IO.File.WriteAllText(SETTINGS_FILE_NAME, data);
             }
             catch (Exception ex)
@@ -44,6 +47,21 @@ namespace RealWareExcelTools.Core.Settings
             }
 
             return settings;
+        }
+
+        public static string GetFullSettingFilePath()
+        {
+           return System.IO.Path.Combine(GetAppDataPath(), SETTINGS_FILE_NAME);
+        }
+
+        public static string GetAppDataPath()
+        {
+            var path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "RealWareExcelTools");
+
+            if (!System.IO.Directory.Exists(path))
+                System.IO.Directory.CreateDirectory(path);
+
+            return path;
         }
     }
 }

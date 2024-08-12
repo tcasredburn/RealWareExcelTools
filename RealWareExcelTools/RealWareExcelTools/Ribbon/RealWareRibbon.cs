@@ -96,9 +96,11 @@ namespace RealWareExcelTools.Ribbon
         #region BatchAccounts
         public void OnSettingsClick(IRibbonControl control)
         {
-            if(new WinCore.Forms.SettingsForm().ShowDialog() == DialogResult.OK)
+            var form = new WinCore.Forms.SettingsForm(_addIn.settings);
+
+            if(form.ShowDialog() == DialogResult.OK)
             {
-                // TODO: Save settings
+                _addIn.SaveSettings(form.GetSettings());
             }
         }
 
