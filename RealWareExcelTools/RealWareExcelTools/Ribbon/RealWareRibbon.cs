@@ -52,7 +52,7 @@ namespace RealWareExcelTools.Ribbon
         {
             isConnectedToRealWare = isPressed;
 
-            ribbon.InvalidateControl(control.Id);
+            ribbon.Invalidate();
         }
 
         public Bitmap GetConnectToRealWareIcon(IRibbonControl control)
@@ -77,7 +77,7 @@ namespace RealWareExcelTools.Ribbon
             => Resources.ico_realware_listbuilder_128x128;
 
         public bool GetImportFromListBuilderEnabled(IRibbonControl control)
-            => true;
+            => isConnectedToRealWare;
         #endregion
 
         #region BatchAccounts
@@ -90,7 +90,20 @@ namespace RealWareExcelTools.Ribbon
             => Resources.ico_realware_batch_128x128;
 
         public bool GetBatchAccountsEnabled(IRibbonControl control)
-            => true;
+            => isConnectedToRealWare;
+        #endregion
+
+        #region BatchAccounts
+        public void OnSettingsClick(IRibbonControl control)
+        {
+            if(new WinCore.Forms.SettingsForm().ShowDialog() == DialogResult.OK)
+            {
+                // TODO: Save settings
+            }
+        }
+
+        public Bitmap GetSettingsImage(IRibbonControl control)
+            => Resources.ico_realware_settings_128x128;
         #endregion
     }
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools", "RealW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools.Core", "RealWareExcelTools.Core\RealWareExcelTools.Core.csproj", "{04D4E3A5-7A20-44E3-9287-8D973F4A052A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools.WinCore", "RealWareExcelTools.WinCore\RealWareExcelTools.WinCore.csproj", "{45D3D516-2D84-40E3-80E2-85426FDF9389}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.TulsaCounty.Debug|Any CPU.Build.0 = TulsaCounty.Debug|Any CPU
 		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.TulsaCounty.Release|Any CPU.ActiveCfg = TulsaCounty.Release|Any CPU
 		{04D4E3A5-7A20-44E3-9287-8D973F4A052A}.TulsaCounty.Release|Any CPU.Build.0 = TulsaCounty.Release|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.Release|Any CPU.Build.0 = Release|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RealWareExcelTools.Properties {
+namespace RealWareExcelTools.WinCore.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace RealWareExcelTools.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RealWareExcelTools.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("RealWareExcelTools.WinCore.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,52 +61,12 @@ namespace RealWareExcelTools.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
-        internal static System.Drawing.Bitmap ico_realware_batch_128x128 {
+        internal static DevExpress.Utils.Svg.SvgImage ico_realware_settings {
             get {
-                object obj = ResourceManager.GetObject("ico_realware_batch_128x128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ico_realware_connection_invalid_128x128 {
-            get {
-                object obj = ResourceManager.GetObject("ico_realware_connection_invalid_128x128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ico_realware_connection_valid_128x128 {
-            get {
-                object obj = ResourceManager.GetObject("ico_realware_connection_valid_128x128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ico_realware_listbuilder_128x128 {
-            get {
-                object obj = ResourceManager.GetObject("ico_realware_listbuilder_128x128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap ico_realware_settings_128x128 {
-            get {
-                object obj = ResourceManager.GetObject("ico_realware_settings_128x128", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
+                object obj = ResourceManager.GetObject("ico_realware_settings", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }
     }

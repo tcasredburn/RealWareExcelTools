@@ -12,22 +12,27 @@
 								  getLabel="GetConnectToRealWareLabel"
 								  size="large"/>
 				</group>
-				<group id="grpListbuilder" 
-					   label="List Builder">
-					<button id="btnImportFromListBuilder" 
+				<group id="grpAPI"
+					   label="API">
+					<button id="btnImportFromListBuilder"
 							label="Import from ListBuilder"
 							getImage="GetImportFromListBuilderImage"
 							getEnabled="GetImportFromListBuilderEnabled"
 							onAction="OnImportFromRealWareClick"
 							size="large"/>
-				</group>
-				<group id="grpAPI"
-					   label="API">
 					<button id="btnBatchAccounts"
 							label="Batch Accounts"
 							getImage="GetBatchAccountsImage"
 							getEnabled="GetBatchAccountsEnabled"
 							onAction="OnBatchAccountsClick"
+							size="large"/>
+				</group>
+				<group id="grpSettings"
+					   label="Settings">
+					<button id="btnSettings"
+							label="Settings"
+							getImage="GetSettingsImage"
+							onAction="OnSettingsClick"
 							size="large"/>
 				</group>
 			</tab>
