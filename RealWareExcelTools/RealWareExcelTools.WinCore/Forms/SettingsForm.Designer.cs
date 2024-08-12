@@ -40,25 +40,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.moduleContainer.Location = new System.Drawing.Point(12, 12);
             this.moduleContainer.Name = "moduleContainer";
-            this.moduleContainer.Size = new System.Drawing.Size(962, 645);
+            this.moduleContainer.Size = new System.Drawing.Size(962, 631);
             this.moduleContainer.TabIndex = 0;
             // 
             // btnSaveAndClose
             // 
             this.btnSaveAndClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnSaveAndClose.Location = new System.Drawing.Point(12, 663);
+            this.btnSaveAndClose.Location = new System.Drawing.Point(12, 649);
             this.btnSaveAndClose.Name = "btnSaveAndClose";
-            this.btnSaveAndClose.Size = new System.Drawing.Size(134, 29);
+            this.btnSaveAndClose.Size = new System.Drawing.Size(134, 43);
             this.btnSaveAndClose.TabIndex = 1;
-            this.btnSaveAndClose.Text = "&Save and Close";
+            this.btnSaveAndClose.Text = "&Save";
             this.btnSaveAndClose.Click += new System.EventHandler(this.btnSaveAndClose_Click);
             // 
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(840, 663);
+            this.btnCancel.Location = new System.Drawing.Point(840, 649);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(134, 29);
+            this.btnCancel.Size = new System.Drawing.Size(134, 43);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "&Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);

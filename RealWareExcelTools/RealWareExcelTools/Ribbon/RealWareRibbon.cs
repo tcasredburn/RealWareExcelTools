@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Core;
 using RealWareExcelTools.Properties;
+using RealWareExcelTools.WinCore.Forms;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -70,7 +71,14 @@ namespace RealWareExcelTools.Ribbon
         #region ImportFromListBuilder
         public void OnImportFromRealWareClick(IRibbonControl control)
         {
-            MessageBox.Show("TODO: Importing data from RealWare");
+            var form = new ListBuilderForm(_addIn.GetRealWareApi());
+
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                _addIn.ExcelController.CreateNewSheet(
+                    form.SelectedListBuilderItem.Name, 
+                    form.Result);
+            }
         }
 
         public Bitmap GetImportFromListBuilderImage(IRibbonControl control)
@@ -96,7 +104,7 @@ namespace RealWareExcelTools.Ribbon
         #region BatchAccounts
         public void OnSettingsClick(IRibbonControl control)
         {
-            var form = new WinCore.Forms.SettingsForm(_addIn.settings);
+            var form = new WinCore.Forms.SettingsForm(_addIn.Settings);
 
             if(form.ShowDialog() == DialogResult.OK)
             {

@@ -240,6 +240,7 @@
     can be found.
   -->
   <ItemGroup>
+    <Compile Include="Controller\ExcelController.cs" />
     <Compile Include="Functions\GetSitusHandler.cs" />
     <Compile Include="Functions\ReverseStringHandler.cs" />
     <Compile Include="Modules\AccountSelectionModule.cs" />
