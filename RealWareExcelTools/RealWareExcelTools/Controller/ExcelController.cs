@@ -21,6 +21,9 @@ namespace RealWareExcelTools.Controller
 
         public void CreateNewSheet(string workSheetName, DataTable data)
         {
+            if(Globals.ThisAddIn.Application.Workbooks.Count == 0)
+                Globals.ThisAddIn.Application.Workbooks.Add();
+
             Excel.Worksheet newWorksheet = Globals.ThisAddIn.Application.Worksheets.Add();
             newWorksheet.Name = workSheetName;
 

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Office.Core;
 using RealWareExcelTools.Properties;
 using RealWareExcelTools.WinCore.Forms;
+using RealWareExcelTools.WinCore.Validation;
 using System.Drawing;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
@@ -51,8 +52,23 @@ namespace RealWareExcelTools.Ribbon
         #region ConnectToRealWare
         public void OnConnectToRealWareClick(IRibbonControl control, bool isPressed)
         {
-            isConnectedToRealWare = isPressed;
+            if (isConnectedToRealWare)
+            {
+                isConnectedToRealWare = false;
+            }
+            else
+            {
+                var validator = new ConnectToRealWareValidator(
+                    _addIn.Settings.RealWareApiConnectionSettings.Url,
+                    _addIn.Settings.RealWareApiConnectionSettings.Token,
+                    _addIn.Settings.RealWareApiConnectionSettings.RealWareUserName);
 
+                isConnectedToRealWare = validator.Validate();
+
+                _addIn.SetRealWareApiConnection(validator.GetRealWareApiConnection());
+                _addIn.Settings.RealWareApiConnectionSettings.Token = validator.ApiToken;
+                _addIn.Settings.RealWareApiConnectionSettings.RealWareUserName = validator.RealWareLoginName;
+            }
             ribbon.Invalidate();
         }
 

@@ -44,6 +44,8 @@ namespace RealWareExcelTools
             // Stop all modules
             foreach (var module in modules)
                 module.OnStop();
+
+            AddinSettingsIO.WriteSettingsToFile(Settings);
         }
 
         protected override IRibbonExtensibility CreateRibbonExtensibilityObject()

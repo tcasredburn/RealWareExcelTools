@@ -12,7 +12,7 @@ namespace RealWareExcelTools.Core.Settings
 
             if (!System.IO.File.Exists(filePath))
             {
-                var result = CreateSettingsFile();
+                var result = WriteSettingsToFile(new AddinSettings());
                 return result;
             }
             else
@@ -30,16 +30,17 @@ namespace RealWareExcelTools.Core.Settings
             }
         }
 
-        public static AddinSettings CreateSettingsFile()
+        public static AddinSettings WriteSettingsToFile(AddinSettings addinSettings)
         {
-            var settings = new AddinSettings();
+            var settings = addinSettings;
 
             var data = Newtonsoft.Json.JsonConvert.SerializeObject(settings, Newtonsoft.Json.Formatting.Indented);
 
             try
             {
                 string filePath = GetFullSettingFilePath();
-                System.IO.File.WriteAllText(SETTINGS_FILE_NAME, data);
+
+                System.IO.File.WriteAllText(filePath, data);
             }
             catch (Exception ex)
             {

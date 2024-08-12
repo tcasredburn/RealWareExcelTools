@@ -80,6 +80,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Validation\ConnectToRealWareValidator.cs" />
     <Compile Include="Views\IRealWareExcelToolView.cs" />
     <Compile Include="Views\ListBuilder\ListBuilderQueryGrid.cs">
       <SubType>UserControl</SubType>
