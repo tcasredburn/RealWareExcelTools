@@ -21,7 +21,9 @@ namespace RealWareExcelTools
         {
             this.Settings = addinSettings;
 
-            // Start all modules
+            AddinSettingsIO.WriteSettingsToFile(Settings);
+
+            // Refresh all modules
             foreach (var module in modules)
                 module.OnRefreshSettings(addinSettings);
         }
@@ -44,8 +46,6 @@ namespace RealWareExcelTools
             // Stop all modules
             foreach (var module in modules)
                 module.OnStop();
-
-            AddinSettingsIO.WriteSettingsToFile(Settings);
         }
 
         protected override IRibbonExtensibility CreateRibbonExtensibilityObject()
