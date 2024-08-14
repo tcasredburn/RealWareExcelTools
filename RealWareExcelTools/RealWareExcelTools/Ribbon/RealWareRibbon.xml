@@ -19,6 +19,7 @@
 							getImage="GetImportFromListBuilderImage"
 							getEnabled="GetImportFromListBuilderEnabled"
 							onAction="OnImportFromRealWareClick"
+							getVisible="GetImportFromListBuilderVisible"
 							size="large"/>
 					<button id="btnBatchAccounts"
 							label="Batch Accounts"

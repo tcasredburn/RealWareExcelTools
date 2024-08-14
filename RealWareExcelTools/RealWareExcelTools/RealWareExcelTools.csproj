@@ -244,6 +244,7 @@
     <Compile Include="Functions\GetSitusHandler.cs" />
     <Compile Include="Functions\ReverseStringHandler.cs" />
     <Compile Include="Modules\AccountSelectionModule.cs" />
+    <Compile Include="Modules\ListBuilderImportModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -316,7 +317,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Modules\AccountSelection\" />
-    <Folder Include="Modules\ListbuilderImportModule\" />
+    <Folder Include="Modules\ListBuilderImport\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ico_realware_settings_128x128.png" />

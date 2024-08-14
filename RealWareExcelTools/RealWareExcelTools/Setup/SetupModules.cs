@@ -11,6 +11,7 @@ namespace RealWareExcelTools
             return new IRealWareExcelModule[]
             {
                 new AccountSelectionModule(addIn),
+                new ListBuilderImportModule(addIn)
             };
         }
     }

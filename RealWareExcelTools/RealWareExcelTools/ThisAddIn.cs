@@ -60,6 +60,14 @@ namespace RealWareExcelTools
         public RealWareApi GetRealWareApi()
             => new RealWareApi(RealWareApiConnection);
 
+        public bool HasModule<T>()
+        {
+            foreach(var module in modules)
+                if(module is T)
+                    return true;
+            return false;
+        }
+
         #region VSTO generated code
 
         /// <summary>

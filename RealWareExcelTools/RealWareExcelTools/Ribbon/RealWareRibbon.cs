@@ -1,4 +1,5 @@
 ﻿using Microsoft.Office.Core;
+using RealWareExcelTools.Modules;
 using RealWareExcelTools.Properties;
 using RealWareExcelTools.WinCore.Forms;
 using RealWareExcelTools.WinCore.Validation;
@@ -8,6 +9,9 @@ using System.Windows.Forms;
 
 namespace RealWareExcelTools.Ribbon
 {
+    // Callback methods:
+    // https://learn.microsoft.com/en-us/openspecs/office_standards/ms-customui/ec42bfd0-149c-495b-895c-3bc708b8a149
+
     [ComVisible(true)]
     public class RealWareRibbon : IRibbonExtensibility
     {
@@ -102,6 +106,9 @@ namespace RealWareExcelTools.Ribbon
 
         public bool GetImportFromListBuilderEnabled(IRibbonControl control)
             => isConnectedToRealWare;
+
+        public bool GetImportFromListBuilderVisible(IRibbonControl control)
+            => _addIn.HasModule<ListBuilderImportModule>();
         #endregion
 
         #region BatchAccounts
@@ -117,7 +124,7 @@ namespace RealWareExcelTools.Ribbon
             => isConnectedToRealWare;
         #endregion
 
-        #region BatchAccounts
+        #region Settings
         public void OnSettingsClick(IRibbonControl control)
         {
             var form = new WinCore.Forms.SettingsForm(_addIn.Settings);
