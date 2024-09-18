@@ -24,14 +24,14 @@ namespace RealWareExcelTools.WinCore.Forms
 
         private void SettingsForm_Shown(object sender, EventArgs e)
         {
-            var loadingHandle = TCA.Framework.WinCore.Helpers.Progress.CreateProgressPanel(moduleContainer);
+            var loadingHandle = Helpers.Progress.CreateProgressPanel(moduleContainer);
 
             mainView = new Views.Settings.SettingsMainView();
             mainView.OnLoadSettings(settings);
             mainView.Dock = DockStyle.Fill;
             moduleContainer.Controls.Add(mainView);
 
-            TCA.Framework.WinCore.Helpers.Progress.CloseProgressPanel(loadingHandle);
+            Helpers.Progress.CloseProgressPanel(loadingHandle);
         }
 
         private void btnSaveAndClose_Click(object sender, EventArgs e)

@@ -32,8 +32,10 @@
             this.xtraTabPage1 = new DevExpress.XtraTab.XtraTabPage();
             this.xtraTabPage2 = new DevExpress.XtraTab.XtraTabPage();
             this.settingsRealWareConnectionView1 = new RealWareExcelTools.WinCore.Views.Settings.SettingsRealWareConnectionView();
+            this.settingsGeneralView1 = new RealWareExcelTools.WinCore.Views.Settings.SettingsGeneralView();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).BeginInit();
             this.xtraTabControl1.SuspendLayout();
+            this.xtraTabPage1.SuspendLayout();
             this.xtraTabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,6 +59,7 @@
             // 
             // xtraTabPage1
             // 
+            this.xtraTabPage1.Controls.Add(this.settingsGeneralView1);
             this.xtraTabPage1.Name = "xtraTabPage1";
             this.xtraTabPage1.Size = new System.Drawing.Size(942, 861);
             this.xtraTabPage1.Text = "General";
@@ -76,6 +79,14 @@
             this.settingsRealWareConnectionView1.Size = new System.Drawing.Size(942, 861);
             this.settingsRealWareConnectionView1.TabIndex = 0;
             // 
+            // settingsGeneralView1
+            // 
+            this.settingsGeneralView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.settingsGeneralView1.Location = new System.Drawing.Point(0, 0);
+            this.settingsGeneralView1.Name = "settingsGeneralView1";
+            this.settingsGeneralView1.Size = new System.Drawing.Size(942, 861);
+            this.settingsGeneralView1.TabIndex = 0;
+            // 
             // SettingsMainView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -85,6 +96,7 @@
             this.Size = new System.Drawing.Size(1025, 863);
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabControl1)).EndInit();
             this.xtraTabControl1.ResumeLayout(false);
+            this.xtraTabPage1.ResumeLayout(false);
             this.xtraTabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -96,5 +108,6 @@
         private DevExpress.XtraTab.XtraTabPage xtraTabPage1;
         private DevExpress.XtraTab.XtraTabPage xtraTabPage2;
         private SettingsRealWareConnectionView settingsRealWareConnectionView1;
+        private SettingsGeneralView settingsGeneralView1;
     }
 }

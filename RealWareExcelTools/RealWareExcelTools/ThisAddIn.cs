@@ -1,11 +1,10 @@
 ﻿using Microsoft.Office.Core;
+using RealWare.Core.API;
+using RealWare.Core.API.Connection;
 using RealWareExcelTools.Controller;
 using RealWareExcelTools.Core.Modules;
 using RealWareExcelTools.Core.Settings;
-using System;
 using System.Windows.Forms;
-using TCA.Framework.RealWare.Api;
-using TCA.Framework.RealWare.Api.Model;
 
 namespace RealWareExcelTools
 {

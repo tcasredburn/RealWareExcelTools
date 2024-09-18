@@ -41,9 +41,16 @@
     <Reference Include="DevExpress.XtraLayout.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.XtraPrinting.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" />
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RealWare.Core, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RealWare.Core.v5.2.1.2\lib\netstandard2.0\RealWare.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.5.0.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
@@ -53,14 +60,14 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="TCA.Framework">
-      <HintPath>\\asprint\Departments\Management_Information_Systems\Libraries\netstandard2.0\TCA.Framework.dll</HintPath>
-    </Reference>
-    <Reference Include="TCA.Framework.WinCore">
-      <HintPath>\\asprint\Departments\Management_Information_Systems\Libraries\framework4.8\TCA.Framework.WinCore.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Forms\Authentication\LoginToRealWareForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Authentication\LoginToRealWareForm.Designer.cs">
+      <DependentUpon>LoginToRealWareForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ErrorMessage.cs" />
     <Compile Include="Forms\ListBuilderForm.cs">
       <SubType>Form</SubType>
@@ -74,6 +81,7 @@
     <Compile Include="Forms\SettingsForm.Designer.cs">
       <DependentUpon>SettingsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Progress.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -82,6 +90,12 @@
     </Compile>
     <Compile Include="Validation\ConnectToRealWareValidator.cs" />
     <Compile Include="Views\IRealWareExcelToolView.cs" />
+    <Compile Include="Views\ListBuilder\ListBuilderParameterView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\ListBuilder\ListBuilderParameterView.Designer.cs">
+      <DependentUpon>ListBuilderParameterView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\ListBuilder\ListBuilderQueryGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -89,6 +103,12 @@
       <DependentUpon>ListBuilderQueryGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="Views\Settings\ISettingsView.cs" />
+    <Compile Include="Views\Settings\SettingsGeneralView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Views\Settings\SettingsGeneralView.Designer.cs">
+      <DependentUpon>SettingsGeneralView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Views\Settings\SettingsMainView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -120,8 +140,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Views\ListBuilder\ListBuilderParameterView.resx">
+      <DependentUpon>ListBuilderParameterView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Views\ListBuilder\ListBuilderQueryGrid.resx">
       <DependentUpon>ListBuilderQueryGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Views\Settings\SettingsGeneralView.resx">
+      <DependentUpon>SettingsGeneralView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Views\Settings\SettingsMainView.resx">
       <DependentUpon>SettingsMainView.cs</DependentUpon>
@@ -131,11 +157,16 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\RealWareExcelTools.WinCore.Views.ListBuilder.ListBuilderParameterView+RWListBuilderQueryParameterDS.datasource" />
     <None Include="Resources\ico_realware_settings.svg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ico_realware_listbuilder.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\security_key.svg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

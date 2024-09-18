@@ -1,4 +1,5 @@
 ﻿using RealWareExcelTools.Core.Settings.API;
+using RealWareExcelTools.Core.Settings.General;
 using System;
 
 namespace RealWareExcelTools.Core.Settings
@@ -8,6 +9,7 @@ namespace RealWareExcelTools.Core.Settings
     /// </summary>
     public class AddinSettings
     {
+        public GeneralSettings GeneralSettings { get; set; } = new GeneralSettings();
         public RealWareApiConnectionSettings RealWareApiConnectionSettings { get; set; } = new RealWareApiConnectionSettings();
     }
 }

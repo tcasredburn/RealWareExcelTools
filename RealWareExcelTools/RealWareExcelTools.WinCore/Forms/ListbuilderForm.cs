@@ -1,34 +1,41 @@
-﻿using DevExpress.XtraPrinting.Native;
-using DevExpress.XtraPrinting.Native.WebClientUIControl;
+﻿using DevExpress.XtraEditors;
 using Newtonsoft.Json;
-using System;
+using RealWare.Core.API;
+using RealWare.Core.API.Models;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
-using System.Windows.Forms;
-using TCA.Framework.RealWare.Api;
-using TCA.Framework.RealWare.Api.Model.Dto;
 
 namespace RealWareExcelTools.WinCore.Forms
 {
     public partial class ListBuilderForm : DevExpress.XtraEditors.XtraForm
     {
-        public ListBuilderQueryItemDto SelectedListBuilderItem => listBuilderQueryGrid1.SelectedListBuilderItem;
+        public RWListBuilderQueryItem SelectedListBuilderItem => listBuilderQueryGrid1.SelectedListBuilderItem;
+        public RWListBuilderQueryItem HasParamaters => listBuilderQueryGrid1.SelectedListBuilderItem;
 
         public DataTable Result;
 
         private readonly RealWareApi _api;
+        private CancellationTokenSource _cancellationTokenSource;
 
         public ListBuilderForm()
         {
             InitializeComponent();
+
+            //Default to off
+            btnImport.Enabled = false;
 
             Shown += async (s, e) =>
             {
                 var queries = GetListBuilderQueriesAsync();
                 listBuilderQueryGrid1.OnLoad(await queries);
             };
+
+            //Events
+            listBuilderQueryGrid1.DataChangeEvent += (s, e) => refreshImportButton();
+            listBuilderQueryGrid1.ParametersRequestEvent += listBuilderQueryGrid1_ParametersRequestEvent;
         }
 
         public ListBuilderForm(RealWareApi api) : this()
@@ -36,9 +43,40 @@ namespace RealWareExcelTools.WinCore.Forms
             _api = api;
         }
 
-        public async Task<List<ListBuilderQueryItemDto>> GetListBuilderQueriesAsync()
+        public async Task<List<RWListBuilderQueryItem>> GetListBuilderQueriesAsync()
         {
             return await _api.GetListBuilderSearchesAsync().ConfigureAwait(false);
+        }
+
+        private async void listBuilderQueryGrid1_ParametersRequestEvent(object sender, RWListBuilderQueryItem e)
+        {
+            btnImport.Enabled = false;
+
+            // Cancel the previous request if any
+            _cancellationTokenSource?.Cancel();
+            _cancellationTokenSource = new CancellationTokenSource();
+
+            try
+            {
+                var parameters = await _api.GetListBuilderSearchParametersAsync(e.QueryID, _cancellationTokenSource.Token);
+
+                // Ensure that no other request has been initiated since this one started
+                if (!_cancellationTokenSource.Token.IsCancellationRequested)
+                {
+                    listBuilderQueryGrid1.LoadParameters(parameters);
+                }
+            }
+            catch (System.OperationCanceledException)
+            {
+                // Task was canceled, so just exit
+                return;
+            }
+            catch (System.Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+
+            refreshImportButton();
         }
 
         private void btnImport_Click(object sender, System.EventArgs e)
@@ -46,9 +84,9 @@ namespace RealWareExcelTools.WinCore.Forms
             // Execute the query
             var results = _api.GetListBuilderQueryResults(
                 SelectedListBuilderItem.QueryID, 
-                new List<ListBuilderQueryParameterDto>());///////////////////////////TODO!!!!!!!
+                listBuilderQueryGrid1.GetParameters());
 
-            Result = combineListBuilderResultsAsDatatable(results);
+            Result = combineListBuilderResultsAsDatatable2(results);
         }
 
         private DataTable combineListBuilderResultsAsDatatable(List<object> listbuilderResults)
@@ -78,6 +116,29 @@ namespace RealWareExcelTools.WinCore.Forms
             }
 
             return table;
+        }
+
+        private DataTable combineListBuilderResultsAsDatatable2(List<object> listbuilderResults)
+        {
+            if (listbuilderResults == null || listbuilderResults.Count == 0)
+                return null;
+
+            // Combine all objects into a single JSON array string
+            var combinedJson = "[" + string.Join(",", listbuilderResults.Select(item => item.ToString())) + "]";
+
+            // Deserialize the combined JSON string into a DataTable
+            var table = JsonConvert.DeserializeObject<DataTable>(combinedJson);
+
+            // Set all columns to allow null values
+            foreach (DataColumn column in table.Columns)
+                column.AllowDBNull = true;
+
+            return table;
+        }
+
+        private void refreshImportButton()
+        {
+            btnImport.Enabled = SelectedListBuilderItem != null;
         }
     }
 }

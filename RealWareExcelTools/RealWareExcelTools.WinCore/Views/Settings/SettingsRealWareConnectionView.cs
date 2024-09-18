@@ -34,7 +34,6 @@ namespace RealWareExcelTools.WinCore.Views.Settings
                 return false;
             }
 
-
             settings.RealWareApiConnectionSettings = new Core.Settings.API.RealWareApiConnectionSettings
             {
                 Url = apiValue,

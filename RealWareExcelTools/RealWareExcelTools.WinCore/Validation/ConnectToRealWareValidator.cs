@@ -1,11 +1,9 @@
-﻿using System;
-using System.Security.Policy;
+﻿using RealWare.Core.API;
+using RealWare.Core.API.Connection;
+using RealWareExcelTools.WinCore.Forms.Authentication;
+using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TCA.Framework.RealWare.Api;
-using TCA.Framework.RealWare.Api.Model;
-using TCA.Framework.WinCore.Forms.RealWare;
-using static DevExpress.Data.Helpers.FindSearchRichParser;
 
 namespace RealWareExcelTools.WinCore.Validation
 {
@@ -100,6 +98,11 @@ namespace RealWareExcelTools.WinCore.Validation
         }
 
         private bool isTokenValid(string url, string token)
-            => Task.Run<bool>(async () => await RealWareApi.IsTokenValidAsync(url, token)).Result;
+        {
+            var client = new HttpClient();
+            client.BaseAddress = new System.Uri(url);
+
+            return Task.Run(async () => await RealWareApi.IsTokenValidAsync(client, url, token)).Result;
+        }
     }
 }
