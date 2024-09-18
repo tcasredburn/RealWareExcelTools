@@ -39,6 +39,7 @@ namespace RealWareExcelTools.WinCore.Forms.Authentication
         public string Token { get; private set; } = null;
 
         private RealWareApi api;
+        private CancellationTokenSource cancellationTokenSource;
 
         public LoginToRealWareForm()
         {
@@ -46,7 +47,7 @@ namespace RealWareExcelTools.WinCore.Forms.Authentication
             toggleLoadingMessage(false);
 
             //Events
-            btnLogin.Click += (o, e) => { new Thread(LoginToRealware).Start(); };
+            btnLogin.Click += async (o, e) => await loginToRealwareAsync();
             btnCancel.Click += (o, e) => { this.DialogResult = DialogResult.Cancel; };
         }
 
@@ -63,60 +64,60 @@ namespace RealWareExcelTools.WinCore.Forms.Authentication
                 txtPassword.Focus();
         }
 
-        private async void LoginToRealware()
+        private async Task loginToRealwareAsync()
         {
+            cancellationTokenSource = CancellationTokenSource.CreateLinkedTokenSource(new CancellationToken());
+
             if (api == null)
-                throw new NullReferenceException($"{api} cannot be null. Use the constructor for '{nameof(LoginToRealWareForm)}' that defines this.");
+                throw new NullReferenceException($"{nameof(api)} cannot be null. Use the constructor for '{nameof(LoginToRealWareForm)}' that defines this.");
 
             toggleLayoutItemVisibility(layoutControlProgress, true);
 
             string username = Username;
             string password = txtPassword.Text;
 
-            //Disable buttons
             disableAllInput();
 
-            //Get the authentication
             toggleLoadingMessage(true);
-            setLoadingMessageInfo("Connecting to realware...");
+            setLoadingMessageInfo("Connecting to Realware...");
 
             try
             {
-                var authenticateTask = api.AuthenticateAsync(username, password);
+                var authenticateTask = api.AuthenticateAsync(username, password, cancellationTokenSource.Token);
                 if (await Task.WhenAny(authenticateTask, Task.Delay(MaxLoginWaitTime)) == authenticateTask)
                 {
                     var authenticationResult = await authenticateTask;
 
                     if (!authenticationResult.Authenticated)
                     {
-                        // Failed
-                        setLoadingMessageError("Username/password for realware is incorrect.");
+                        setLoadingMessageError("Username/password for Realware is incorrect.");
                     }
                     else
                     {
-                        // Success
                         Token = authenticationResult.AccessToken;
                         setLoadingMessage("Success!", Color.Green);
-                        Thread.Sleep(1000);
+                        await Task.Delay(1000); // Use async delay to avoid blocking
                         this.DialogResult = DialogResult.OK;
                     }
                 }
                 else
                 {
-                    setLoadingMessageError("Timeout error connecting to RealWare API. Please retry...");
+                    setLoadingMessageError("Timeout error connecting to Realware API. Please retry...");
                     enableAllInput();
                 }
             }
             catch (Exception e)
             {
-                setLoadingMessageError($"Error connecting to RealWare API: {e.Message}");
+                setLoadingMessageError($"Error connecting to Realware API: {e.Message}");
             }
             finally
             {
-                enableAllInput();
+                if(!cancellationTokenSource.IsCancellationRequested)
+                    enableAllInput();
             }
 
-            toggleLayoutItemVisibility(layoutControlProgress, false);
+            if (!cancellationTokenSource.IsCancellationRequested)
+                toggleLayoutItemVisibility(layoutControlProgress, false);
         }
 
         private void disableAllInput()
@@ -186,6 +187,14 @@ namespace RealWareExcelTools.WinCore.Forms.Authentication
 
             if (color != null)
                 lblMessage.Appearance.ForeColor = color.Value;
+        }
+
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            if (cancellationTokenSource != null)
+                cancellationTokenSource.Cancel();
+
+            base.OnFormClosing(e);
         }
     }
 }
