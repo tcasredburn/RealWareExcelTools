@@ -1,4 +1,5 @@
-﻿using DevExpress.XtraGrid.Views.Base;
+﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using DevExpress.XtraGrid.Views.Base;
 using DevExpress.XtraSplashScreen;
 using RealWare.Core.API.Models;
 using System;
@@ -20,28 +21,60 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
 
         IOverlaySplashScreenHandle loadResultsHandle;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ListBuilderQueryGrid()
         {
             InitializeComponent();
 
+            // Events
             gridView1.FocusedRowObjectChanged += gridView1_FocusedRowObjectChanged;
         }
 
+        /// <summary>
+        /// Show loading panel when first loaded.
+        /// </summary>
         protected override void OnFirstLoad()
         {
             loadResultsHandle = Helpers.Progress.CreateProgressPanel(gridControl1);
         }
 
+        /// <summary>
+        /// On load event called when first loaded
+        /// </summary>
+        /// <param name="data"></param>
         public void OnLoad(object data)
+            => loadGrid(data);
+
+        /// <summary>
+        /// Loads the grid with the parameters in a thread-safe way.
+        /// </summary>
+        /// <param name="parameters"></param>
+        private void loadGrid(object data)
         {
+            if (gridControl1 == null)
+                return;
+
+            if (gridControl1.InvokeRequired)
+            {
+                gridControl1?.Invoke((Action)(() => loadGrid(data)));
+                return;
+            }
+
+            // Clear previous data
             gridControl1.DataSource = null;
             gridControl1.MainView.PopulateColumns();
             gridControl1.RefreshDataSource();
-            gridControl1.DataSource = data;
-            gridControl1.RefreshDataSource();
 
-            if (loadResultsHandle != null)
-                Helpers.Progress.CloseProgressPanel(loadResultsHandle);
+            // Set to new data
+            if (data != null)
+            {
+                gridControl1.DataSource = data;
+                gridControl1.RefreshDataSource();
+            }
+
+            StopLoading();
         }
 
         private void gridView1_FocusedRowObjectChanged(object sender, FocusedRowObjectChangedEventArgs e)
@@ -60,19 +93,26 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
         internal void LoadParameters(string[] parameters)
         {
             this.Parameters = parameters ?? new string[0];
-
-            if(parameters.Length > 0)
-            {
-                layoutControlItemParamaters.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-                splitterItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Always;
-            }
-            else
-            {
-                layoutControlItemParamaters.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-                splitterItem1.Visibility = DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
-            }
-
             listBuilderParameterView1.LoadParameters(parameters);
+        }
+
+        /// <summary>
+        /// Stops the loading of the grid.
+        /// </summary>
+        public void StopLoading()
+        {
+            Helpers.Progress.CloseProgressPanel(loadResultsHandle);
+            loadResultsHandle = null;
+        }
+
+
+        /// <summary>
+        /// Cleanup when the form is closing.
+        /// </summary>
+        internal void OnCloseCleanup()
+        {
+            StopLoading();
+            listBuilderParameterView1.StopLoading();
         }
     }
 }

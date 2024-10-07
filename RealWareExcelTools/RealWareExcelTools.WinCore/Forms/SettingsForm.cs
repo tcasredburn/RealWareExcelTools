@@ -1,17 +1,27 @@
-﻿using DevExpress.XtraEditors;
-using RealWareExcelTools.Core.Settings;
+﻿using RealWareExcelTools.Core.Settings;
 using System;
 using System.Windows.Forms;
 
 namespace RealWareExcelTools.WinCore.Forms
 {
+    /// <summary>
+    /// Main form for all settings related to the addin, RealWare, and other connections.
+    /// </summary>
     public partial class SettingsForm : DevExpress.XtraEditors.XtraForm
     {
+        /// <summary>
+        /// Returns the settings object.
+        /// </summary>
+        /// <returns></returns>
         public AddinSettings GetSettings() => settings;
 
         private AddinSettings settings;
         private Views.Settings.SettingsMainView mainView;
 
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        /// <param name="settings">Settings value. If blank, it will create a new default object.</param>
         public SettingsForm(AddinSettings settings = null)
         {
             this.settings = settings;
@@ -38,7 +48,7 @@ namespace RealWareExcelTools.WinCore.Forms
         {
             if (!mainView.OnSaveSettings(ref settings))
             {
-                ErrorMessage.ShowErrorMessage(mainView.OnSaveErrorMessage, "Failed to Save Settings");
+                ErrorMessage.ShowErrorMessage(ErrorMessageType.Settings_FailedToSave, mainView.OnSaveErrorMessage);
             }
             else
                 this.DialogResult = DialogResult.OK;
