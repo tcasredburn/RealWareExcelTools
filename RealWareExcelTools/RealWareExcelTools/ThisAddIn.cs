@@ -1,4 +1,5 @@
 ﻿using Microsoft.Office.Core;
+using Newtonsoft.Json.Linq;
 using RealWare.Core.API;
 using RealWare.Core.API.Connection;
 using RealWareExcelTools.Controller;
@@ -16,22 +17,24 @@ namespace RealWareExcelTools
 
         private IRealWareExcelModule[] modules;
 
-        internal void SaveSettings(AddinSettings addinSettings)
+        internal void SaveSettings()
         {
-            this.Settings = addinSettings;
-
             AddinSettingsIO.WriteSettingsToFile(Settings);
 
             // Refresh all modules
             foreach (var module in modules)
-                module.OnRefreshSettings(addinSettings);
+                module.OnRefreshSettings(Settings);
+        }
+
+        internal void SaveSettings(AddinSettings addinSettings)
+        {
+            this.Settings = addinSettings;
+            SaveSettings();
         }
 
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
             ExcelController = new ExcelController(this);
-
-            Settings = AddinSettingsIO.ReadSettingsFromFile();
 
             modules = SetupModules.GetModules(this, Settings);
 
@@ -48,7 +51,13 @@ namespace RealWareExcelTools
         }
 
         protected override IRibbonExtensibility CreateRibbonExtensibilityObject()
-            => new Ribbon.RealWareRibbon(this);
+        {
+            //Settings must load before the ribbon is created
+            Settings = AddinSettingsIO.ReadSettingsFromFile();
+
+            // Return the RealWare ribbon
+            return new Ribbon.RealWareRibbon(this);
+        }
 
         public Microsoft.Office.Tools.CustomTaskPane CreateTab(string tabName, UserControl tabControl)
             => this.CustomTaskPanes.Add(tabControl, tabName);

@@ -29,6 +29,23 @@ namespace RealWareExcelTools.Ribbon
         public void OnRibbonLoad(Microsoft.Office.Core.IRibbonUI ribbonUI)
         {
             this.ribbon = ribbonUI;
+
+            // If the user has set the connection to RealWare to be automatic, then connect on startup
+            if(_addIn.Settings.RealWareApiConnectionSettings.ConnectOnExcelStartup)
+            {
+                if (string.IsNullOrEmpty(_addIn.Settings.RealWareApiConnectionSettings.Url)
+                    || string.IsNullOrEmpty(_addIn.Settings.RealWareApiConnectionSettings.Token)
+                    || string.IsNullOrEmpty(_addIn.Settings.RealWareApiConnectionSettings.RealWareUserName))
+                    return;
+
+                var validator = validateConnectionToRealWare(false);
+
+                if (!validator.ConnectionIsValid)
+                    return;
+
+                if(isConnectedToRealWare)
+                    this.ribbon.Invalidate();
+            }
         }
 
 
@@ -62,16 +79,12 @@ namespace RealWareExcelTools.Ribbon
             }
             else
             {
-                var validator = new ConnectToRealWareValidator(
-                    _addIn.Settings.RealWareApiConnectionSettings.Url,
-                    _addIn.Settings.RealWareApiConnectionSettings.Token,
-                    _addIn.Settings.RealWareApiConnectionSettings.RealWareUserName);
-
-                isConnectedToRealWare = validator.Validate();
+                var validator = validateConnectionToRealWare(true);
 
                 _addIn.SetRealWareApiConnection(validator.GetRealWareApiConnection());
                 _addIn.Settings.RealWareApiConnectionSettings.Token = validator.ApiToken;
                 _addIn.Settings.RealWareApiConnectionSettings.RealWareUserName = validator.RealWareLoginName;
+                _addIn.SaveSettings(_addIn.Settings);
             }
             ribbon.Invalidate();
         }
@@ -86,6 +99,18 @@ namespace RealWareExcelTools.Ribbon
 
         public bool GetConnectToRealWarePressed(IRibbonControl control)
             => isConnectedToRealWare;
+
+        private ConnectToRealWareValidator validateConnectionToRealWare(bool showForm)
+        {
+            var validator = new ConnectToRealWareValidator(
+                    _addIn.Settings.RealWareApiConnectionSettings.Url,
+                    _addIn.Settings.RealWareApiConnectionSettings.Token,
+                    _addIn.Settings.RealWareApiConnectionSettings.RealWareUserName);
+
+            isConnectedToRealWare = validator.Validate(showForm);
+
+            return validator;
+        }
         #endregion
 
         #region ImportFromListBuilder

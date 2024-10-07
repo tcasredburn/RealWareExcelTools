@@ -9,6 +9,8 @@ namespace RealWareExcelTools.WinCore.Validation
 {
     public class ConnectToRealWareValidator
     {
+        public bool ConnectionIsValid { get; private set; }
+
         public string RealWareLoginName { get; private set; }
         public string ApiToken { get; private set; }
 
@@ -31,30 +33,42 @@ namespace RealWareExcelTools.WinCore.Validation
         public RealWareApiConnection GetRealWareApiConnection()
             => new RealWareApiConnection(_apiUrl, ApiToken);
 
-        public bool Validate()
+        public bool Validate(bool showForm)
         {
-            if(string.IsNullOrEmpty(_apiUrl))
+            ConnectionIsValid = false;
+
+            if (string.IsNullOrEmpty(_apiUrl))
             {
                 Forms.ErrorMessage.ShowErrorMessage("API URL is required. Please go to settings and specify a valid url.", 
                     "Settings Incorrect");
-                return false;
+                return ConnectionIsValid;
             }
 
             if (string.IsNullOrEmpty(ApiToken))
             {
                 var result = showLoginFormLoop();
                 if(result == LoginFormResult.CanceledByUser)
-                    return false;
+                    return ConnectionIsValid;
             }
 
-            if(isTokenValid(_apiUrl, ApiToken))
-                return true;
+            if (isTokenValid(_apiUrl, ApiToken))
+            {
+                ConnectionIsValid = true;
+                return ConnectionIsValid;
+            }
 
-            var result2 = showLoginFormLoop();
-            if (result2 == LoginFormResult.CanceledByUser)
-                return false;
-            else
-                return true;
+            if (showForm)
+            {
+                var result2 = showLoginFormLoop();
+                if (result2 == LoginFormResult.CanceledByUser)
+                    return ConnectionIsValid;
+                else
+                {
+                    ConnectionIsValid = true;
+                    return ConnectionIsValid;
+                }
+            }
+            return ConnectionIsValid;
         }
 
         private LoginFormResult showLoginFormLoop()
