@@ -91,7 +91,7 @@ namespace RealWareExcelTools.Ribbon
         #region ImportFromListBuilder
         public void OnImportFromRealWareClick(IRibbonControl control)
         {
-            var form = new ListBuilderForm(_addIn.GetRealWareApi());
+            var form = new ListBuilderForm(_addIn.GetRealWareApi(), _addIn.Settings.GeneralSettings);
 
             if (form.ShowDialog() == DialogResult.OK)
             {

@@ -16,8 +16,7 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
         /// <summary>
         /// Default constructor.
         /// </summary>
-        /// <param name="defaultTaxYear">This </param>
-        public ListBuilderParameterView(string defaultTaxYear = null)
+        public ListBuilderParameterView()
         {
             InitializeComponent();
         }
@@ -30,6 +29,9 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
         public void LoadParameters(string[] parameters, string defaultTaxYear = null)
         {
             progressWheelHandle = Helpers.Progress.CreateProgressPanel(gridControl1);
+
+            if(defaultTaxYear != null)
+                this.defaultTaxYear = defaultTaxYear;
 
             var list = new List<RWListBuilderQueryParameter>();
 

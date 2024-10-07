@@ -2,6 +2,9 @@
 using Newtonsoft.Json;
 using RealWare.Core.API;
 using RealWare.Core.API.Models;
+using RealWareExcelTools.Core.Settings;
+using RealWareExcelTools.Core.Settings.General;
+using RealWareExcelTools.WinCore.Views.ListBuilder;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -27,6 +30,7 @@ namespace RealWareExcelTools.WinCore.Forms
 
         private readonly RealWareApi _api;
         private CancellationTokenSource _cancellationTokenSource;
+        private readonly GeneralSettings _settings;
 
         /// <summary>
         /// Design Time Only constructor.
@@ -49,9 +53,12 @@ namespace RealWareExcelTools.WinCore.Forms
         /// Default constructor.
         /// </summary>
         /// <param name="api"></param>
-        public ListBuilderForm(RealWareApi api) : this()
+        public ListBuilderForm(RealWareApi api, GeneralSettings settings) : this()
         {
             _api = api;
+            _settings = settings;
+
+            listBuilderQueryGrid1.SetDefaultTaxYear(settings.GetTaxYear());
         }
 
         private async void listBuilderForm_Shown(object sender, System.EventArgs e)
@@ -62,8 +69,19 @@ namespace RealWareExcelTools.WinCore.Forms
             // Get the listbuilder queries from the api
             var queries = _api.GetListBuilderSearchesAsync().ConfigureAwait(false);
 
-            // Load the listbuilder queries to the grid
-            listBuilderQueryGrid1.OnLoad(await queries);
+            try
+            {
+                // Load the listbuilder queries to the grid
+                var result = await queries;
+                listBuilderQueryGrid1.OnLoad(result);
+            }
+            catch(Exception ex)
+            {
+                listBuilderQueryGrid1.OnLoad(new List<RWListBuilderQueryItem>());
+                ErrorMessage.ShowErrorMessage(ErrorMessageType.ListBuilder_FailedToLoadQueries, ex.Message);
+            }
+
+            
         }
 
         private async void listBuilderQueryGrid1_ParametersRequestEvent(object sender, RWListBuilderQueryItem e)

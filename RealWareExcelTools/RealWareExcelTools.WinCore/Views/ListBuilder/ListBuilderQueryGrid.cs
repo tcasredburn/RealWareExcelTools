@@ -14,6 +14,9 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
 
         public RWListBuilderQueryItem SelectedListBuilderItem { get; private set; }
         public string[] Parameters { get; private set; }
+
+        private string taxYear;
+
         public List<RWListBuilderQueryParameter> GetParameters()
         {
             return null;//TODO
@@ -31,6 +34,13 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
             // Events
             gridView1.FocusedRowObjectChanged += gridView1_FocusedRowObjectChanged;
         }
+        
+        /// <summary>
+        /// Sets the default tax year for versioning and tax year parameters.
+        /// </summary>
+        /// <param name="taxYear"></param>
+        internal void SetDefaultTaxYear(string taxYear)
+            => this.taxYear = taxYear;
 
         /// <summary>
         /// Show loading panel when first loaded.
@@ -93,7 +103,7 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
         internal void LoadParameters(string[] parameters)
         {
             this.Parameters = parameters ?? new string[0];
-            listBuilderParameterView1.LoadParameters(parameters);
+            listBuilderParameterView1.LoadParameters(parameters, taxYear);
         }
 
         /// <summary>
@@ -114,5 +124,7 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
             StopLoading();
             listBuilderParameterView1.StopLoading();
         }
+
+        
     }
 }

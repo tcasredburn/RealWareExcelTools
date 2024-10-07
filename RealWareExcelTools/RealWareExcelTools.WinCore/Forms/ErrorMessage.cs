@@ -16,6 +16,10 @@ namespace RealWareExcelTools.WinCore.Forms
                     header = "Failed to Save Settings";
                     message += errorDetails;
                     break;
+                case ErrorMessageType.ListBuilder_FailedToLoadQueries:
+                    header = "Failed to Load Listbuilder Queries";
+                    message += errorDetails; 
+                    break;
                 default:
                     throw new NotImplementedException("Error type not implemented.");
             }
@@ -31,6 +35,7 @@ namespace RealWareExcelTools.WinCore.Forms
 
     public enum ErrorMessageType
     {
-        Settings_FailedToSave
+        Settings_FailedToSave,
+        ListBuilder_FailedToLoadQueries
     }
 }
