@@ -1,5 +1,6 @@
 ﻿using RealWareExcelTools.Core.Settings.API;
 using RealWareExcelTools.Core.Settings.General;
+using RealWareExcelTools.Core.Settings.Plugins;
 using System;
 
 namespace RealWareExcelTools.Core.Settings
@@ -10,6 +11,7 @@ namespace RealWareExcelTools.Core.Settings
     public class AddinSettings
     {
         public GeneralSettings GeneralSettings { get; set; } = new GeneralSettings();
+        public BatchWizardSettings BatchWizardSettings { get; set; } = new BatchWizardSettings();
         public RealWareApiConnectionSettings RealWareApiConnectionSettings { get; set; } = new RealWareApiConnectionSettings();
     }
 }

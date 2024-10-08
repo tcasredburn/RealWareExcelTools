@@ -1,5 +1,6 @@
 ﻿using Microsoft.Office.Core;
 using RealWareExcelTools.Modules;
+using RealWareExcelTools.Modules.Batch.Forms;
 using RealWareExcelTools.Properties;
 using RealWareExcelTools.WinCore.Forms;
 using RealWareExcelTools.WinCore.Validation;
@@ -139,7 +140,11 @@ namespace RealWareExcelTools.Ribbon
         #region BatchAccounts
         public void OnBatchAccountsClick(IRibbonControl control)
         {
-            MessageBox.Show("TODO: Batch data wizard for RealWare");
+            var form = new BatchWizardForm(_addIn.Settings.BatchWizardSettings, _addIn.Settings.RealWareApiConnectionSettings);
+            if (form.ShowDialog() == DialogResult.OK)
+            {
+                _addIn.SaveSettings();
+            }
         }
 
         public Bitmap GetBatchAccountsImage(IRibbonControl control)
