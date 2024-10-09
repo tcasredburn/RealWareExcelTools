@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Data;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
@@ -22,11 +23,13 @@ namespace RealWareExcelTools.Controller
 
         public void CreateNewSheet(string workSheetName, DataTable data)
         {
+            string formattedWorkSheetName = FormatWorkSheetName(workSheetName);
+
             if(_addIn.Application.Workbooks.Count == 0)
                 _addIn.Application.Workbooks.Add();
 
             Excel.Worksheet newWorksheet = _addIn.Application.Worksheets.Add();
-            newWorksheet.Name = workSheetName;
+            newWorksheet.Name = formattedWorkSheetName;
 
             if(data == null)
                 newWorksheet.Cells[1, 1] = "No results found";
@@ -37,12 +40,51 @@ namespace RealWareExcelTools.Controller
             newWorksheet.Columns.AutoFit();
         }
 
+        private string FormatWorkSheetName(string workSheetName)
+        {
+            char[] invalidChars = { ':', '\\', '/', '?', '*', '[', ']' };
+
+            // Limit the length to 31 characters and remove invalid characters
+            string formattedName = (workSheetName.Length > 31
+                ? workSheetName.Substring(0, 31)
+                : workSheetName);
+
+            foreach (char invalidChar in invalidChars)
+                formattedName = formattedName.Replace(invalidChar.ToString(), "");
+
+            return formattedName;
+        }
+
         public List<string> GetSheetNames()
         {
             var worksheetNames = new List<string>();
             foreach (Excel.Worksheet sheet in _addIn.Application.Worksheets)
                 worksheetNames.Add(sheet.Name);
             return worksheetNames;
+        }
+
+        public List<string> GetSheetColumnNames(string sheetName)
+        {
+            var columnNames = new List<string>();
+            foreach (Excel.Worksheet sheet in _addIn.Application.Worksheets)
+            {
+                if(sheet.Name == sheetName)
+                {
+                    for (int col = 0; col < sheet.UsedRange.Columns.Count; col++)
+                    {
+                        try
+                        {
+                            columnNames.Add(sheet.Cells[1, col + 1].Value2.ToString());
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+                    return columnNames;
+                }
+            }
+            return columnNames;
         }
 
         private void insertDataTableValuesToWorksheet(DataTable dataTable, Excel.Worksheet worksheet)

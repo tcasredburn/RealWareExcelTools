@@ -1,5 +1,6 @@
 ﻿using RealWareExcelTools.Modules.Batch.Models;
 using System;
+using System.Collections.Generic;
 
 namespace RealWareExcelTools.Modules.Batch.Controls
 {
@@ -7,7 +8,12 @@ namespace RealWareExcelTools.Modules.Batch.Controls
     {
         IdValueType valueType;
 
+        public IdValueType ValueType => valueType;
+        public string SelectedValue => cmbIdValue.Text ?? string.Empty;
+        public bool UseExcelValue => chkUseExcelValue.Checked;
+
         public event EventHandler<IdValueType> OnSetValueEvent;
+        public event EventHandler<bool> OnWorksheetChangedEvent;
 
         public BatchIdSelectionControl()
         {
@@ -35,6 +41,12 @@ namespace RealWareExcelTools.Modules.Batch.Controls
             return !string.IsNullOrEmpty(cmbIdValue.Text);
         }
 
+        public void SetComboboxValues(List<string> values)
+        {
+            cmbIdValue.Properties.Items.Clear();
+            cmbIdValue.Properties.Items.AddRange(values);
+        }
+
         private void refreshComboBoxDropdownVisibility()
         {
             cmbIdValue.Properties.TextEditStyle = chkUseExcelValue.Checked
@@ -42,6 +54,8 @@ namespace RealWareExcelTools.Modules.Batch.Controls
                 : DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
 
             cmbIdValue.Properties.Buttons[0].Visible = chkUseExcelValue.Checked;
+
+            OnWorksheetChangedEvent?.Invoke(this, chkUseExcelValue.Checked);
         }
     }
 }

@@ -4,6 +4,8 @@ using System.Linq;
 using RealWareExcelTools.Core.Extensions;
 using DevExpress.XtraWizard;
 using DevExpress.XtraLayout;
+using RealWareExcelTools.Modules.Batch.Controls;
+using System.Collections.Generic;
 
 namespace RealWareExcelTools.Modules.Batch.Pages
 {
@@ -19,9 +21,13 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
             // Init events
             cmbBatchAction.SelectedIndexChanged += (s, e) => refreshIdColumns();
+            cmbExcelSpreadsheet.SelectedIndexChanged += (s, e) => refreshAllBatchColumnNames();
             batchIdSelectionControl1.OnSetValueEvent += refreshSetValueVisibility;
             batchIdSelectionControl2.OnSetValueEvent += refreshSetValueVisibility;
             batchIdSelectionControl3.OnSetValueEvent += refreshSetValueVisibility;
+            batchIdSelectionControl1.OnWorksheetChangedEvent += refreshWorkSheetColumnNames;
+            batchIdSelectionControl2.OnWorksheetChangedEvent += refreshWorkSheetColumnNames;
+            batchIdSelectionControl3.OnWorksheetChangedEvent += refreshWorkSheetColumnNames;
         }
 
         public void OnSavePage()
@@ -136,6 +142,32 @@ namespace RealWareExcelTools.Modules.Batch.Pages
         private ApiOperation getActionFromDropdown()
             => (ApiOperation)cmbBatchAction.SelectedIndex;
 
+        private void refreshAllBatchColumnNames()
+        {
+            refreshWorkSheetColumnNames(batchIdSelectionControl1, batchIdSelectionControl1.UseExcelValue);
+            refreshWorkSheetColumnNames(batchIdSelectionControl2, batchIdSelectionControl2.UseExcelValue);
+            refreshWorkSheetColumnNames(batchIdSelectionControl3, batchIdSelectionControl3.UseExcelValue);
+        }
 
+        private void refreshWorkSheetColumnNames(object sender, bool isChecked)
+        {
+            (sender as BatchIdSelectionControl).SetComboboxValues(isChecked 
+                ? getUniqueColumnNames()
+                : new List<string>());
+        }
+
+        private List<string> getUniqueColumnNames()
+        {
+            List<string> columnNames = Context.ExcelController.GetSheetColumnNames(cmbExcelSpreadsheet.Text);
+
+            if (batchIdSelectionControl1.ValueType != IdValueType.None)
+                columnNames.Remove(batchIdSelectionControl1.SelectedValue);
+            if (batchIdSelectionControl2.ValueType != IdValueType.None)
+                columnNames.Remove(batchIdSelectionControl2.SelectedValue);
+            if (batchIdSelectionControl3.ValueType != IdValueType.None)
+                columnNames.Remove(batchIdSelectionControl3.SelectedValue);
+
+            return columnNames;
+        }
     }
 }
