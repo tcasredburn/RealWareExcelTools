@@ -10,11 +10,14 @@ namespace RealWareExcelTools.Modules.Batch.Forms
 {
     public partial class BatchWizardForm : DevExpress.XtraEditors.XtraForm
     {
-        private readonly IRealWareBatchWizardPage[] WizardPages = 
+        private readonly IRealWareBatchWizardPage[] WizardPages =
             new IRealWareBatchWizardPage[]
             {
                 new SelectModulePage(),
-                new SelectOperationPage()
+                new SelectOperationPage(),
+                new SelectScriptPage(),
+                new SetBatchValuesPage(),
+                new ProcessingScriptPage()
             };
 
 

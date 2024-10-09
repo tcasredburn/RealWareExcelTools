@@ -1,12 +1,15 @@
 ﻿using RealWareExcelTools.Controller;
 using RealWareExcelTools.Core.Settings.API;
 using RealWareExcelTools.Core.Settings.Plugins;
+using RealWareExcelTools.Modules.Batch.Controller;
 
 namespace RealWareExcelTools.Modules.Batch.Models
 {
     public class BatchWizardContext
     {
         public readonly BatchConfigurationScript Script;
+        public readonly ScriptFileController File;
+
 
         public readonly ExcelController ExcelController;
         public readonly RealWareApiConnectionSettings ApiSettings;
@@ -16,6 +19,7 @@ namespace RealWareExcelTools.Modules.Batch.Models
             BatchWizardSettings settings)
         {
             Script = new BatchConfigurationScript();
+            File = new ScriptFileController(settings.ScriptsDirectory);
 
             ExcelController = controller;
             ApiSettings = apiSettings;
