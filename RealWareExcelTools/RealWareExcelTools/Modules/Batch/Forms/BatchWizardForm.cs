@@ -1,112 +1,95 @@
-﻿using DevExpress.XtraReports.Web.ReportDesigner.DataContracts;
-using DevExpress.XtraWizard;
-using RealWareExcelTools.Core.Settings.API;
-using RealWareExcelTools.Core.Settings.Plugins;
+﻿using DevExpress.XtraWizard;
 using RealWareExcelTools.Modules.Batch.Models;
 using System;
-using System.Linq;
-using RealWareExcelTools.Core.Extensions;
-using DevExpress.Data.Helpers;
+using RealWareExcelTools.Modules.Batch.Pages;
+using System.Collections.Generic;
+using DevExpress.Utils.Extensions;
+using DevExpress.XtraEditors;
 
 namespace RealWareExcelTools.Modules.Batch.Forms
 {
     public partial class BatchWizardForm : DevExpress.XtraEditors.XtraForm
     {
+        private readonly IRealWareBatchWizardPage[] WizardPages = 
+            new IRealWareBatchWizardPage[]
+            {
+                new SelectModulePage(),
+                new SelectOperationPage()
+            };
 
-        private readonly BatchConfigurationScript _config;
-        private readonly BatchWizardSettings _wizardSettings;
-        private readonly RealWareApiConnectionSettings _apiSettings;
 
-        public BatchWizardForm(BatchWizardSettings wizardSettings, RealWareApiConnectionSettings apiSettings)
+        private readonly BatchWizardContext _context;
+        private readonly Dictionary<BaseWizardPage, IRealWareBatchWizardPage> _wizardPageDictionary;
+
+        public BatchWizardForm(BatchWizardContext context)
         {
-            _config = new BatchConfigurationScript();
-
-            // Set readonly values
-            _wizardSettings = wizardSettings;
-            _apiSettings = apiSettings;
+            _context = context;
+            _wizardPageDictionary = new Dictionary<BaseWizardPage, IRealWareBatchWizardPage>();
 
             // Init controls
             InitializeComponent();
 
+            // Load all the pages
+            initializeWizardPages();
+
             // Init events
+            wizardControl1.SelectedPageChanging += selectedPageChanging;
             wizardControl1.SelectedPageChanged += selectedPageChanged;
+        }
+
+        private void initializeWizardPages()
+        {
+            wizardControl1.Pages.Clear();
+
+            wizardControl1.Pages.Add(pageWelcome);
+
+            foreach (var page in WizardPages)
+            {
+                var wizardPage = new WizardPage()
+                {
+                    Name = page.GetType().Name,
+                    Text = page.PageTitle,
+                    DescriptionText = page.PageDescription
+                };
+
+                _wizardPageDictionary.Add(wizardPage, page);
+
+                wizardPage.Controls.Add(page as XtraUserControl);
+                wizardControl1.Pages.Add(wizardPage);
+
+                page.InitializePage(_context);
+            }
+
+            wizardControl1.Pages.Add(completionWizardPage1);
         }
 
         private void BatchWizardForm_Load(object sender, EventArgs e)
         {
-            if (_wizardSettings.SkipFirstPage)
+            if (_context.Settings.SkipFirstPage)
             {
                 chkSkipFirstPage.Checked = true;
-                wizardControl1.SelectedPage = pageSelectModule;
+                wizardControl1.SelectedPageIndex = 1;
             }
             else
-                wizardControl1.SelectedPage = pageWelcome;
+                wizardControl1.SelectedPageIndex = 0;
+        }
+
+        private void selectedPageChanging(object sender, WizardPageChangingEventArgs e)
+        {
+            if (e.Direction == Direction.Forward && e.PrevPage != null)
+            {
+                if (_wizardPageDictionary.TryGetValue(e.PrevPage, out IRealWareBatchWizardPage page))
+                    page.OnSavePage();
+            }
         }
 
         private void selectedPageChanged(object sender, WizardPageChangedEventArgs e)
         {
-            switch (e?.PrevPage?.Name)
-            {
-                case nameof(pageWelcome):
-                    {
-
-                    }
-                    break;
-                case nameof(pageSelectModule):
-                    {
-                        _config.Module = (BatchModule)grpModuleType.SelectedIndex;
-                        refreshApiOperationDropdown();
-                    }
-                    break;
-                case nameof(pageSelectOperation):
-                    {
-
-                    }
-                    break;
-            }
-
-            RefreshPage(e.Page.Name);
-        }
-
-        private void RefreshPage(string pageName)
-        {
-            switch(pageName)
-            {
-                case nameof(pageWelcome):
-                    {
-
-                    }
-                    break;
-                case nameof(pageSelectModule):
-                    {
-                        grpModuleType.SelectedIndex = (int)_config.Module;
-                    }
-                    break;
-                case nameof(pageSelectOperation):
-                    {
-                        
-                    }
-                    break;
-            }
-        }
-
-        private void refreshApiOperationDropdown()
-        {
-            var test = Enum.GetNames(typeof(ApiOperation));
-            var test2 = test.Select(x => (ApiOperation)Enum.Parse(typeof(ApiOperation), x)).ToList();
-            var test3 = test2.Select(x => x.GetDisplayName()).ToList();
-
-            var items = Enum.GetNames(typeof(ApiOperation))
-                .Select(x => (ApiOperation)Enum.Parse(typeof(ApiOperation), x))
-                .Select(x => x.GetDisplayName())
-                .Select(x=>string.Format(x, _config.Module.ToString().ToLower()));
-
-            cmbBatchAction.Properties.Items.Clear();
-            cmbBatchAction.Properties.Items.AddRange(items.ToList());
-            cmbBatchAction.SelectedText = items.FirstOrDefault();
+            if(_wizardPageDictionary.TryGetValue(e.Page, out IRealWareBatchWizardPage page))
+                page.OnRefreshPage(e.Direction);
         }
 
         private void chkSkipFirstPage_CheckedChanged(object sender, EventArgs e)
-            => _wizardSettings.SkipFirstPage = chkSkipFirstPage.Checked;
+            => _context.Settings.SkipFirstPage = chkSkipFirstPage.Checked;
     }
 }

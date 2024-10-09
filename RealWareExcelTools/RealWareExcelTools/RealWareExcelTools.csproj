@@ -248,6 +248,12 @@
     <Compile Include="Functions\GetSitusHandler.cs" />
     <Compile Include="Functions\ReverseStringHandler.cs" />
     <Compile Include="Modules\AccountSelectionModule.cs" />
+    <Compile Include="Modules\Batch\Controls\BatchIdSelectionControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Batch\Controls\BatchIdSelectionControl.Designer.cs">
+      <DependentUpon>BatchIdSelectionControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Batch\Forms\BatchWizardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -257,12 +263,45 @@
     <Compile Include="Modules\Batch\Models\ApiOperation.cs" />
     <Compile Include="Modules\Batch\Models\BatchConfigurationScript.cs" />
     <Compile Include="Modules\Batch\Models\BatchModule.cs" />
+    <Compile Include="Modules\Batch\Models\BatchWizardContext.cs" />
+    <Compile Include="Modules\Batch\Models\IdValueType.cs" />
+    <Compile Include="Modules\Batch\Pages\BaseBatchWizardPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Batch\Pages\BaseBatchWizardPage.Designer.cs">
+      <DependentUpon>BaseBatchWizardPage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Batch\Pages\IRealWareBatchWizardPage.cs" />
+    <Compile Include="Modules\Batch\Pages\SelectModulePage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Batch\Pages\SelectModulePage.Designer.cs">
+      <DependentUpon>SelectModulePage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\Batch\Pages\SelectOperationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Batch\Pages\SelectOperationPage.Designer.cs">
+      <DependentUpon>SelectOperationPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\ListBuilderImportModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <EmbeddedResource Include="Modules\Batch\Controls\BatchIdSelectionControl.resx">
+      <DependentUpon>BatchIdSelectionControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Batch\Forms\BatchWizardForm.resx">
       <DependentUpon>BatchWizardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Batch\Pages\BaseBatchWizardPage.resx">
+      <DependentUpon>BaseBatchWizardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Batch\Pages\SelectModulePage.resx">
+      <DependentUpon>SelectModulePage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Batch\Pages\SelectOperationPage.resx">
+      <DependentUpon>SelectOperationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">

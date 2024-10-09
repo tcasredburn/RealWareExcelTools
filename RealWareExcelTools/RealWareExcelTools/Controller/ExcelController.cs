@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections.Generic;
+using System.Data;
 using Excel = Microsoft.Office.Interop.Excel;
 using Office = Microsoft.Office.Core;
 
@@ -21,10 +22,10 @@ namespace RealWareExcelTools.Controller
 
         public void CreateNewSheet(string workSheetName, DataTable data)
         {
-            if(Globals.ThisAddIn.Application.Workbooks.Count == 0)
-                Globals.ThisAddIn.Application.Workbooks.Add();
+            if(_addIn.Application.Workbooks.Count == 0)
+                _addIn.Application.Workbooks.Add();
 
-            Excel.Worksheet newWorksheet = Globals.ThisAddIn.Application.Worksheets.Add();
+            Excel.Worksheet newWorksheet = _addIn.Application.Worksheets.Add();
             newWorksheet.Name = workSheetName;
 
             if(data == null)
@@ -34,6 +35,14 @@ namespace RealWareExcelTools.Controller
 
             // Autofit the columns
             newWorksheet.Columns.AutoFit();
+        }
+
+        public List<string> GetSheetNames()
+        {
+            var worksheetNames = new List<string>();
+            foreach (Excel.Worksheet sheet in _addIn.Application.Worksheets)
+                worksheetNames.Add(sheet.Name);
+            return worksheetNames;
         }
 
         private void insertDataTableValuesToWorksheet(DataTable dataTable, Excel.Worksheet worksheet)

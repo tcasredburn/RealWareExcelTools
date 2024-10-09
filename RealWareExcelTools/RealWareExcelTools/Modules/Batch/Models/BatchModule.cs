@@ -4,6 +4,7 @@
     {
         Account,
         Appeal,
+        Improvement,
         Sale,
         Permit
     }
