@@ -18,9 +18,7 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
         private string taxYear;
 
         public List<RWListBuilderQueryParameter> GetParameters()
-        {
-            return null;//TODO
-        }
+            => listBuilderParameterView1.GetParametersWithValues();
 
         IOverlaySplashScreenHandle loadResultsHandle;
 

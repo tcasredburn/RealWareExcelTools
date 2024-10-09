@@ -41,6 +41,7 @@ namespace RealWareExcelTools.WinCore.Forms
 
             // Default to off
             btnImport.Enabled = false;
+            importProgressPanel.Visible = false;
 
             // Events
             this.Shown += listBuilderForm_Shown;
@@ -115,15 +116,31 @@ namespace RealWareExcelTools.WinCore.Forms
             refreshImportButton();
         }
 
-        private void btnImport_Click(object sender, System.EventArgs e)
+        private async void btnImport_Click(object sender, System.EventArgs e)
         {
+            btnImport.Enabled = false;
+            importProgressPanel.Visible = true;
+
             // Execute the query
-            var results = _api.GetListBuilderQueryResults(
+            var results = _api.GetListBuilderQueryResultsAsync(
                 SelectedListBuilderItem.QueryID,
                 listBuilderQueryGrid1.GetParameters());
 
             // Set the result object
-            Result = combineListBuilderResultsAsDatatable2(results);
+            try
+            {
+                Result = combineListBuilderResultsAsDatatable(await results);
+                DialogResult = System.Windows.Forms.DialogResult.OK;
+            }
+            catch (System.Exception ex)
+            {
+                XtraMessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                importProgressPanel.Visible = false;
+                btnImport.Enabled = true;
+            }
         }
 
         private DataTable combineListBuilderResultsAsDatatable2(List<object> listbuilderResults)

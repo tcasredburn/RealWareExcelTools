@@ -58,6 +58,16 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
             progressWheelHandle = null;
         }
 
+        public List<RWListBuilderQueryParameter> GetParametersWithValues()
+        {
+            if (gridControl1.DataSource == null)
+                return null;
+
+            var result = (gridControl1.DataSource as List<RWListBuilderQueryParameter>);
+
+            return result;
+        }
+
         /// <summary>
         /// Loads the grid with the parameters in a thread-safe way.
         /// </summary>
