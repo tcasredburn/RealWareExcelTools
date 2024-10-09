@@ -42,7 +42,7 @@ namespace RealWareExcelTools.Modules.Batch.Controller
         {
             var result = new Dictionary<string, string>();
 
-            if(System.IO.Directory.Exists(baseScriptDirectory))
+            if(!System.IO.Directory.Exists(baseScriptDirectory))
                 return result;
 
             string moduleName = Enum.GetName(typeof(BatchModule), module);
