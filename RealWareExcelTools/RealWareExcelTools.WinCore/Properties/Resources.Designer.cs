@@ -63,6 +63,26 @@ namespace RealWareExcelTools.WinCore.Properties {
         /// <summary>
         ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
         /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage actions_deletecircled {
+            get {
+                object obj = ResourceManager.GetObject("actions_deletecircled", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage addcalculatedfield {
+            get {
+                object obj = ResourceManager.GetObject("addcalculatedfield", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
         internal static DevExpress.Utils.Svg.SvgImage ico_realware_listbuilder {
             get {
                 object obj = ResourceManager.GetObject("ico_realware_listbuilder", resourceCulture);
@@ -76,6 +96,16 @@ namespace RealWareExcelTools.WinCore.Properties {
         internal static DevExpress.Utils.Svg.SvgImage ico_realware_settings {
             get {
                 object obj = ResourceManager.GetObject("ico_realware_settings", resourceCulture);
+                return ((DevExpress.Utils.Svg.SvgImage)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type DevExpress.Utils.Svg.SvgImage.
+        /// </summary>
+        internal static DevExpress.Utils.Svg.SvgImage managedatasource {
+            get {
+                object obj = ResourceManager.GetObject("managedatasource", resourceCulture);
                 return ((DevExpress.Utils.Svg.SvgImage)(obj));
             }
         }

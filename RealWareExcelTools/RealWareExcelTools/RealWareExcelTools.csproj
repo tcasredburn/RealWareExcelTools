@@ -161,8 +161,8 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RealWare.Core, Version=2.1.2.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RealWare.Core.v5.2.1.2\lib\netstandard2.0\RealWare.Core.dll</HintPath>
+    <Reference Include="RealWare.Core, Version=2.1.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RealWare.Core.v5.2.1.6\lib\netstandard2.0\RealWare.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -313,6 +313,7 @@
     <Compile Include="Modules\Batch\Pages\SetBatchValuesPage.Designer.cs">
       <DependentUpon>SetBatchValuesPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Batch\Providers\RealWareDataProvider.cs" />
     <Compile Include="Modules\ListBuilderImportModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

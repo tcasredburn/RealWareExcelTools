@@ -55,7 +55,9 @@ namespace RealWareExcelTools.Modules.Batch.Pages
         public void OnSavePage()
         {
             Context.Script.IsNewScript = getIsNewScript();
-            Context.Script.ScriptName = lstScripts.SelectedValue.ToString();
+
+            if(!Context.Script.IsNewScript)
+                Context.Script.ScriptName = lstScripts.SelectedValue.ToString();
         }
 
         private bool getIsNewScript()

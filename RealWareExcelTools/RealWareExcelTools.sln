@@ -5,9 +5,13 @@ VisualStudioVersion = 17.10.35013.160
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools", "RealWareExcelTools\RealWareExcelTools.csproj", "{9D553D5E-7B3A-42D3-A010-FAE160B4F520}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools.Core", "RealWareExcelTools.Core\RealWareExcelTools.Core.csproj", "{04D4E3A5-7A20-44E3-9287-8D973F4A052A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RealWareExcelTools.Core", "RealWareExcelTools.Core\RealWareExcelTools.Core.csproj", "{04D4E3A5-7A20-44E3-9287-8D973F4A052A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools.WinCore", "RealWareExcelTools.WinCore\RealWareExcelTools.WinCore.csproj", "{45D3D516-2D84-40E3-80E2-85426FDF9389}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{DB3ED379-72EB-447A-A610-F96E3AD1A398}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RealWareExcelTools.UI.TestApp", "RealWareExcelTools.UI.TestApp\RealWareExcelTools.UI.TestApp.csproj", "{AF163B12-A4C7-4678-9203-0F290B3A704C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,9 +45,20 @@ Global
 		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF163B12-A4C7-4678-9203-0F290B3A704C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF163B12-A4C7-4678-9203-0F290B3A704C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF163B12-A4C7-4678-9203-0F290B3A704C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF163B12-A4C7-4678-9203-0F290B3A704C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF163B12-A4C7-4678-9203-0F290B3A704C}.TulsaCounty.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF163B12-A4C7-4678-9203-0F290B3A704C}.TulsaCounty.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF163B12-A4C7-4678-9203-0F290B3A704C}.TulsaCounty.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF163B12-A4C7-4678-9203-0F290B3A704C}.TulsaCounty.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF163B12-A4C7-4678-9203-0F290B3A704C} = {DB3ED379-72EB-447A-A610-F96E3AD1A398}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D35952BD-FB78-4D5A-9A5E-7B72DA893B5A}

@@ -30,19 +30,19 @@
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.lstScripts = new DevExpress.XtraEditors.ListBoxControl();
+            this.grpNewScript = new DevExpress.XtraEditors.RadioGroup();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.grpNewScript = new DevExpress.XtraEditors.RadioGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.lstScripts)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grpNewScript.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grpNewScript.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -66,6 +66,19 @@
             this.lstScripts.StyleController = this.layoutControl1;
             this.lstScripts.TabIndex = 5;
             // 
+            // grpNewScript
+            // 
+            this.grpNewScript.Location = new System.Drawing.Point(12, 31);
+            this.grpNewScript.Name = "grpNewScript";
+            this.grpNewScript.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.grpNewScript.Properties.Appearance.Options.UseBackColor = true;
+            this.grpNewScript.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "New script"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Existing Script")});
+            this.grpNewScript.Size = new System.Drawing.Size(1082, 172);
+            this.grpNewScript.StyleController = this.layoutControl1;
+            this.grpNewScript.TabIndex = 4;
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -77,6 +90,15 @@
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(1106, 765);
             this.Root.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.grpNewScript;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(1086, 195);
+            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 16);
             // 
             // layoutControlItem2
             // 
@@ -96,28 +118,6 @@
             this.emptySpaceItem2.Size = new System.Drawing.Size(108, 550);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // grpNewScript
-            // 
-            this.grpNewScript.Location = new System.Drawing.Point(12, 31);
-            this.grpNewScript.Name = "grpNewScript";
-            this.grpNewScript.Properties.Appearance.BackColor = System.Drawing.Color.Transparent;
-            this.grpNewScript.Properties.Appearance.Options.UseBackColor = true;
-            this.grpNewScript.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "New script"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Existing Script")});
-            this.grpNewScript.Size = new System.Drawing.Size(1082, 172);
-            this.grpNewScript.StyleController = this.layoutControl1;
-            this.grpNewScript.TabIndex = 4;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.grpNewScript;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1086, 195);
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 16);
-            // 
             // SelectScriptPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -128,11 +128,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lstScripts)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grpNewScript.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.grpNewScript.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 
         }

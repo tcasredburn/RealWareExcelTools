@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RealWareExcelTools.Core.Providers;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using Excel = Microsoft.Office.Interop.Excel;
@@ -9,7 +10,7 @@ namespace RealWareExcelTools.Controller
     /// <summary>
     /// Handles excel operations and features.
     /// </summary>
-    public class ExcelController
+    public class ExcelController : IExcelProvider
     {
         private readonly ThisAddIn _addIn;
 
@@ -63,6 +64,11 @@ namespace RealWareExcelTools.Controller
             return worksheetNames;
         }
 
+        public string GetSelectedSheetName()
+        {
+            return _addIn.Application.ActiveSheet.Name;
+        }
+
         public List<string> GetSheetColumnNames(string sheetName)
         {
             var columnNames = new List<string>();
@@ -97,6 +103,16 @@ namespace RealWareExcelTools.Controller
             for (int row = 0; row < dataTable.Rows.Count; row++)
                 for (int col = 0; col < dataTable.Columns.Count; col++)
                     worksheet.Cells[row + 2, col + 1] = dataTable.Rows[row][col];
+        }
+
+        public List<string> GetValidColumnNames(List<string> removeList = null)
+        {
+            var columnNames = GetSheetColumnNames(GetSelectedSheetName());
+
+            if(removeList != null)
+                columnNames.RemoveAll(x => removeList.Contains(x));
+
+            return columnNames;
         }
     }
 }
