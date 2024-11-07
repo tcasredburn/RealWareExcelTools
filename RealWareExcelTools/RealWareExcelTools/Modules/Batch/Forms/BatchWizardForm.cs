@@ -5,14 +5,17 @@ using RealWareExcelTools.Modules.Batch.Pages;
 using System.Collections.Generic;
 using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
+using RealWareExcelTools.Modules.Batch.Controller;
+using DevExpress.XtraBars;
 
 namespace RealWareExcelTools.Modules.Batch.Forms
 {
-    public partial class BatchWizardForm : DevExpress.XtraEditors.XtraForm
+    public partial class BatchWizardForm : DevExpress.XtraEditors.XtraForm, IBatchWizardController
     {
         private readonly IRealWareBatchWizardPage[] WizardPages =
             new IRealWareBatchWizardPage[]
             {
+                new PreValidationPage(),
                 new SelectModulePage(),
                 new SelectOperationPage(),
                 new SelectScriptPage(),
@@ -27,14 +30,15 @@ namespace RealWareExcelTools.Modules.Batch.Forms
         public BatchWizardForm(BatchWizardContext context)
         {
             _context = context;
+            _context.SetController(this);
             _wizardPageDictionary = new Dictionary<BaseWizardPage, IRealWareBatchWizardPage>();
 
             // Init controls
             InitializeComponent();
 
-            // Load all the pages
+            // Load all the pages 
             initializeWizardPages();
-
+            
             // Init events
             wizardControl1.SelectedPageChanging += selectedPageChanging;
             wizardControl1.SelectedPageChanged += selectedPageChanged;
@@ -94,5 +98,15 @@ namespace RealWareExcelTools.Modules.Batch.Forms
 
         private void chkSkipFirstPage_CheckedChanged(object sender, EventArgs e)
             => _context.Settings.SkipFirstPage = chkSkipFirstPage.Checked;
+
+        public void RefreshPage()
+        {
+            if(wizardControl1.SelectedPage != null 
+                && _wizardPageDictionary.TryGetValue(wizardControl1.SelectedPage, out IRealWareBatchWizardPage page))
+            {
+                wizardControl1.SelectedPage.AllowNext = page.IsPageValid;
+                page.OnRefreshPage();
+            }
+        }
     }
 }

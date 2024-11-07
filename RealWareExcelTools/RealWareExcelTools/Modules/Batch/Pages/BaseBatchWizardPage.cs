@@ -5,6 +5,8 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 {
     public partial class BaseBatchWizardPage : DevExpress.XtraEditors.XtraUserControl
     {
+        public virtual bool IsPageValid { get; set; } = true;
+
         public BatchWizardContext Context { get; private set; }
 
         public BaseBatchWizardPage()
@@ -18,5 +20,8 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             Dock = DockStyle.Fill;
             BringToFront();
         }
+
+        public virtual void RefreshPage()
+            => Context.BatchWizardController.RefreshPage();
     }
 }

@@ -29,45 +29,45 @@
         private void InitializeComponent()
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.txtServer = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.txtDatabase = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.txtLogin = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.btnTestConnection = new DevExpress.XtraEditors.SimpleButton();
+            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.txtPassword = new DevExpress.XtraEditors.TextEdit();
-            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.txtLogin = new DevExpress.XtraEditors.TextEdit();
+            this.txtDatabase = new DevExpress.XtraEditors.TextEdit();
+            this.txtServer = new DevExpress.XtraEditors.TextEdit();
             this.chkIntegratedSecurity = new DevExpress.XtraEditors.CheckEdit();
+            this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem5 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.grpSqlLoginSecurity = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem3 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem4 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.btnClose = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem6 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.btnTestConnection = new DevExpress.XtraEditors.SimpleButton();
             this.layoutControlItem7 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem6 = new DevExpress.XtraLayout.EmptySpaceItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkIntegratedSecurity.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpSqlLoginSecurity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
@@ -95,6 +95,70 @@
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
+            // btnTestConnection
+            // 
+            this.btnTestConnection.Location = new System.Drawing.Point(12, 305);
+            this.btnTestConnection.Name = "btnTestConnection";
+            this.btnTestConnection.Size = new System.Drawing.Size(144, 27);
+            this.btnTestConnection.StyleController = this.layoutControl1;
+            this.btnTestConnection.TabIndex = 10;
+            this.btnTestConnection.Text = "&Test Connection";
+            this.btnTestConnection.Click += new System.EventHandler(this.btnTestConnection_Click);
+            // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(476, 305);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(124, 27);
+            this.btnClose.StyleController = this.layoutControl1;
+            this.btnClose.TabIndex = 9;
+            this.btnClose.Text = "&Close";
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // txtPassword
+            // 
+            this.txtPassword.Location = new System.Drawing.Point(63, 237);
+            this.txtPassword.Name = "txtPassword";
+            this.txtPassword.Properties.UseSystemPasswordChar = true;
+            this.txtPassword.Size = new System.Drawing.Size(451, 22);
+            this.txtPassword.StyleController = this.layoutControl1;
+            this.txtPassword.TabIndex = 7;
+            // 
+            // txtLogin
+            // 
+            this.txtLogin.Location = new System.Drawing.Point(63, 192);
+            this.txtLogin.Name = "txtLogin";
+            this.txtLogin.Size = new System.Drawing.Size(451, 22);
+            this.txtLogin.StyleController = this.layoutControl1;
+            this.txtLogin.TabIndex = 6;
+            // 
+            // txtDatabase
+            // 
+            this.txtDatabase.Location = new System.Drawing.Point(63, 103);
+            this.txtDatabase.Name = "txtDatabase";
+            this.txtDatabase.Size = new System.Drawing.Size(451, 22);
+            this.txtDatabase.StyleController = this.layoutControl1;
+            this.txtDatabase.TabIndex = 5;
+            // 
+            // txtServer
+            // 
+            this.txtServer.Location = new System.Drawing.Point(63, 50);
+            this.txtServer.Name = "txtServer";
+            this.txtServer.Size = new System.Drawing.Size(451, 22);
+            this.txtServer.StyleController = this.layoutControl1;
+            this.txtServer.TabIndex = 4;
+            // 
+            // chkIntegratedSecurity
+            // 
+            this.chkIntegratedSecurity.EditValue = true;
+            this.chkIntegratedSecurity.Location = new System.Drawing.Point(63, 137);
+            this.chkIntegratedSecurity.Name = "chkIntegratedSecurity";
+            this.chkIntegratedSecurity.Properties.Caption = "Windows authentication?";
+            this.chkIntegratedSecurity.Size = new System.Drawing.Size(170, 24);
+            this.chkIntegratedSecurity.StyleController = this.layoutControl1;
+            this.chkIntegratedSecurity.TabIndex = 8;
+            this.chkIntegratedSecurity.CheckedChanged += new System.EventHandler(this.chkIntegratedSecurity_CheckedChanged);
+            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -116,13 +180,15 @@
             this.Root.Size = new System.Drawing.Size(612, 344);
             this.Root.TextVisible = false;
             // 
-            // txtServer
+            // layoutControlGroup1
             // 
-            this.txtServer.Location = new System.Drawing.Point(63, 50);
-            this.txtServer.Name = "txtServer";
-            this.txtServer.Size = new System.Drawing.Size(451, 22);
-            this.txtServer.StyleController = this.layoutControl1;
-            this.txtServer.TabIndex = 4;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(51, 19);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 10, 10, 10);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(455, 45);
             // 
             // layoutControlItem1
             // 
@@ -134,24 +200,6 @@
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(66, 16);
             // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(51, 19);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Padding = new DevExpress.XtraLayout.Utils.Padding(30, 10, 10, 10);
-            this.layoutControlGroup1.Size = new System.Drawing.Size(455, 45);
-            // 
-            // txtDatabase
-            // 
-            this.txtDatabase.Location = new System.Drawing.Point(63, 103);
-            this.txtDatabase.Name = "txtDatabase";
-            this.txtDatabase.Size = new System.Drawing.Size(451, 22);
-            this.txtDatabase.StyleController = this.layoutControl1;
-            this.txtDatabase.TabIndex = 5;
-            // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtDatabase;
@@ -162,54 +210,6 @@
             this.layoutControlItem2.Text = "Database";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(66, 16);
-            // 
-            // txtLogin
-            // 
-            this.txtLogin.Location = new System.Drawing.Point(63, 192);
-            this.txtLogin.Name = "txtLogin";
-            this.txtLogin.Size = new System.Drawing.Size(451, 22);
-            this.txtLogin.StyleController = this.layoutControl1;
-            this.txtLogin.TabIndex = 6;
-            // 
-            // layoutControlItem3
-            // 
-            this.layoutControlItem3.Control = this.txtLogin;
-            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(455, 45);
-            this.layoutControlItem3.Text = "Login name";
-            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem3.TextSize = new System.Drawing.Size(66, 16);
-            // 
-            // txtPassword
-            // 
-            this.txtPassword.Location = new System.Drawing.Point(63, 237);
-            this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Properties.UseSystemPasswordChar = true;
-            this.txtPassword.Size = new System.Drawing.Size(451, 22);
-            this.txtPassword.StyleController = this.layoutControl1;
-            this.txtPassword.TabIndex = 7;
-            // 
-            // layoutControlItem4
-            // 
-            this.layoutControlItem4.Control = this.txtPassword;
-            this.layoutControlItem4.Location = new System.Drawing.Point(0, 45);
-            this.layoutControlItem4.Name = "layoutControlItem4";
-            this.layoutControlItem4.Size = new System.Drawing.Size(455, 45);
-            this.layoutControlItem4.Text = "Password";
-            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem4.TextSize = new System.Drawing.Size(66, 16);
-            // 
-            // chkIntegratedSecurity
-            // 
-            this.chkIntegratedSecurity.EditValue = true;
-            this.chkIntegratedSecurity.Location = new System.Drawing.Point(63, 137);
-            this.chkIntegratedSecurity.Name = "chkIntegratedSecurity";
-            this.chkIntegratedSecurity.Properties.Caption = "Windows authentication?";
-            this.chkIntegratedSecurity.Size = new System.Drawing.Size(170, 24);
-            this.chkIntegratedSecurity.StyleController = this.layoutControl1;
-            this.chkIntegratedSecurity.TabIndex = 8;
-            this.chkIntegratedSecurity.CheckedChanged += new System.EventHandler(this.chkIntegratedSecurity_CheckedChanged);
             // 
             // layoutControlItem5
             // 
@@ -240,6 +240,26 @@
             this.grpSqlLoginSecurity.Padding = new DevExpress.XtraLayout.Utils.Padding(9, 9, 10, 9);
             this.grpSqlLoginSecurity.Size = new System.Drawing.Size(455, 90);
             this.grpSqlLoginSecurity.Text = "Sql Login Security";
+            // 
+            // layoutControlItem3
+            // 
+            this.layoutControlItem3.Control = this.txtLogin;
+            this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem3.Name = "layoutControlItem3";
+            this.layoutControlItem3.Size = new System.Drawing.Size(455, 45);
+            this.layoutControlItem3.Text = "Login name";
+            this.layoutControlItem3.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem3.TextSize = new System.Drawing.Size(66, 16);
+            // 
+            // layoutControlItem4
+            // 
+            this.layoutControlItem4.Control = this.txtPassword;
+            this.layoutControlItem4.Location = new System.Drawing.Point(0, 45);
+            this.layoutControlItem4.Name = "layoutControlItem4";
+            this.layoutControlItem4.Size = new System.Drawing.Size(455, 45);
+            this.layoutControlItem4.Text = "Password";
+            this.layoutControlItem4.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem4.TextSize = new System.Drawing.Size(66, 16);
             // 
             // emptySpaceItem2
             // 
@@ -273,15 +293,6 @@
             this.emptySpaceItem5.Size = new System.Drawing.Size(316, 31);
             this.emptySpaceItem5.TextSize = new System.Drawing.Size(0, 0);
             // 
-            // btnClose
-            // 
-            this.btnClose.Location = new System.Drawing.Point(476, 305);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(124, 27);
-            this.btnClose.StyleController = this.layoutControl1;
-            this.btnClose.TabIndex = 9;
-            this.btnClose.Text = "&Close";
-            // 
             // layoutControlItem6
             // 
             this.layoutControlItem6.Control = this.btnClose;
@@ -290,15 +301,6 @@
             this.layoutControlItem6.Size = new System.Drawing.Size(128, 31);
             this.layoutControlItem6.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem6.TextVisible = false;
-            // 
-            // btnTestConnection
-            // 
-            this.btnTestConnection.Location = new System.Drawing.Point(12, 305);
-            this.btnTestConnection.Name = "btnTestConnection";
-            this.btnTestConnection.Size = new System.Drawing.Size(144, 27);
-            this.btnTestConnection.StyleController = this.layoutControl1;
-            this.btnTestConnection.TabIndex = 10;
-            this.btnTestConnection.Text = "&Test Connection";
             // 
             // layoutControlItem7
             // 
@@ -332,20 +334,20 @@
             this.Text = "Database Connection";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtPassword.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtLogin.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDatabase.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtServer.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkIntegratedSecurity.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.grpSqlLoginSecurity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();

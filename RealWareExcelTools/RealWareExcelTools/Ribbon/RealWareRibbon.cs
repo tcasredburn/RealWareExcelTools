@@ -144,7 +144,8 @@ namespace RealWareExcelTools.Ribbon
             var context = new BatchWizardContext(
                 _addIn.ExcelController, 
                 _addIn.Settings.RealWareApiConnectionSettings, 
-                _addIn.Settings.BatchWizardSettings);
+                _addIn.Settings.BatchWizardSettings,
+                _addIn.Settings.RealWareDbConnectionSettings);
 
             var form = new BatchWizardForm(context);
             if (form.ShowDialog() == DialogResult.OK)

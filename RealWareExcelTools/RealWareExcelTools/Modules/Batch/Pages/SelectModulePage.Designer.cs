@@ -39,9 +39,9 @@
             this.grpModuleType.Name = "grpModuleType";
             this.grpModuleType.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(0)), "Account"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Appeal"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(1)), "Appeal", false),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(2)), "Improvement"),
-            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(3)), "Permit"),
+            new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(3)), "Permit", false),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(4)), "Sale")});
             this.grpModuleType.Size = new System.Drawing.Size(667, 470);
             this.grpModuleType.TabIndex = 1;

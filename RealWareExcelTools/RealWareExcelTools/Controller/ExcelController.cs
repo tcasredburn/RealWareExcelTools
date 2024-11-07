@@ -66,7 +66,7 @@ namespace RealWareExcelTools.Controller
 
         public string GetSelectedSheetName()
         {
-            return _addIn.Application.ActiveSheet.Name;
+            return _addIn.Application.ActiveSheet?.Name;
         }
 
         public List<string> GetSheetColumnNames(string sheetName)

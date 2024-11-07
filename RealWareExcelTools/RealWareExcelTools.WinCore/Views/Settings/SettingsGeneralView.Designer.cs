@@ -30,20 +30,22 @@
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.txtDefaultTaxYearValue = new DevExpress.XtraEditors.TextEdit();
             this.cmbDefaultTaxYearType = new DevExpress.XtraEditors.ComboBoxEdit();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.txtDefaultTaxYearValue = new DevExpress.XtraEditors.TextEdit();
             this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDefaultTaxYearValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDefaultTaxYearType.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDefaultTaxYearValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,18 +67,52 @@
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
             this.Root.GroupBordersVisible = false;
             this.Root.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1,
             this.emptySpaceItem2,
-            this.emptySpaceItem1,
-            this.layoutControlItem2});
+            this.layoutControlGroup1});
             this.Root.Name = "Root";
             this.Root.Size = new System.Drawing.Size(913, 695);
             this.Root.TextVisible = false;
             // 
+            // emptySpaceItem2
+            // 
+            this.emptySpaceItem2.AllowHotTrack = false;
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 76);
+            this.emptySpaceItem2.Name = "emptySpaceItem2";
+            this.emptySpaceItem2.Size = new System.Drawing.Size(893, 599);
+            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(404, 0);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(465, 26);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1,
+            this.layoutControlItem2,
+            this.emptySpaceItem1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(893, 76);
+            this.layoutControlGroup1.Text = "Default Values";
+            // 
+            // txtDefaultTaxYearValue
+            // 
+            this.txtDefaultTaxYearValue.Enabled = false;
+            this.txtDefaultTaxYearValue.Location = new System.Drawing.Point(302, 50);
+            this.txtDefaultTaxYearValue.Name = "txtDefaultTaxYearValue";
+            this.txtDefaultTaxYearValue.Size = new System.Drawing.Size(122, 22);
+            this.txtDefaultTaxYearValue.StyleController = this.layoutControl1;
+            this.txtDefaultTaxYearValue.TabIndex = 5;
+            // 
             // cmbDefaultTaxYearType
             // 
             this.cmbDefaultTaxYearType.EditValue = "Current Year";
-            this.cmbDefaultTaxYearType.Location = new System.Drawing.Point(119, 12);
+            this.cmbDefaultTaxYearType.Location = new System.Drawing.Point(131, 50);
             this.cmbDefaultTaxYearType.Name = "cmbDefaultTaxYearType";
             this.cmbDefaultTaxYearType.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
@@ -84,7 +120,7 @@
             "Current Year",
             "Custom Value"});
             this.cmbDefaultTaxYearType.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbDefaultTaxYearType.Size = new System.Drawing.Size(184, 22);
+            this.cmbDefaultTaxYearType.Size = new System.Drawing.Size(167, 22);
             this.cmbDefaultTaxYearType.StyleController = this.layoutControl1;
             this.cmbDefaultTaxYearType.TabIndex = 4;
             // 
@@ -93,41 +129,16 @@
             this.layoutControlItem1.Control = this.cmbDefaultTaxYearType;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(295, 26);
+            this.layoutControlItem1.Size = new System.Drawing.Size(278, 26);
             this.layoutControlItem1.Text = "Default Tax Year";
             this.layoutControlItem1.TextSize = new System.Drawing.Size(95, 16);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(480, 0);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(413, 26);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // emptySpaceItem2
-            // 
-            this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 26);
-            this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(893, 649);
-            this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // txtDefaultTaxYearValue
-            // 
-            this.txtDefaultTaxYearValue.Enabled = false;
-            this.txtDefaultTaxYearValue.Location = new System.Drawing.Point(307, 12);
-            this.txtDefaultTaxYearValue.Name = "txtDefaultTaxYearValue";
-            this.txtDefaultTaxYearValue.Size = new System.Drawing.Size(181, 22);
-            this.txtDefaultTaxYearValue.StyleController = this.layoutControl1;
-            this.txtDefaultTaxYearValue.TabIndex = 5;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.txtDefaultTaxYearValue;
-            this.layoutControlItem2.Location = new System.Drawing.Point(295, 0);
+            this.layoutControlItem2.Location = new System.Drawing.Point(278, 0);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(185, 26);
+            this.layoutControlItem2.Size = new System.Drawing.Size(126, 26);
             this.layoutControlItem2.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem2.TextVisible = false;
             // 
@@ -141,11 +152,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtDefaultTaxYearValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cmbDefaultTaxYearType.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtDefaultTaxYearValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
@@ -161,5 +173,6 @@
         private DevExpress.XtraLayout.EmptySpaceItem emptySpaceItem1;
         private DevExpress.XtraEditors.TextEdit txtDefaultTaxYearValue;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem2;
+        private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
     }
 }

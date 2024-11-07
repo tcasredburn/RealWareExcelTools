@@ -170,6 +170,9 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.6, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.6\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -256,6 +259,7 @@
     <Compile Include="Functions\GetSitusHandler.cs" />
     <Compile Include="Functions\ReverseStringHandler.cs" />
     <Compile Include="Modules\AccountSelectionModule.cs" />
+    <Compile Include="Modules\Batch\Controller\IBatchWizardController.cs" />
     <Compile Include="Modules\Batch\Controller\ScriptFileController.cs" />
     <Compile Include="Modules\Batch\Controls\BatchIdSelectionControl.cs">
       <SubType>UserControl</SubType>
@@ -283,6 +287,12 @@
       <DependentUpon>BaseBatchWizardPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Batch\Pages\IRealWareBatchWizardPage.cs" />
+    <Compile Include="Modules\Batch\Pages\PreValidationPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Batch\Pages\PreValidationPage.Designer.cs">
+      <DependentUpon>PreValidationPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Batch\Pages\ProcessingScriptPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -326,6 +336,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Batch\Pages\BaseBatchWizardPage.resx">
       <DependentUpon>BaseBatchWizardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Batch\Pages\PreValidationPage.resx">
+      <DependentUpon>PreValidationPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Batch\Pages\ProcessingScriptPage.resx">
       <DependentUpon>ProcessingScriptPage.cs</DependentUpon>
