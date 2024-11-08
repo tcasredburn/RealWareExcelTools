@@ -35,21 +35,21 @@
             // 
             // progressBarControl1
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(141, 156);
+            this.progressBarControl1.Location = new System.Drawing.Point(58, 36);
             this.progressBarControl1.Name = "progressBarControl1";
             this.progressBarControl1.Size = new System.Drawing.Size(620, 111);
             this.progressBarControl1.TabIndex = 0;
             // 
             // progressBarControl2
             // 
-            this.progressBarControl2.Location = new System.Drawing.Point(141, 287);
+            this.progressBarControl2.Location = new System.Drawing.Point(58, 167);
             this.progressBarControl2.Name = "progressBarControl2";
             this.progressBarControl2.Size = new System.Drawing.Size(620, 111);
             this.progressBarControl2.TabIndex = 1;
             // 
             // progressBarControl3
             // 
-            this.progressBarControl3.Location = new System.Drawing.Point(141, 416);
+            this.progressBarControl3.Location = new System.Drawing.Point(58, 296);
             this.progressBarControl3.Name = "progressBarControl3";
             this.progressBarControl3.Size = new System.Drawing.Size(620, 111);
             this.progressBarControl3.TabIndex = 2;
@@ -62,7 +62,7 @@
             this.Controls.Add(this.progressBarControl2);
             this.Controls.Add(this.progressBarControl1);
             this.Name = "PreValidationPage";
-            this.Size = new System.Drawing.Size(939, 670);
+            this.Size = new System.Drawing.Size(862, 530);
             this.ResumeLayout(false);
 
         }

@@ -12,7 +12,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch
 {
     public partial class BatchValueBuilder : DevExpress.XtraEditors.XtraUserControl, IScriptDataProvider
     {
-        public event EventHandler ScriptChangedEvent;
+        public event EventHandler<bool?> ScriptChangedEvent;
 
         public IDataProvider DataProvider { get; private set; }
 
@@ -57,6 +57,10 @@ namespace RealWareExcelTools.WinCore.Views.Batch
                     link.Visible = false;
 
                     var script = BatchValueScriptFactory.Create(scriptName, !changeValueScript.IsDatabaseOnly, this);
+                    script.ValidateEvent += (sender, isValid) => 
+                    {
+                        ScriptChangedEvent?.Invoke(this, isValid);
+                    };
 
                     scriptItems.Add(script.BatchItem);
 
@@ -70,7 +74,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch
 
                     layoutControlGroup1.AddItem(item);
 
-                    ScriptChangedEvent?.Invoke(this, new EventArgs());
+                    ScriptChangedEvent?.Invoke(this, null);
 
                     script.DeleteScriptEvent += (src, args) =>
                     {
@@ -78,7 +82,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch
                         layoutControlGroup1.Remove(item);
                         layoutControl1.Controls.Remove(script);
                         scriptItems.Remove(script.BatchItem);
-                        ScriptChangedEvent?.Invoke(this, new EventArgs());
+                        ScriptChangedEvent?.Invoke(this, null);
                     };
                 };
             }

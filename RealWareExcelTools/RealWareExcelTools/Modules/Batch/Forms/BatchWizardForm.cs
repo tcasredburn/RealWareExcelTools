@@ -18,7 +18,7 @@ namespace RealWareExcelTools.Modules.Batch.Forms
                 new PreValidationPage(),
                 new SelectModulePage(),
                 new SelectOperationPage(),
-                new SelectScriptPage(),
+                //new SelectScriptPage(),
                 new SetBatchValuesPage(),
                 new ProcessingScriptPage()
             };

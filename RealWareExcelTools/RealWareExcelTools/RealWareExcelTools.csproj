@@ -287,6 +287,9 @@
       <DependentUpon>BaseBatchWizardPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Batch\Pages\IRealWareBatchWizardPage.cs" />
+    <Compile Include="Modules\Batch\Pages\PreSummaryPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Modules\Batch\Pages\PreValidationPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -336,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Batch\Pages\BaseBatchWizardPage.resx">
       <DependentUpon>BaseBatchWizardPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Batch\Pages\PreSummaryPage.resx">
+      <DependentUpon>PreSummaryPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Batch\Pages\PreValidationPage.resx">
       <DependentUpon>PreValidationPage.cs</DependentUpon>

@@ -1,14 +1,7 @@
-﻿using DevExpress.ClipboardSource.SpreadsheetML;
-using DevExpress.XtraEditors;
-using System;
-using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RealWareExcelTools.WinCore.Views.Batch.Items
@@ -21,6 +14,8 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
         private string selectedStaticValue = "";
 
         private readonly bool _isApiLookup;
+
+        public event EventHandler ScriptChangedEvent;
 
         public class LookupItem
         {
@@ -35,6 +30,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             drpValue2.Properties.DataSource = new List<LookupItem>();
             drpValue2.Properties.DisplayMember = "Key";
             drpValue2.Properties.ValueMember = "Key";
+            drpValue2.EditValueChanged += drpValue2_EditValueChanged; ;
         }
 
         public SinglePathBatch(string name, bool isApiLookup, Core.Providers.IScriptDataProvider dataProvider) : this()
@@ -48,26 +44,30 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
 
         public bool IsValid()
         {
+            if(drpValue2.EditValue == null)
+                return false;
+
+            if(string.IsNullOrEmpty(drpValue2.EditValue.ToString()))
+                return false;
+
             return true;
         }
 
         private void refreshView()
         {
-            drpValue.Properties.Items.Clear();
-
             if (toggleUseExcelValue.IsOn)
             {
                 var data = dataProvider.ExcelProvider.GetValidColumnNames();
-                drpValue.Properties.Items.AddRange(data);       //TODO: Need to remove bad columns
-                //drpValue2.Properties.DataSource = data.ToDictionary(x=>x,x=>x);
                 drpValue2.Properties.DataSource = data.Select(x=>new LookupItem() { Key = x, Value = x }).ToList();
+                if(!string.IsNullOrEmpty(selectedExcelValue))
+                    drpValue2.EditValue = selectedExcelValue;
             }
             else
             {
                 var data = getStaticData();
-                drpValue.Properties.Items.AddRange(data);
-                //drpValue2.Properties.DataSource = data;
                 drpValue2.Properties.DataSource = data.Select(x => new LookupItem() { Key = x.Key, Value = x.Value }).ToList();
+                if (!string.IsNullOrEmpty(selectedStaticValue))
+                    drpValue2.EditValue = selectedStaticValue;
             }
             drpValue2.Properties.ForceInitialize();
             drpValue2.Properties.PopulateColumns();
@@ -93,24 +93,22 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
 
         private void toggleUseExcelValue_Toggled(object sender, EventArgs e)
         {
-            drpValue.Text = toggleUseExcelValue.IsOn ? selectedExcelValue : selectedStaticValue;
+            //drpValue2.Text = toggleUseExcelValue.IsOn ? selectedExcelValue : selectedStaticValue;
 
             refreshView();
+            ScriptChangedEvent?.Invoke(this, new EventArgs());
         }
 
-        private void drpValue_TextChanged(object sender, EventArgs e)
+        private void drpValue2_EditValueChanged(object sender, EventArgs e)
         {
-            if(toggleUseExcelValue.IsOn)
-            {
-                selectedExcelValue = drpValue.Text;
-            }
+            if (toggleUseExcelValue.IsOn)
+                selectedExcelValue = (string)drpValue2.EditValue;
             else
-            {
-                selectedStaticValue = drpValue.Text;
-            }
+                selectedStaticValue = (string)drpValue2.EditValue;
 
             refreshView();
+            ScriptChangedEvent?.Invoke(this, new EventArgs());
         }
-        
+
     }
 }

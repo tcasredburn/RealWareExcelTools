@@ -48,7 +48,7 @@
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel1.Size = new System.Drawing.Size(917, 149);
+            this.tablePanel1.Size = new System.Drawing.Size(851, 142);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
@@ -62,7 +62,7 @@
             this.scriptContainer.Margin = new System.Windows.Forms.Padding(4);
             this.scriptContainer.Name = "scriptContainer";
             this.tablePanel1.SetRow(this.scriptContainer, 0);
-            this.scriptContainer.Size = new System.Drawing.Size(783, 116);
+            this.scriptContainer.Size = new System.Drawing.Size(717, 109);
             this.scriptContainer.TabIndex = 1;
             // 
             // btnDelete
@@ -76,7 +76,7 @@
             this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.tablePanel1.SetRow(this.btnDelete, 0);
-            this.btnDelete.Size = new System.Drawing.Size(92, 116);
+            this.btnDelete.Size = new System.Drawing.Size(92, 109);
             this.btnDelete.TabIndex = 0;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -89,7 +89,7 @@
             this.Controls.Add(this.tablePanel1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BatchValueScriptContainer";
-            this.Size = new System.Drawing.Size(917, 149);
+            this.Size = new System.Drawing.Size(851, 142);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.ResumeLayout(false);

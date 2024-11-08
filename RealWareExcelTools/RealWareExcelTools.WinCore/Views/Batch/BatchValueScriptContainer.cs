@@ -1,13 +1,5 @@
-﻿using DevExpress.XtraEditors;
-using RealWareExcelTools.WinCore.Views.Batch.Items;
+﻿using RealWareExcelTools.WinCore.Views.Batch.Items;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace RealWareExcelTools.WinCore.Views.Batch
@@ -18,6 +10,8 @@ namespace RealWareExcelTools.WinCore.Views.Batch
 
         public readonly IBatchScriptItem BatchItem;
 
+        public event EventHandler<bool> ValidateEvent;
+
         public BatchValueScriptContainer()
         {
             InitializeComponent();
@@ -26,6 +20,11 @@ namespace RealWareExcelTools.WinCore.Views.Batch
         public BatchValueScriptContainer(IBatchScriptItem batchItem) : this()
         {
             this.BatchItem = batchItem;
+
+            batchItem.ScriptChangedEvent += (s, e) =>
+            {
+                ValidateEvent?.Invoke(this, batchItem.IsValid());
+            };
 
             var control = batchItem as Control;
             scriptContainer.Controls.Add(control);

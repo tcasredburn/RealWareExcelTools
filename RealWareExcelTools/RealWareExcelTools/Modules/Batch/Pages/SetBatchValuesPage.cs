@@ -18,6 +18,7 @@ namespace RealWareExcelTools.Modules.Batch.Pages
         public string PageDescription => "Specify which fields you will be inserting or updating.";
 
         private BatchValueBuilder builder;
+        private BatchModule? current_module;
 
         public SetBatchValuesPage()
         {
@@ -58,6 +59,11 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         private void loadScriptValueEditor(BatchModule module)
         {
+            if(current_module == module)
+                return;
+
+            current_module = module;
+
             if(builder != null)
             {
                 builder.ScriptChangedEvent -= builder_ScriptChangedEvent;
@@ -91,7 +97,7 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             return new List<ChangeValueScriptInfo>();
         }
 
-        private void builder_ScriptChangedEvent(object sender, EventArgs e)
+        private void builder_ScriptChangedEvent(object sender, bool? isValid)
         {
             RefreshPage();
         }

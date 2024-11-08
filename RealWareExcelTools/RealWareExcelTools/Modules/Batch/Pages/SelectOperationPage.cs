@@ -33,6 +33,20 @@ namespace RealWareExcelTools.Modules.Batch.Pages
         public void OnSavePage()
         {
             Context.Script.Action = getActionFromDropdown();
+
+            Context.Script.SpreadsheetName = cmbExcelSpreadsheet.Text;
+
+            Context.Script.IdValue1 = batchIdSelectionControl1.SelectedValue;
+            Context.Script.IdValue1Type = batchIdSelectionControl1.ValueType;
+            Context.Script.IsIdValue1Static = !batchIdSelectionControl1.UseExcelValue;
+
+            Context.Script.IdValue2 = batchIdSelectionControl2.SelectedValue;
+            Context.Script.IdValue2Type = batchIdSelectionControl2.ValueType;
+            Context.Script.IsIdValue2Static = !batchIdSelectionControl2.UseExcelValue;
+
+            Context.Script.IdValue3 = batchIdSelectionControl3.SelectedValue;
+            Context.Script.IdValue3Type = batchIdSelectionControl3.ValueType;
+            Context.Script.IsIdValue3Static = !batchIdSelectionControl3.UseExcelValue;
         }
 
         public void OnRefreshPage(Direction? direction = null)

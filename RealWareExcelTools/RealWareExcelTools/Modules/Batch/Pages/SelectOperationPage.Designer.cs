@@ -32,32 +32,32 @@
             this.batchIdSelectionControl3 = new RealWareExcelTools.Modules.Batch.Controls.BatchIdSelectionControl();
             this.batchIdSelectionControl2 = new RealWareExcelTools.Modules.Batch.Controls.BatchIdSelectionControl();
             this.batchIdSelectionControl1 = new RealWareExcelTools.Modules.Batch.Controls.BatchIdSelectionControl();
-            this.cmbExcelSpreadsheet = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.cmbBatchAction = new DevExpress.XtraEditors.ComboBoxEdit();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem2 = new DevExpress.XtraLayout.EmptySpaceItem();
-            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem3 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItemId1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem5 = new DevExpress.XtraLayout.EmptySpaceItem();
             this.layoutControlItemId2 = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItemId3 = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem4 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.cmbExcelSpreadsheet = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.cmbBatchAction = new DevExpress.XtraEditors.ComboBoxEdit();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.layoutControlItem2 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbExcelSpreadsheet.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbBatchAction.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemId1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemId2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemId3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbExcelSpreadsheet.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBatchAction.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -97,33 +97,6 @@
             this.batchIdSelectionControl1.Size = new System.Drawing.Size(401, 103);
             this.batchIdSelectionControl1.TabIndex = 5;
             // 
-            // cmbExcelSpreadsheet
-            // 
-            this.cmbExcelSpreadsheet.Location = new System.Drawing.Point(12, 84);
-            this.cmbExcelSpreadsheet.Name = "cmbExcelSpreadsheet";
-            this.cmbExcelSpreadsheet.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbExcelSpreadsheet.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbExcelSpreadsheet.Size = new System.Drawing.Size(401, 22);
-            this.cmbExcelSpreadsheet.StyleController = this.layoutControl1;
-            this.cmbExcelSpreadsheet.TabIndex = 4;
-            // 
-            // cmbBatchAction
-            // 
-            this.cmbBatchAction.EditValue = "Create new {0}s";
-            this.cmbBatchAction.Location = new System.Drawing.Point(12, 31);
-            this.cmbBatchAction.Name = "cmbBatchAction";
-            this.cmbBatchAction.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cmbBatchAction.Properties.Items.AddRange(new object[] {
-            "Create new {0}s",
-            "Update existing {0}s",
-            "Delete existing {0}s"});
-            this.cmbBatchAction.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
-            this.cmbBatchAction.Size = new System.Drawing.Size(265, 22);
-            this.cmbBatchAction.StyleController = this.layoutControl1;
-            this.cmbBatchAction.TabIndex = 0;
-            // 
             // Root
             // 
             this.Root.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
@@ -142,17 +115,6 @@
             this.Root.Size = new System.Drawing.Size(830, 496);
             this.Root.TextVisible = false;
             // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.cmbBatchAction;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 10);
-            this.layoutControlItem1.Size = new System.Drawing.Size(269, 53);
-            this.layoutControlItem1.Text = "What are you trying to do?";
-            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(152, 16);
-            // 
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
@@ -160,17 +122,6 @@
             this.emptySpaceItem2.Name = "emptySpaceItem2";
             this.emptySpaceItem2.Size = new System.Drawing.Size(541, 53);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // layoutControlItem2
-            // 
-            this.layoutControlItem2.Control = this.cmbExcelSpreadsheet;
-            this.layoutControlItem2.Location = new System.Drawing.Point(0, 53);
-            this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 10);
-            this.layoutControlItem2.Size = new System.Drawing.Size(405, 53);
-            this.layoutControlItem2.Text = "Spreadsheet";
-            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
-            this.layoutControlItem2.TextSize = new System.Drawing.Size(152, 16);
             // 
             // emptySpaceItem3
             // 
@@ -232,6 +183,55 @@
             this.emptySpaceItem4.Size = new System.Drawing.Size(810, 49);
             this.emptySpaceItem4.TextSize = new System.Drawing.Size(0, 0);
             // 
+            // cmbExcelSpreadsheet
+            // 
+            this.cmbExcelSpreadsheet.Location = new System.Drawing.Point(12, 84);
+            this.cmbExcelSpreadsheet.Name = "cmbExcelSpreadsheet";
+            this.cmbExcelSpreadsheet.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbExcelSpreadsheet.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbExcelSpreadsheet.Size = new System.Drawing.Size(401, 22);
+            this.cmbExcelSpreadsheet.StyleController = this.layoutControl1;
+            this.cmbExcelSpreadsheet.TabIndex = 4;
+            // 
+            // cmbBatchAction
+            // 
+            this.cmbBatchAction.EditValue = "Create new {0}s";
+            this.cmbBatchAction.Location = new System.Drawing.Point(12, 31);
+            this.cmbBatchAction.Name = "cmbBatchAction";
+            this.cmbBatchAction.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.cmbBatchAction.Properties.Items.AddRange(new object[] {
+            "Create new {0}s",
+            "Update existing {0}s",
+            "Delete existing {0}s"});
+            this.cmbBatchAction.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
+            this.cmbBatchAction.Size = new System.Drawing.Size(265, 22);
+            this.cmbBatchAction.StyleController = this.layoutControl1;
+            this.cmbBatchAction.TabIndex = 0;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.cmbBatchAction;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 10);
+            this.layoutControlItem1.Size = new System.Drawing.Size(269, 53);
+            this.layoutControlItem1.Text = "What are you trying to do?";
+            this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(152, 16);
+            // 
+            // layoutControlItem2
+            // 
+            this.layoutControlItem2.Control = this.cmbExcelSpreadsheet;
+            this.layoutControlItem2.Location = new System.Drawing.Point(0, 53);
+            this.layoutControlItem2.Name = "layoutControlItem2";
+            this.layoutControlItem2.Padding = new DevExpress.XtraLayout.Utils.Padding(2, 2, 2, 10);
+            this.layoutControlItem2.Size = new System.Drawing.Size(405, 53);
+            this.layoutControlItem2.Text = "Spreadsheet";
+            this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
+            this.layoutControlItem2.TextSize = new System.Drawing.Size(152, 16);
+            // 
             // SelectOperationPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
@@ -241,18 +241,18 @@
             this.Size = new System.Drawing.Size(830, 496);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.cmbExcelSpreadsheet.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbBatchAction.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemId1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemId2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemId3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbExcelSpreadsheet.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbBatchAction.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem2)).EndInit();
             this.ResumeLayout(false);
 
         }
