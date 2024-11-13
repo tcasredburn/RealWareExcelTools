@@ -65,7 +65,7 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
             cmbBatchAction.Properties.Items.Clear();
             cmbBatchAction.Properties.Items.AddRange(items.ToList());
-            cmbBatchAction.SelectedIndex = 0;
+            cmbBatchAction.SelectedIndex = 1;
         }
 
         private void refreshIdColumns()

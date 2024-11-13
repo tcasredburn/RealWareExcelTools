@@ -1,5 +1,7 @@
-﻿using DevExpress.XtraEditors;
+﻿using DevExpress.Data.Utils;
+using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.Services;
+using DevExpress.XtraSplashScreen;
 using DevExpress.XtraWizard;
 using RealWareExcelTools.Core;
 using RealWareExcelTools.Core.Modules.RealWareApiAssistant;
@@ -16,6 +18,8 @@ namespace RealWareExcelTools.Modules.Batch.Pages
         public string PageTitle => "Processing";
 
         public string PageDescription => "View process and logging for the script.";
+
+        IOverlaySplashScreenHandle generateScriptHandle;
 
         public ProcessingScriptPage()
         {
@@ -37,6 +41,8 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         private void generateRealWareApiAssistantScript()
         {
+            generateScriptHandle = WinCore.Helpers.Progress.CreateProgressPanel(txtScriptLog);
+
             clearConsole();
 
             BatchRealWareScriptGenerator controller = 
@@ -45,6 +51,15 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             var script = controller.GenerateScript(Context.Script, Context.BatchScriptDirectory);
 
             SetScript(script);
+        }
+
+        /// <summary>
+        /// Stops the loading of the txtScriptLog.
+        /// </summary>
+        public void StopLoading()
+        {
+            WinCore.Helpers.Progress.CloseProgressPanel(generateScriptHandle);
+            generateScriptHandle = null;
         }
 
         public void SetScript(ApiScript apiScript)

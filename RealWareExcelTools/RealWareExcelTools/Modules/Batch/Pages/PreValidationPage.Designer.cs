@@ -28,31 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.progressBarControl1 = new RealWareExcelTools.WinCore.Views.Processing.ProgressBarControl();
-            this.progressBarControl2 = new RealWareExcelTools.WinCore.Views.Processing.ProgressBarControl();
             this.progressBarControl3 = new RealWareExcelTools.WinCore.Views.Processing.ProgressBarControl();
+            this.progressBarControl2 = new RealWareExcelTools.WinCore.Views.Processing.ProgressBarControl();
+            this.progressBarControl1 = new RealWareExcelTools.WinCore.Views.Processing.ProgressBarControl();
             this.SuspendLayout();
             // 
-            // progressBarControl1
+            // progressBarControl3
             // 
-            this.progressBarControl1.Location = new System.Drawing.Point(58, 36);
-            this.progressBarControl1.Name = "progressBarControl1";
-            this.progressBarControl1.Size = new System.Drawing.Size(620, 111);
-            this.progressBarControl1.TabIndex = 0;
+            this.progressBarControl3.Location = new System.Drawing.Point(85, 296);
+            this.progressBarControl3.Name = "progressBarControl3";
+            this.progressBarControl3.Size = new System.Drawing.Size(620, 111);
+            this.progressBarControl3.TabIndex = 2;
             // 
             // progressBarControl2
             // 
-            this.progressBarControl2.Location = new System.Drawing.Point(58, 167);
+            this.progressBarControl2.Location = new System.Drawing.Point(85, 167);
             this.progressBarControl2.Name = "progressBarControl2";
             this.progressBarControl2.Size = new System.Drawing.Size(620, 111);
             this.progressBarControl2.TabIndex = 1;
             // 
-            // progressBarControl3
+            // progressBarControl1
             // 
-            this.progressBarControl3.Location = new System.Drawing.Point(58, 296);
-            this.progressBarControl3.Name = "progressBarControl3";
-            this.progressBarControl3.Size = new System.Drawing.Size(620, 111);
-            this.progressBarControl3.TabIndex = 2;
+            this.progressBarControl1.Location = new System.Drawing.Point(85, 36);
+            this.progressBarControl1.Name = "progressBarControl1";
+            this.progressBarControl1.Size = new System.Drawing.Size(620, 111);
+            this.progressBarControl1.TabIndex = 0;
             // 
             // PreValidationPage
             // 
