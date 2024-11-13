@@ -49,7 +49,7 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         private string getValueText()
         {
-
+            return "Not implemented yet";
         }
 
         private void InitializeComponent()

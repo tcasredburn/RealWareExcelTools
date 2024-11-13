@@ -6,6 +6,8 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
     {
         event EventHandler ScriptChangedEvent;
 
+        BatchScriptMappingInfo GetBatchInfo();
+
         bool IsValid();
     }
 }

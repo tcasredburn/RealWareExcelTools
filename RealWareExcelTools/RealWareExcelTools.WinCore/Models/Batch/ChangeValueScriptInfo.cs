@@ -5,6 +5,7 @@ namespace RealWareExcelTools.WinCore.Models.Batch
     public class ChangeValueScriptInfo
     {
         public string ScriptName { get; set; }
+        public string ApiPath { get; set; }
         public string OptionCategory { get; set; }
         public string OptionName { get; set; }
         /// <summary>
@@ -23,12 +24,14 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Land Economic Area",
+                    ApiPath = "Account.LandAbstracts[].LEA",
                     OptionCategory = "RealAccount",
                     OptionName = "LEA"
                 },
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Neighborhood",
+                    ApiPath = "Account.Neighborhoods[].NbhdCode",
                     OptionCategory = "TblAcctNbhd",
                     OptionName = "NbhdCode",
                     IsDatabaseOnly = true
@@ -36,6 +39,7 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Economic Area",
+                    ApiPath = "Account.EconomicAreaCode",
                     OptionCategory = "TlkpEconomicArea",
                     OptionName = "EconomicAreaCode",
                     IsDatabaseOnly = true
@@ -43,6 +47,7 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Visual Inspection Area",
+                    ApiPath = "Account.ValueAreaCode",
                     OptionCategory = "TlkpValueArea",
                     OptionName = "ValueAreaCode",
                     IsDatabaseOnly = true
@@ -58,18 +63,21 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Quality",
+                    ApiPath = "ImpQuality",
                     OptionCategory = "Improvements",
                     OptionName = "ImpsQuality"
                 },
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Condition",
+                    ApiPath = "ImpConditionType",
                     OptionCategory = "Improvements",
                     OptionName = "ImpConditionType"
                 },
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Exterior Type",
+                    ApiPath = "BuiltAs[].ImpExterior",
                     OptionCategory = "TlkpImpsExteriorType",            //TODO
                     OptionName = "ImpExterior",
                     IsDatabaseOnly = true
@@ -77,6 +85,7 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Roof Type",
+                    ApiPath = "BuiltAs[].RoofType",
                     OptionCategory = "TlkpImpsRoofType",                //TODO
                     OptionName = "ImpConditionType",
                     IsDatabaseOnly = true
@@ -84,6 +93,7 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Roof Cover",
+                    ApiPath = "BuiltAs[].RoofCover",
                     OptionCategory = "TlkpImpsResRoofCoverType",        //TODO
                     OptionName = "RoofCover",
                     IsDatabaseOnly = true
@@ -98,12 +108,14 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Exclude Code 1",
+                    ApiPath = "ExcludeCode1",
                     OptionCategory = "Sales",
                     OptionName = "SaleExclude"
                 },
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Exclude Code 2",
+                    ApiPath = "ExcludeCode2",
                     OptionCategory = "Sales",
                     OptionName = "SaleExclude"
                 }

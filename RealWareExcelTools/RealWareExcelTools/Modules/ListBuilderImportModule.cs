@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace RealWareExcelTools.Modules
 {
-    public class ListBuilderImportModule : IRealWareExcelModule
+    public class List : IRealWareExcelModule
     {
         private readonly ThisAddIn _addIn;
 
-        public ListBuilderImportModule(ThisAddIn addIn)
+        public List(ThisAddIn addIn)
         {
             this._addIn = addIn;
         }

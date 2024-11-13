@@ -7,6 +7,8 @@ namespace RealWareExcelTools.Modules.Batch.Pages
     {
         public virtual bool IsPageValid { get; set; } = true;
 
+        public virtual bool AllowPrevious { get; set; } = true;
+
         public BatchWizardContext Context { get; private set; }
 
         public BaseBatchWizardPage()

@@ -6,8 +6,7 @@ using RealWareExcelTools.Core.Settings.Database;
 using RealWareExcelTools.Core.Settings.Plugins;
 using RealWareExcelTools.Modules.Batch.Controller;
 using RealWareExcelTools.Modules.Batch.Forms;
-using System.ComponentModel;
-using System.Windows.Forms;
+using System.IO;
 
 namespace RealWareExcelTools.Modules.Batch.Models
 {
@@ -26,11 +25,18 @@ namespace RealWareExcelTools.Modules.Batch.Models
         public readonly RealWareDbConnectionSettings DbSettings;
         public readonly BatchWizardSettings Settings;
 
+        public readonly string BatchScriptDirectory;
+
         public BatchWizardContext(ExcelController controller, RealWareApiConnectionSettings apiSettings,
-            BatchWizardSettings settings, RealWareDbConnectionSettings dbSettings)
+            BatchWizardSettings settings, RealWareDbConnectionSettings dbSettings, string excelFileName)
         {
-            Script = new BatchConfigurationScript();
+            Script = new BatchConfigurationScript()
+            {
+                ExcelFilePath = excelFileName
+            };
             File = new ScriptFileController(settings.ScriptsDirectory);
+
+            BatchScriptDirectory = Path.GetDirectoryName(excelFileName);
 
             ExcelController = controller;
             ApiSettings = apiSettings;

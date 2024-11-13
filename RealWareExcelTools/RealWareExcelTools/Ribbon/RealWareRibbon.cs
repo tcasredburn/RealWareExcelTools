@@ -5,7 +5,9 @@ using RealWareExcelTools.Modules.Batch.Models;
 using RealWareExcelTools.Properties;
 using RealWareExcelTools.WinCore.Forms;
 using RealWareExcelTools.WinCore.Validation;
+using System;
 using System.Drawing;
+using System.IO;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
@@ -135,21 +137,60 @@ namespace RealWareExcelTools.Ribbon
             => isConnectedToRealWare;
 
         public bool GetImportFromListBuilderVisible(IRibbonControl control)
-            => _addIn.HasModule<ListBuilderImportModule>();
+            => _addIn.HasModule<List>();
         #endregion
 
         #region BatchAccounts
         public void OnBatchAccountsClick(IRibbonControl control)
         {
+            var currentWorkbook = _addIn.Application.ActiveWorkbook;
+
+            if(currentWorkbook == null)
+            {
+                MessageBox.Show("No workbook is currently active.\r\n\r\nYou must have a workbook loaded to use the batch feature.", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string timestamp = DateTime.Now.ToString("yyyyMMdd_hhmmss");
+            string destinationPath = _addIn.Settings.BatchWizardSettings.ScriptsDirectory + "\\" + timestamp;
+
+            try
+            {
+                System.IO.Directory.CreateDirectory(destinationPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to create directory for batch wizard scripts: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            
+            string originalFileName = currentWorkbook.Name;
+            var excelFileName = Path.Combine(destinationPath, originalFileName);
+            try
+            {
+                currentWorkbook.SaveCopyAs(excelFileName);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to save workbook copy: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Load the batch wizard
             var context = new BatchWizardContext(
                 _addIn.ExcelController, 
                 _addIn.Settings.RealWareApiConnectionSettings, 
                 _addIn.Settings.BatchWizardSettings,
-                _addIn.Settings.RealWareDbConnectionSettings);
+                _addIn.Settings.RealWareDbConnectionSettings,
+                excelFileName);
 
             var form = new BatchWizardForm(context);
             if (form.ShowDialog() == DialogResult.OK)
             {
+                form.RunScript(_addIn.Settings.BatchWizardSettings.RealWareApiAssistantExePath);
+
                 _addIn.SaveSettings();
             }
         }

@@ -104,6 +104,7 @@
     </Compile>
     <Compile Include="Helpers\Progress.cs" />
     <Compile Include="Models\Batch\ChangeValueScriptInfo.cs" />
+    <Compile Include="Models\Batch\DataSourceType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -123,6 +124,7 @@
     <Compile Include="Views\Batch\BatchValueScriptContainer.Designer.cs">
       <DependentUpon>BatchValueScriptContainer.cs</DependentUpon>
     </Compile>
+    <Compile Include="Views\Batch\Items\BatchScriptMappingInfo.cs" />
     <Compile Include="Views\Batch\Items\IBatchScriptItem.cs" />
     <Compile Include="Views\Batch\Items\SinglePathBatch.cs">
       <SubType>UserControl</SubType>

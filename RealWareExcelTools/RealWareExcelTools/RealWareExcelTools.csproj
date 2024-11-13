@@ -259,6 +259,7 @@
     <Compile Include="Functions\GetSitusHandler.cs" />
     <Compile Include="Functions\ReverseStringHandler.cs" />
     <Compile Include="Modules\AccountSelectionModule.cs" />
+    <Compile Include="Modules\Batch\Controller\BatchRealWareScriptGenerator.cs" />
     <Compile Include="Modules\Batch\Controller\IBatchWizardController.cs" />
     <Compile Include="Modules\Batch\Controller\ScriptFileController.cs" />
     <Compile Include="Modules\Batch\Controls\BatchIdSelectionControl.cs">
@@ -278,6 +279,7 @@
     <Compile Include="Modules\Batch\Models\BatchModule.cs" />
     <Compile Include="Modules\Batch\Models\BatchScript.cs" />
     <Compile Include="Modules\Batch\Models\BatchScriptMapping.cs" />
+    <Compile Include="Modules\Batch\Models\BatchScriptMappingValue.cs" />
     <Compile Include="Modules\Batch\Models\BatchWizardContext.cs" />
     <Compile Include="Modules\Batch\Models\IdValueType.cs" />
     <Compile Include="Modules\Batch\Pages\BaseBatchWizardPage.cs">
@@ -327,6 +329,7 @@
       <DependentUpon>SetBatchValuesPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Batch\Providers\RealWareDataProvider.cs" />
+    <Compile Include="Modules\Batch\Services\CustomSyntaxHighlightService.cs" />
     <Compile Include="Modules\ListBuilderImportModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>

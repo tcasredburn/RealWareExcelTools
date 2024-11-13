@@ -4,10 +4,10 @@ using RealWareExcelTools.Modules.Batch.Models;
 using RealWareExcelTools.Modules.Batch.Providers;
 using RealWareExcelTools.WinCore.Models.Batch;
 using RealWareExcelTools.WinCore.Views.Batch;
+using RealWareExcelTools.WinCore.Views.Batch.Items;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 
 namespace RealWareExcelTools.Modules.Batch.Pages
 {
@@ -27,7 +27,19 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         public void OnSavePage()
         {
+            Context.Script.MappingInfo = getMappingInfoList();
+        }
 
+        private List<BatchScriptMappingInfo> getMappingInfoList()
+        {
+            var result = new List<BatchScriptMappingInfo>();
+
+            builder.GetBatchValueItems().ForEach(x =>
+            {
+                result.Add(x.GetBatchInfo());
+            });
+
+            return result;
         }
 
         protected override void OnFirstLoad()

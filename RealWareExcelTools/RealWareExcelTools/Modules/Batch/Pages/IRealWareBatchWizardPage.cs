@@ -6,6 +6,8 @@ namespace RealWareExcelTools.Modules.Batch.Pages
     public interface IRealWareBatchWizardPage
     {
         bool IsPageValid { get; }
+        bool AllowPrevious { get; set; }
+
         string PageTitle { get; }
         string PageDescription { get; }
 

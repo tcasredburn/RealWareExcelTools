@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RealWareExcelTools.WinCore.Models.Batch;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,6 +14,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
         private string selectedExcelValue = "";
         private string selectedStaticValue = "";
 
+        private readonly string _apiPath;
         private readonly bool _isApiLookup;
 
         public event EventHandler ScriptChangedEvent;
@@ -33,9 +35,10 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             drpValue2.EditValueChanged += drpValue2_EditValueChanged; ;
         }
 
-        public SinglePathBatch(string name, bool isApiLookup, Core.Providers.IScriptDataProvider dataProvider) : this()
+        public SinglePathBatch(string name, string apiPath, bool isApiLookup, Core.Providers.IScriptDataProvider dataProvider) : this()
         {
             txtName.Text = name;
+            _apiPath = apiPath;
             _isApiLookup = isApiLookup;
             this.dataProvider = dataProvider;
 
@@ -110,5 +113,17 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             ScriptChangedEvent?.Invoke(this, new EventArgs());
         }
 
+        public BatchScriptMappingInfo GetBatchInfo()
+        {
+            string realWareColumnName = _apiPath.Split('.').Last();
+
+            return new BatchScriptMappingInfo()
+            {
+                DataSourceType = toggleUseExcelValue.IsOn ? DataSourceType.Excel : DataSourceType.Static,
+                DataSourceName = toggleUseExcelValue.IsOn ? selectedExcelValue : selectedStaticValue,
+                RealWarePath = _apiPath,
+                RealWareColumnName = realWareColumnName
+            };
+        }
     }
 }

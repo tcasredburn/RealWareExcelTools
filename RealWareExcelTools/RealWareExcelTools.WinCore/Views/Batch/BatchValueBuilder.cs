@@ -56,7 +56,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch
                 {
                     link.Visible = false;
 
-                    var script = BatchValueScriptFactory.Create(scriptName, !changeValueScript.IsDatabaseOnly, this);
+                    var script = BatchValueScriptFactory.Create(scriptName, changeValueScript.ApiPath, !changeValueScript.IsDatabaseOnly, this);
                     script.ValidateEvent += (sender, isValid) => 
                     {
                         ScriptChangedEvent?.Invoke(this, isValid);

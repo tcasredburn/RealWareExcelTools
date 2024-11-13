@@ -31,8 +31,8 @@
             this.wizardControl1 = new DevExpress.XtraWizard.WizardControl();
             this.pageWelcome = new DevExpress.XtraWizard.WelcomeWizardPage();
             this.chkSkipFirstPage = new DevExpress.XtraEditors.CheckEdit();
-            this.pageSelectModule = new DevExpress.XtraWizard.WizardPage();
             this.completionWizardPage1 = new DevExpress.XtraWizard.CompletionWizardPage();
+            this.pageSelectModule = new DevExpress.XtraWizard.WizardPage();
             this.pageSelectOperation = new DevExpress.XtraWizard.WizardPage();
             ((System.ComponentModel.ISupportInitialize)(this.wizardControl1)).BeginInit();
             this.wizardControl1.SuspendLayout();
@@ -74,6 +74,14 @@
             this.chkSkipFirstPage.TabIndex = 0;
             this.chkSkipFirstPage.CheckedChanged += new System.EventHandler(this.chkSkipFirstPage_CheckedChanged);
             // 
+            // completionWizardPage1
+            // 
+            this.completionWizardPage1.FinishText = "You have successfully completed the RealWare batch wizard.\r\n\r\n";
+            this.completionWizardPage1.Margin = new System.Windows.Forms.Padding(4);
+            this.completionWizardPage1.Name = "completionWizardPage1";
+            this.completionWizardPage1.ProceedText = "To close this wizard and start the script, click Finish";
+            this.completionWizardPage1.Size = new System.Drawing.Size(717, 480);
+            // 
             // pageSelectModule
             // 
             this.pageSelectModule.DescriptionText = "What type of object would you like to batch?";
@@ -81,12 +89,6 @@
             this.pageSelectModule.Name = "pageSelectModule";
             this.pageSelectModule.Size = new System.Drawing.Size(933, 466);
             this.pageSelectModule.Text = "";
-            // 
-            // completionWizardPage1
-            // 
-            this.completionWizardPage1.Margin = new System.Windows.Forms.Padding(4);
-            this.completionWizardPage1.Name = "completionWizardPage1";
-            this.completionWizardPage1.Size = new System.Drawing.Size(717, 480);
             // 
             // pageSelectOperation
             // 

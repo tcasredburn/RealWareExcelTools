@@ -3,10 +3,10 @@ using RealWareExcelTools.Modules.Batch.Models;
 using System;
 using RealWareExcelTools.Modules.Batch.Pages;
 using System.Collections.Generic;
-using DevExpress.Utils.Extensions;
 using DevExpress.XtraEditors;
 using RealWareExcelTools.Modules.Batch.Controller;
-using DevExpress.XtraBars;
+using System.Windows.Forms;
+using System.IO;
 
 namespace RealWareExcelTools.Modules.Batch.Forms
 {
@@ -20,6 +20,7 @@ namespace RealWareExcelTools.Modules.Batch.Forms
                 new SelectOperationPage(),
                 //new SelectScriptPage(),
                 new SetBatchValuesPage(),
+                new PreSummaryPage(),
                 new ProcessingScriptPage()
             };
 
@@ -104,8 +105,22 @@ namespace RealWareExcelTools.Modules.Batch.Forms
             if(wizardControl1.SelectedPage != null 
                 && _wizardPageDictionary.TryGetValue(wizardControl1.SelectedPage, out IRealWareBatchWizardPage page))
             {
+                wizardControl1.SelectedPage.AllowBack = page.AllowPrevious;
                 wizardControl1.SelectedPage.AllowNext = page.IsPageValid;
                 page.OnRefreshPage();
+            }
+        }
+
+        internal void RunScript(string realWareApiExecutablePath)
+        {
+            try
+            {
+                string scriptFullPath = Path.Combine(_context.BatchScriptDirectory, _context.Script.ScriptName);
+                System.Diagnostics.Process.Start(realWareApiExecutablePath, scriptFullPath);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Reason:\r\n" + ex.Message, "Failed to run batch script");
             }
         }
     }
