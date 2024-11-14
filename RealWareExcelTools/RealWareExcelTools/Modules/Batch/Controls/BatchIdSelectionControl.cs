@@ -12,6 +12,7 @@ namespace RealWareExcelTools.Modules.Batch.Controls
         public string SelectedValue => cmbIdValue.Text ?? string.Empty;
         public bool UseExcelValue => chkUseExcelValue.Checked;
 
+        public event EventHandler OnValueChangedEvent;
         public event EventHandler<IdValueType> OnSetValueEvent;
         public event EventHandler<bool> OnWorksheetChangedEvent;
 
@@ -20,6 +21,12 @@ namespace RealWareExcelTools.Modules.Batch.Controls
             InitializeComponent();
 
             chkUseExcelValue.CheckedChanged += (s,e) => refreshComboBoxDropdownVisibility();
+            cmbIdValue.TextChanged += cmbIdValue_TextChanged;
+        }
+
+        private void cmbIdValue_TextChanged(object sender, EventArgs e)
+        {
+            OnValueChangedEvent?.Invoke(this, EventArgs.Empty);
         }
 
         public void SetIdColumn(IdValueType valueType)

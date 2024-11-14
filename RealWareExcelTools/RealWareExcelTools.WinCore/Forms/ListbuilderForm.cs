@@ -2,12 +2,9 @@
 using Newtonsoft.Json;
 using RealWare.Core.API;
 using RealWare.Core.API.Models;
-using RealWareExcelTools.Core.Settings;
 using RealWareExcelTools.Core.Settings.General;
-using RealWareExcelTools.WinCore.Views.ListBuilder;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Threading;

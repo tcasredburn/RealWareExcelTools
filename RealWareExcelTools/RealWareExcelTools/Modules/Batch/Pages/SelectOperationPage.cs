@@ -28,6 +28,9 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             batchIdSelectionControl1.OnWorksheetChangedEvent += refreshWorkSheetColumnNames;
             batchIdSelectionControl2.OnWorksheetChangedEvent += refreshWorkSheetColumnNames;
             batchIdSelectionControl3.OnWorksheetChangedEvent += refreshWorkSheetColumnNames;
+            batchIdSelectionControl1.OnValueChangedEvent += (s,e) => RefreshPage();
+            batchIdSelectionControl2.OnValueChangedEvent += (s, e) => RefreshPage();
+            batchIdSelectionControl3.OnValueChangedEvent += (s, e) => RefreshPage();
         }
 
         public void OnSavePage()
@@ -51,9 +54,30 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         public void OnRefreshPage(Direction? direction = null)
         {
-            refreshSpreadsheetDropdown();
-            refreshApiOperationDropdown();
+            if(direction == Direction.Forward)
+            {
+                refreshSpreadsheetDropdown();
+                refreshApiOperationDropdown();
+            }
             refreshIdColumns();
+            refreshUnsupportedMessage();
+        }
+
+        public override bool OnValidatePage()
+        {
+            return batchIdSelectionControl1.IsValid() 
+                && batchIdSelectionControl2.IsValid() 
+                && batchIdSelectionControl3.IsValid()
+                && cmbBatchAction.SelectedIndex == 1
+                && !string.IsNullOrEmpty(cmbExcelSpreadsheet.Text);
+        }
+
+        private void refreshSpreadsheetDropdown()
+        {
+            cmbExcelSpreadsheet.Properties.Items.Clear();
+            cmbExcelSpreadsheet.Properties.Items.AddRange(Context.ExcelController.GetSheetNames().ToArray());
+            if (cmbExcelSpreadsheet.SelectedIndex == -1)
+                cmbExcelSpreadsheet.SelectedIndex = 0;
         }
 
         private void refreshApiOperationDropdown()
@@ -128,14 +152,6 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             }
         }
 
-        private void refreshSpreadsheetDropdown()
-        {
-            cmbExcelSpreadsheet.Properties.Items.Clear();
-            cmbExcelSpreadsheet.Properties.Items.AddRange(Context.ExcelController.GetSheetNames().ToArray());
-            if (cmbExcelSpreadsheet.SelectedIndex == -1)
-                cmbExcelSpreadsheet.SelectedIndex = 0;
-        }
-
         private void refreshSetValueVisibility(object sender, IdValueType e)
         {
             var isVisible = !(e == IdValueType.None);
@@ -182,6 +198,16 @@ namespace RealWareExcelTools.Modules.Batch.Pages
                 columnNames.Remove(batchIdSelectionControl3.SelectedValue);
 
             return columnNames;
+        }
+
+        private void cmbBatchAction_SelectedValueChanged(object sender, EventArgs e)
+            => refreshUnsupportedMessage();
+
+        private void refreshUnsupportedMessage()
+        {
+            lblCreateDeleteUnsupportedMessage.Visibility = (cmbBatchAction.SelectedIndex != 1)
+                            ? DevExpress.XtraLayout.Utils.LayoutVisibility.Always
+                            : DevExpress.XtraLayout.Utils.LayoutVisibility.Never;
         }
     }
 }

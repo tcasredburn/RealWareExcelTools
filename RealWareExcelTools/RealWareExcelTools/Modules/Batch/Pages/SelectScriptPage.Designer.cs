@@ -54,15 +54,15 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1106, 765);
+            this.layoutControl1.Size = new System.Drawing.Size(1383, 956);
             this.layoutControl1.TabIndex = 0;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // lstScripts
             // 
-            this.lstScripts.Location = new System.Drawing.Point(120, 226);
+            this.lstScripts.Location = new System.Drawing.Point(148, 276);
             this.lstScripts.Name = "lstScripts";
-            this.lstScripts.Size = new System.Drawing.Size(974, 527);
+            this.lstScripts.Size = new System.Drawing.Size(1223, 668);
             this.lstScripts.StyleController = this.layoutControl1;
             this.lstScripts.TabIndex = 5;
             // 
@@ -75,15 +75,15 @@
             this.layoutControlItem2,
             this.emptySpaceItem2});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1106, 765);
+            this.Root.Size = new System.Drawing.Size(1383, 956);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem2
             // 
             this.layoutControlItem2.Control = this.lstScripts;
-            this.layoutControlItem2.Location = new System.Drawing.Point(108, 195);
+            this.layoutControlItem2.Location = new System.Drawing.Point(136, 245);
             this.layoutControlItem2.Name = "layoutControlItem2";
-            this.layoutControlItem2.Size = new System.Drawing.Size(978, 550);
+            this.layoutControlItem2.Size = new System.Drawing.Size(1227, 691);
             this.layoutControlItem2.Text = "Select the script";
             this.layoutControlItem2.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem2.TextSize = new System.Drawing.Size(108, 16);
@@ -91,9 +91,9 @@
             // emptySpaceItem2
             // 
             this.emptySpaceItem2.AllowHotTrack = false;
-            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 195);
+            this.emptySpaceItem2.Location = new System.Drawing.Point(0, 245);
             this.emptySpaceItem2.Name = "emptySpaceItem2";
-            this.emptySpaceItem2.Size = new System.Drawing.Size(108, 550);
+            this.emptySpaceItem2.Size = new System.Drawing.Size(136, 691);
             this.emptySpaceItem2.TextSize = new System.Drawing.Size(0, 0);
             // 
             // grpNewScript
@@ -105,7 +105,7 @@
             this.grpNewScript.Properties.Items.AddRange(new DevExpress.XtraEditors.Controls.RadioGroupItem[] {
             new DevExpress.XtraEditors.Controls.RadioGroupItem(true, "New script"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(false, "Existing Script")});
-            this.grpNewScript.Size = new System.Drawing.Size(1082, 172);
+            this.grpNewScript.Size = new System.Drawing.Size(1359, 222);
             this.grpNewScript.StyleController = this.layoutControl1;
             this.grpNewScript.TabIndex = 4;
             // 
@@ -114,7 +114,7 @@
             this.layoutControlItem1.Control = this.grpNewScript;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1086, 195);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1363, 245);
             this.layoutControlItem1.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItem1.TextSize = new System.Drawing.Size(108, 16);
             // 
@@ -124,7 +124,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
             this.Name = "SelectScriptPage";
-            this.Size = new System.Drawing.Size(1106, 765);
+            this.Size = new System.Drawing.Size(1383, 956);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.lstScripts)).EndInit();

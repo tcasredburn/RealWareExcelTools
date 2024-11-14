@@ -5,8 +5,6 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 {
     public partial class BaseBatchWizardPage : DevExpress.XtraEditors.XtraUserControl
     {
-        public virtual bool IsPageValid { get; set; } = true;
-
         public virtual bool AllowPrevious { get; set; } = true;
 
         public BatchWizardContext Context { get; private set; }
@@ -25,5 +23,7 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         public virtual void RefreshPage()
             => Context.BatchWizardController.RefreshPage();
+
+        public virtual bool OnValidatePage() => true;
     }
 }

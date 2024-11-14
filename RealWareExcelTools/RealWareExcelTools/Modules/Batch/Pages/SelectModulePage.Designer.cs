@@ -43,7 +43,7 @@
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(2)), "Improvement"),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(3)), "Permit", false),
             new DevExpress.XtraEditors.Controls.RadioGroupItem(((short)(4)), "Sale")});
-            this.grpModuleType.Size = new System.Drawing.Size(667, 470);
+            this.grpModuleType.Size = new System.Drawing.Size(834, 588);
             this.grpModuleType.TabIndex = 1;
             // 
             // SelectModulePage
@@ -52,7 +52,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.grpModuleType);
             this.Name = "SelectModulePage";
-            this.Size = new System.Drawing.Size(667, 470);
+            this.Size = new System.Drawing.Size(834, 588);
             ((System.ComponentModel.ISupportInitialize)(this.grpModuleType.Properties)).EndInit();
             this.ResumeLayout(false);
 

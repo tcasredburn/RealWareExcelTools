@@ -25,9 +25,34 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             InitializeComponent();
         }
 
+        protected override void OnFirstLoad()
+        {
+            Context.DataProvider = new RealWareDataProvider(
+                Context.ApiSettings.GetRealWareApiConnection(),
+                Context.DbSettings.ConnectionString,
+                DateTime.Now.Year.ToString());
+        }
+
         public void OnSavePage()
         {
             Context.Script.MappingInfo = getMappingInfoList();
+        }
+
+        public void OnRefreshPage(Direction? direction = null)
+        {
+            if(direction == Direction.Forward)
+            {
+                // Load the batch values
+                loadScriptValueEditor(Context.Script.Module);
+            }
+        }
+
+        public override bool OnValidatePage()
+        {
+            var items = builder.GetBatchValueItems();
+
+            return items.Length > 0
+                && items.All(x => x.IsValid());
         }
 
         private List<BatchScriptMappingInfo> getMappingInfoList()
@@ -40,33 +65,6 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             });
 
             return result;
-        }
-
-        protected override void OnFirstLoad()
-        {
-            Context.DataProvider = new RealWareDataProvider(
-                Context.ApiSettings.GetRealWareApiConnection(), 
-                Context.DbSettings.ConnectionString, 
-                DateTime.Now.Year.ToString());
-        }
-
-        public void OnRefreshPage(Direction? direction = null)
-        {
-            if(direction == Direction.Forward)
-            {
-                // Load the batch values
-                loadScriptValueEditor(Context.Script.Module);
-            }
-
-            var items = builder.GetBatchValueItems();
-            if (items.Length == 0 || items.Any(x=>!x.IsValid()))
-            {
-                IsPageValid = false;
-            }
-            else
-            {
-                IsPageValid = true;
-            }
         }
 
         private void loadScriptValueEditor(BatchModule module)

@@ -20,8 +20,9 @@ namespace RealWareExcelTools.Modules.Batch.Forms
                 new SelectOperationPage(),
                 //new SelectScriptPage(),
                 new SetBatchValuesPage(),
+                new BatchSettingsPage(),
                 new PreSummaryPage(),
-                new ProcessingScriptPage()
+                new CreateScriptPage()
             };
 
 
@@ -93,8 +94,12 @@ namespace RealWareExcelTools.Modules.Batch.Forms
 
         private void selectedPageChanged(object sender, WizardPageChangedEventArgs e)
         {
-            if(_wizardPageDictionary.TryGetValue(e.Page, out IRealWareBatchWizardPage page))
+            if (_wizardPageDictionary.TryGetValue(e.Page, out IRealWareBatchWizardPage page))
+            {
+                wizardControl1.SelectedPage.AllowNext = false;
                 page.OnRefreshPage(e.Direction);
+                wizardControl1.SelectedPage.AllowNext = page.OnValidatePage();
+            }
         }
 
         private void chkSkipFirstPage_CheckedChanged(object sender, EventArgs e)
@@ -106,8 +111,9 @@ namespace RealWareExcelTools.Modules.Batch.Forms
                 && _wizardPageDictionary.TryGetValue(wizardControl1.SelectedPage, out IRealWareBatchWizardPage page))
             {
                 wizardControl1.SelectedPage.AllowBack = page.AllowPrevious;
-                wizardControl1.SelectedPage.AllowNext = page.IsPageValid;
+                //wizardControl1.SelectedPage.AllowNext = page.IsPageValid;
                 page.OnRefreshPage();
+                wizardControl1.SelectedPage.AllowNext = page.OnValidatePage();
             }
         }
 

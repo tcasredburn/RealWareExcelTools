@@ -13,15 +13,15 @@ namespace RealWareExcelTools.Modules.Batch.Pages
     /// <summary>
     /// This script is used to validate and create the RealWareApiAssistant script.
     /// </summary>
-    public partial class ProcessingScriptPage : BaseBatchWizardPage, IRealWareBatchWizardPage, ILogger
+    public partial class CreateScriptPage : BaseBatchWizardPage, IRealWareBatchWizardPage, ILogger
     {
-        public string PageTitle => "Processing";
+        public string PageTitle => "Generate Script";
 
-        public string PageDescription => "View process and logging for the script.";
+        public string PageDescription => "View and evaluate RealWare Api Assistant script.";
 
         IOverlaySplashScreenHandle generateScriptHandle;
 
-        public ProcessingScriptPage()
+        public CreateScriptPage()
         {
             InitializeComponent();
 
@@ -51,6 +51,10 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             var script = controller.GenerateScript(Context.Script, Context.BatchScriptDirectory);
 
             SetScript(script);
+
+            StopLoading();
+
+            RefreshPage();
         }
 
         /// <summary>

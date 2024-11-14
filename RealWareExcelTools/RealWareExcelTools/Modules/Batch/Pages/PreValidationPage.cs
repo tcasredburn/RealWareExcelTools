@@ -1,7 +1,5 @@
 ﻿using DevExpress.XtraWizard;
 using RealWare.Core.API;
-using System;
-using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -9,8 +7,6 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 {
     public partial class PreValidationPage : BaseBatchWizardPage, IRealWareBatchWizardPage
     {
-        public override bool IsPageValid => isSetupValid;
-
         public string PageTitle => "Setup Validation";
 
         public string PageDescription => "Validates setup to ensure connections and database appear correct.";
@@ -34,6 +30,11 @@ namespace RealWareExcelTools.Modules.Batch.Pages
                 // Validate setup
                 await validateAll();
             }
+        }
+
+        public override bool OnValidatePage()
+        {
+            return isSetupValid;
         }
 
         private async Task validateAll()

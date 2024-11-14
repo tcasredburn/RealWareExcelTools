@@ -5,7 +5,7 @@
         Account,
         Appeal,
         Improvement,
-        Sale,
-        Permit
+        Permit,
+        Sale
     }
 }

@@ -288,6 +288,12 @@
     <Compile Include="Modules\Batch\Pages\BaseBatchWizardPage.Designer.cs">
       <DependentUpon>BaseBatchWizardPage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modules\Batch\Pages\BatchSettingsPage.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\Batch\Pages\BatchSettingsPage.Designer.cs">
+      <DependentUpon>BatchSettingsPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Modules\Batch\Pages\IRealWareBatchWizardPage.cs" />
     <Compile Include="Modules\Batch\Pages\PreSummaryPage.cs">
       <SubType>UserControl</SubType>
@@ -298,11 +304,11 @@
     <Compile Include="Modules\Batch\Pages\PreValidationPage.Designer.cs">
       <DependentUpon>PreValidationPage.cs</DependentUpon>
     </Compile>
-    <Compile Include="Modules\Batch\Pages\ProcessingScriptPage.cs">
+    <Compile Include="Modules\Batch\Pages\CreateScriptPage.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Modules\Batch\Pages\ProcessingScriptPage.Designer.cs">
-      <DependentUpon>ProcessingScriptPage.cs</DependentUpon>
+    <Compile Include="Modules\Batch\Pages\CreateScriptPage.Designer.cs">
+      <DependentUpon>CreateScriptPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Modules\Batch\Pages\SelectModulePage.cs">
       <SubType>UserControl</SubType>
@@ -343,14 +349,17 @@
     <EmbeddedResource Include="Modules\Batch\Pages\BaseBatchWizardPage.resx">
       <DependentUpon>BaseBatchWizardPage.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Modules\Batch\Pages\BatchSettingsPage.resx">
+      <DependentUpon>BatchSettingsPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Modules\Batch\Pages\PreSummaryPage.resx">
       <DependentUpon>PreSummaryPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Batch\Pages\PreValidationPage.resx">
       <DependentUpon>PreValidationPage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Modules\Batch\Pages\ProcessingScriptPage.resx">
-      <DependentUpon>ProcessingScriptPage.cs</DependentUpon>
+    <EmbeddedResource Include="Modules\Batch\Pages\CreateScriptPage.resx">
+      <DependentUpon>CreateScriptPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Modules\Batch\Pages\SelectModulePage.resx">
       <DependentUpon>SelectModulePage.cs</DependentUpon>
@@ -438,6 +447,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ico_realware_settings_128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\warning.svg" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

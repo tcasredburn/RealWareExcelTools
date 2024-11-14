@@ -1,6 +1,6 @@
 ﻿namespace RealWareExcelTools.Modules.Batch.Pages
 {
-    partial class ProcessingScriptPage
+    partial class CreateScriptPage
     {
         /// <summary> 
         /// Required designer variable.
@@ -39,19 +39,22 @@
             this.txtScriptLog.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtScriptLog.LayoutUnit = DevExpress.XtraRichEdit.DocumentLayoutUnit.Pixel;
             this.txtScriptLog.Location = new System.Drawing.Point(0, 0);
+            this.txtScriptLog.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtScriptLog.Name = "txtScriptLog";
-            this.txtScriptLog.Size = new System.Drawing.Size(917, 759);
+            this.txtScriptLog.ReadOnly = true;
+            this.txtScriptLog.Size = new System.Drawing.Size(786, 617);
             this.txtScriptLog.TabIndex = 0;
             this.txtScriptLog.Text = "Processing...";
             this.txtScriptLog.Views.SimpleView.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             // 
-            // ProcessingScriptPage
+            // CreateScriptPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.txtScriptLog);
-            this.Name = "ProcessingScriptPage";
-            this.Size = new System.Drawing.Size(917, 759);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Name = "CreateScriptPage";
+            this.Size = new System.Drawing.Size(786, 617);
             this.ResumeLayout(false);
 
         }

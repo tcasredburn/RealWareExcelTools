@@ -5,7 +5,6 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 {
     public interface IRealWareBatchWizardPage
     {
-        bool IsPageValid { get; }
         bool AllowPrevious { get; set; }
 
         string PageTitle { get; }
@@ -18,5 +17,7 @@ namespace RealWareExcelTools.Modules.Batch.Pages
         void OnRefreshPage(Direction? direction = null);
 
         void InitializePage(BatchWizardContext context);
+
+        bool OnValidatePage();
     }
 }

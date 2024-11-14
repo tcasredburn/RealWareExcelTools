@@ -1,4 +1,5 @@
 ﻿using DevExpress.XtraBars;
+using DevExpress.XtraSplashScreen;
 using RealWareExcelTools.Controller;
 using RealWareExcelTools.Core.Providers;
 using RealWareExcelTools.Core.Settings.API;

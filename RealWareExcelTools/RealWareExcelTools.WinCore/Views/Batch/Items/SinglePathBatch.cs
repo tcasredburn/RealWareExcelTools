@@ -99,6 +99,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             //drpValue2.Text = toggleUseExcelValue.IsOn ? selectedExcelValue : selectedStaticValue;
 
             refreshView();
+            drpValue2.EditValue = null;
             ScriptChangedEvent?.Invoke(this, new EventArgs());
         }
 
