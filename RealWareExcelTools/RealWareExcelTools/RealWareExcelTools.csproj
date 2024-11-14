@@ -485,4 +485,9 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>del "$(TargetDir)\*.pdb" /Q
+del "$(TargetDir)\*.xml" /Q
+del "$(TargetDir)\*.dll.config" /Q</PostBuildEvent>
+  </PropertyGroup>
 </Project>
