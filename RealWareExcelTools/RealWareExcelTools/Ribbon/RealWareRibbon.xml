@@ -27,6 +27,12 @@
 							getEnabled="GetBatchAccountsEnabled"
 							onAction="OnBatchAccountsClick"
 							size="large"/>
+					<button id="btnViewScripts"
+							label="View Batch Scripts"
+							getImage="GetViewBatchScriptsImage"
+							getEnabled="GetViewBatchScriptsEnabled"
+							onAction="OnViewBatchScriptsClick"
+							size="large"/>
 				</group>
 				<group id="grpSettings"
 					   label="Settings">

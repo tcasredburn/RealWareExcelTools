@@ -159,6 +159,13 @@ namespace RealWareExcelTools.Ribbon
                 return;
             }
 
+            if(_addIn.ExcelController.GetSheetNames().Count > 1)
+            {
+                MessageBox.Show("You must have only one sheet in the workbook to use the batch feature.", 
+                    "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             string timestamp = DateTime.Now.ToString("yyyyMMdd_hhmmss");
             string destinationPath = _addIn.Settings.BatchWizardSettings.ScriptsDirectory + "\\" + timestamp;
 
@@ -176,9 +183,14 @@ namespace RealWareExcelTools.Ribbon
             var excelFileName = Path.Combine(destinationPath, originalFileName);
             try
             {
-                if (!excelFileName.Contains(".xlsx"))
+                // Ensure the file has the correct extension
+                if (!excelFileName.EndsWith(".xlsx", StringComparison.OrdinalIgnoreCase) &&
+                    !excelFileName.EndsWith(".xlsm", StringComparison.OrdinalIgnoreCase))
+                {
                     excelFileName += ".xlsx";
+                }
 
+                // Save a copy of the current workbook
                 currentWorkbook.SaveCopyAs(excelFileName);
             }
             catch (Exception ex)
@@ -209,6 +221,34 @@ namespace RealWareExcelTools.Ribbon
 
         public bool GetBatchAccountsEnabled(IRibbonControl control)
             => isConnectedToRealWare;
+        #endregion
+
+        #region ViewBatchScripts
+        public void OnViewBatchScriptsClick(IRibbonControl control)
+        {
+            string destinationPath = _addIn.Settings.BatchWizardSettings.ScriptsDirectory + "\\";
+
+            if (!Directory.Exists(destinationPath))
+            {
+                MessageBox.Show("No batch wizard scripts have been saved yet.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
+            try
+            {
+                System.Diagnostics.Process.Start(destinationPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to open directory for batch wizard scripts: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public Bitmap GetViewBatchScriptsImage(IRibbonControl control)
+            => Resources.ico_view_batch_scripts_128x128;
+
+        public bool GetViewBatchScriptsEnabled(IRibbonControl control)
+            => true;
         #endregion
 
         #region Settings

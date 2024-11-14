@@ -36,7 +36,7 @@
     <PublishUrl>\\asprint\appupdates\AddIns\OneClick\</PublishUrl>
     <InstallUrl>\\asprint\appupdates\AddIns\OneClick\</InstallUrl>
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.1</ApplicationVersion>
+    <ApplicationVersion>1.0.0.3</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -58,6 +58,16 @@
       <Visible>False</Visible>
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.NetCore.CoreRuntime.6.0.x64">
+      <Visible>False</Visible>
+      <ProductName>.NET Runtime 6.0.31 %28x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.NetCore.CoreRuntime.6.0.x86">
+      <Visible>False</Visible>
+      <ProductName>.NET Runtime 6.0.31 %28x86%29</ProductName>
+      <Install>true</Install>
     </BootstrapperPackage>
     <BootstrapperPackage Include="Microsoft.VSTORuntime.4.0">
       <Visible>False</Visible>
@@ -450,6 +460,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warning.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ico_view_batch_scripts_128x128.png" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
