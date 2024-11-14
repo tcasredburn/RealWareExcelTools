@@ -48,7 +48,7 @@
             this.tablePanel1.Name = "tablePanel1";
             this.tablePanel1.Rows.AddRange(new DevExpress.Utils.Layout.TablePanelRow[] {
             new DevExpress.Utils.Layout.TablePanelRow(DevExpress.Utils.Layout.TablePanelEntityStyle.Absolute, 26F)});
-            this.tablePanel1.Size = new System.Drawing.Size(851, 142);
+            this.tablePanel1.Size = new System.Drawing.Size(729, 115);
             this.tablePanel1.TabIndex = 0;
             this.tablePanel1.UseSkinIndents = true;
             // 
@@ -58,11 +58,11 @@
             this.scriptContainer.Appearance.Options.UseBackColor = true;
             this.tablePanel1.SetColumn(this.scriptContainer, 1);
             this.scriptContainer.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.scriptContainer.Location = new System.Drawing.Point(117, 16);
-            this.scriptContainer.Margin = new System.Windows.Forms.Padding(4);
+            this.scriptContainer.Location = new System.Drawing.Point(99, 12);
+            this.scriptContainer.MinimumSize = new System.Drawing.Size(618, 90);
             this.scriptContainer.Name = "scriptContainer";
             this.tablePanel1.SetRow(this.scriptContainer, 0);
-            this.scriptContainer.Size = new System.Drawing.Size(717, 109);
+            this.scriptContainer.Size = new System.Drawing.Size(618, 90);
             this.scriptContainer.TabIndex = 1;
             // 
             // btnDelete
@@ -72,11 +72,10 @@
             this.btnDelete.ImageOptions.Location = DevExpress.XtraEditors.ImageLocation.MiddleCenter;
             this.btnDelete.ImageOptions.SvgImage = global::RealWareExcelTools.WinCore.Properties.Resources.actions_deletecircled;
             this.btnDelete.ImageOptions.SvgImageSize = new System.Drawing.Size(64, 64);
-            this.btnDelete.Location = new System.Drawing.Point(17, 16);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
+            this.btnDelete.Location = new System.Drawing.Point(12, 12);
             this.btnDelete.Name = "btnDelete";
             this.tablePanel1.SetRow(this.btnDelete, 0);
-            this.btnDelete.Size = new System.Drawing.Size(92, 109);
+            this.btnDelete.Size = new System.Drawing.Size(83, 90);
             this.btnDelete.TabIndex = 0;
             this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
@@ -84,12 +83,11 @@
             // 
             this.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.Appearance.Options.UseBackColor = true;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tablePanel1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BatchValueScriptContainer";
-            this.Size = new System.Drawing.Size(851, 142);
+            this.Size = new System.Drawing.Size(729, 115);
             ((System.ComponentModel.ISupportInitialize)(this.tablePanel1)).EndInit();
             this.tablePanel1.ResumeLayout(false);
             this.ResumeLayout(false);

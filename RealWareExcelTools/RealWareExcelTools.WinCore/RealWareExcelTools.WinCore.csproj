@@ -250,5 +250,8 @@
   <ItemGroup>
     <None Include="Resources\actions_database.svg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\actions_database1.svg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -43,11 +43,13 @@
             // 
             this.gridControl1.DataSource = this.rWListBuilderQueryParameterDSBindingSource;
             this.gridControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gridControl1.Location = new System.Drawing.Point(0, 0);
             this.gridControl1.MainView = this.gridView1;
+            this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(532, 1030);
+            this.gridControl1.Size = new System.Drawing.Size(456, 837);
             this.gridControl1.TabIndex = 0;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -68,6 +70,7 @@
             this.gridView1.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colParameterName,
             this.colValue});
+            this.gridView1.DetailHeight = 284;
             this.gridView1.GridControl = this.gridControl1;
             this.gridView1.Name = "gridView1";
             this.gridView1.OptionsView.ShowGroupPanel = false;
@@ -78,30 +81,31 @@
             this.colParameterName.AppearanceCell.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.colParameterName.AppearanceCell.Options.UseBackColor = true;
             this.colParameterName.FieldName = "ParameterName";
-            this.colParameterName.MinWidth = 25;
+            this.colParameterName.MinWidth = 21;
             this.colParameterName.Name = "colParameterName";
             this.colParameterName.OptionsColumn.AllowEdit = false;
             this.colParameterName.OptionsColumn.ReadOnly = true;
             this.colParameterName.Visible = true;
             this.colParameterName.VisibleIndex = 0;
-            this.colParameterName.Width = 199;
+            this.colParameterName.Width = 171;
             // 
             // colValue
             // 
             this.colValue.FieldName = "Value";
-            this.colValue.MinWidth = 25;
+            this.colValue.MinWidth = 21;
             this.colValue.Name = "colValue";
             this.colValue.Visible = true;
             this.colValue.VisibleIndex = 1;
-            this.colValue.Width = 303;
+            this.colValue.Width = 260;
             // 
             // ListBuilderParameterView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.gridControl1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "ListBuilderParameterView";
-            this.Size = new System.Drawing.Size(532, 1030);
+            this.Size = new System.Drawing.Size(456, 837);
             ((System.ComponentModel.ISupportInitialize)(this.gridControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.rWListBuilderQueryParameterDSBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridView1)).EndInit();

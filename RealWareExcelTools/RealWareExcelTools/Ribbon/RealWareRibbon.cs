@@ -47,8 +47,15 @@ namespace RealWareExcelTools.Ribbon
                 if (!validator.ConnectionIsValid)
                     return;
 
-                if(isConnectedToRealWare)
+                
+                if (isConnectedToRealWare)
+                {
+                    // Save settings if valid
+                    _addIn.SetRealWareApiConnection(validator.GetRealWareApiConnection());
+
+                    // Refresh the ribbon connected button
                     this.ribbon.Invalidate();
+                }
             }
         }
 
@@ -164,12 +171,14 @@ namespace RealWareExcelTools.Ribbon
                 MessageBox.Show($"Failed to create directory for batch wizard scripts: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             
             string originalFileName = currentWorkbook.Name;
             var excelFileName = Path.Combine(destinationPath, originalFileName);
             try
             {
+                if (!excelFileName.Contains(".xlsx"))
+                    excelFileName += ".xlsx";
+
                 currentWorkbook.SaveCopyAs(excelFileName);
             }
             catch (Exception ex)

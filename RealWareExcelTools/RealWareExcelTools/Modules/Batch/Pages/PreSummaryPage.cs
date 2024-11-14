@@ -63,7 +63,7 @@ namespace RealWareExcelTools.Modules.Batch.Pages
                 // Determine the data source name separately
                 string dataSourceName = item.DataSourceType == WinCore.Models.Batch.DataSourceType.Excel
                     ? $"({item.DataSourceName})"
-                    : "item.DataSourceName";
+                    : item.DataSourceName;
 
                 // Build the result string without newlines in the interpolated string
                 result += $"    {item.RealWareColumnName} = {dataSourceName}" + Environment.NewLine;

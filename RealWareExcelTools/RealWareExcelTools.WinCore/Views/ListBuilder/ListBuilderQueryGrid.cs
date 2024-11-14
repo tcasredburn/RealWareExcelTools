@@ -82,7 +82,33 @@ namespace RealWareExcelTools.WinCore.Views.ListBuilder
                 gridControl1.RefreshDataSource();
             }
 
+            FormatColumns();
+
             StopLoading();
+        }
+
+        private void FormatColumns()
+        {
+            gridControl1.MainView.PopulateColumns();
+
+            gridView1.Columns[nameof(RWListBuilderQueryItem.Embedded)].Visible = false;
+            gridView1.Columns[nameof(RWListBuilderQueryItem.EmbeddedKey)].Visible = false;
+            gridView1.Columns[nameof(RWListBuilderQueryItem.System)].Visible = false;
+            gridView1.Columns[nameof(RWListBuilderQueryItem.Shared)].Visible = false;
+
+            gridView1.Columns[nameof(RWListBuilderQueryItem.QueryID)].VisibleIndex = 0;
+            gridView1.Columns[nameof(RWListBuilderQueryItem.QueryID)].MinWidth = 50;
+
+            gridView1.Columns[nameof(RWListBuilderQueryItem.Name)].VisibleIndex = 1;
+            gridView1.Columns[nameof(RWListBuilderQueryItem.Name)].MinWidth = 75;
+
+            gridView1.Columns[nameof(RWListBuilderQueryItem.Description)].VisibleIndex = 2;
+            gridView1.Columns[nameof(RWListBuilderQueryItem.Description)].MinWidth = 100;
+
+            gridView1.Columns[nameof(RWListBuilderQueryItem.User)].VisibleIndex = 3;
+            gridView1.Columns[nameof(RWListBuilderQueryItem.User)].MinWidth = 50;
+
+            gridView1.BestFitColumns();
         }
 
         private void gridView1_FocusedRowObjectChanged(object sender, FocusedRowObjectChangedEventArgs e)

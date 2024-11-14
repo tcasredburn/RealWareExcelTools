@@ -53,11 +53,11 @@
             // gridControl1
             // 
             this.gridControl1.EmbeddedNavigator.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gridControl1.Location = new System.Drawing.Point(11, 42);
+            this.gridControl1.Location = new System.Drawing.Point(12, 44);
             this.gridControl1.MainView = this.gridView1;
             this.gridControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gridControl1.Name = "gridControl1";
-            this.gridControl1.Size = new System.Drawing.Size(912, 904);
+            this.gridControl1.Size = new System.Drawing.Size(911, 900);
             this.gridControl1.TabIndex = 10;
             this.gridControl1.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridView1});
@@ -78,7 +78,7 @@
             // searchControl1
             // 
             this.searchControl1.Client = this.gridControl1;
-            this.searchControl1.Location = new System.Drawing.Point(11, 10);
+            this.searchControl1.Location = new System.Drawing.Point(12, 12);
             this.searchControl1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.searchControl1.Name = "searchControl1";
             this.searchControl1.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -87,7 +87,7 @@
             new DevExpress.XtraEditors.Repository.ClearButton(),
             new DevExpress.XtraEditors.Repository.SearchButton()});
             this.searchControl1.Properties.Client = this.gridControl1;
-            this.searchControl1.Size = new System.Drawing.Size(1313, 28);
+            this.searchControl1.Size = new System.Drawing.Size(1311, 28);
             this.searchControl1.StyleController = this.layoutControl1;
             this.searchControl1.TabIndex = 1;
             // 
@@ -109,10 +109,10 @@
             // 
             // listBuilderParameterView1
             // 
-            this.listBuilderParameterView1.Location = new System.Drawing.Point(937, 42);
+            this.listBuilderParameterView1.Location = new System.Drawing.Point(937, 44);
             this.listBuilderParameterView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.listBuilderParameterView1.Name = "listBuilderParameterView1";
-            this.listBuilderParameterView1.Size = new System.Drawing.Size(387, 904);
+            this.listBuilderParameterView1.Size = new System.Drawing.Size(386, 900);
             this.listBuilderParameterView1.TabIndex = 11;
             // 
             // Root
@@ -133,16 +133,16 @@
             this.layoutControlItem1.Control = this.gridControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 32);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(916, 908);
+            this.layoutControlItem1.Size = new System.Drawing.Size(915, 904);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // layoutControlItemParamaters
             // 
             this.layoutControlItemParamaters.Control = this.listBuilderParameterView1;
-            this.layoutControlItemParamaters.Location = new System.Drawing.Point(926, 32);
+            this.layoutControlItemParamaters.Location = new System.Drawing.Point(925, 32);
             this.layoutControlItemParamaters.Name = "layoutControlItemParamaters";
-            this.layoutControlItemParamaters.Size = new System.Drawing.Size(391, 908);
+            this.layoutControlItemParamaters.Size = new System.Drawing.Size(390, 904);
             this.layoutControlItemParamaters.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItemParamaters.TextVisible = false;
             // 
@@ -151,17 +151,17 @@
             this.layoutControlItem3.Control = this.searchControl1;
             this.layoutControlItem3.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem3.Name = "layoutControlItem3";
-            this.layoutControlItem3.Size = new System.Drawing.Size(1317, 32);
+            this.layoutControlItem3.Size = new System.Drawing.Size(1315, 32);
             this.layoutControlItem3.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem3.TextVisible = false;
             // 
             // splitterItem1
             // 
             this.splitterItem1.AllowHotTrack = true;
-            this.splitterItem1.Location = new System.Drawing.Point(916, 32);
+            this.splitterItem1.Location = new System.Drawing.Point(915, 32);
             this.splitterItem1.Name = "splitterItem1";
             this.splitterItem1.ShowSplitGlyph = DevExpress.Utils.DefaultBoolean.True;
-            this.splitterItem1.Size = new System.Drawing.Size(10, 908);
+            this.splitterItem1.Size = new System.Drawing.Size(10, 904);
             // 
             // ListBuilderQueryGrid
             // 

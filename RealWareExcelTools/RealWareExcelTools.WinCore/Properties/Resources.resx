@@ -118,11 +118,17 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="actions_database" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_database.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
   <data name="addcalculatedfield" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\addcalculatedfield.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="security_key" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\security_key.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  </data>
+  <data name="actions_deletecircled" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_deletecircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
   <data name="ico_realware_settings" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ico_realware_settings.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
@@ -139,10 +145,7 @@
   <data name="weather_cloudy" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\weather_cloudy.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
-  <data name="actions_deletecircled" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_deletecircled.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
-  </data>
-  <data name="actions_database" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\actions_database.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
+  <data name="actions_database1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\actions_database1.svg;DevExpress.Utils.Svg.SvgImage, DevExpress.Data.v22.2, Version=22.2.3.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a</value>
   </data>
 </root>

@@ -48,10 +48,9 @@
             this.dropDownButton1.AppearanceDropDown.Font = new System.Drawing.Font("Tahoma", 16F);
             this.dropDownButton1.AppearanceDropDown.Options.UseFont = true;
             this.dropDownButton1.ImageOptions.SvgImage = global::RealWareExcelTools.WinCore.Properties.Resources.addcalculatedfield;
-            this.dropDownButton1.Location = new System.Drawing.Point(12, 12);
-            this.dropDownButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.dropDownButton1.Location = new System.Drawing.Point(11, 10);
             this.dropDownButton1.Name = "dropDownButton1";
-            this.dropDownButton1.Size = new System.Drawing.Size(205, 44);
+            this.dropDownButton1.Size = new System.Drawing.Size(175, 36);
             this.dropDownButton1.StyleController = this.layoutControl1;
             this.dropDownButton1.TabIndex = 0;
             this.dropDownButton1.Text = "Add Script";
@@ -62,10 +61,9 @@
             this.layoutControl1.Controls.Add(this.dropDownButton1);
             this.layoutControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.layoutControl1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControl1.Margin = new System.Windows.Forms.Padding(4);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.Root;
-            this.layoutControl1.Size = new System.Drawing.Size(1068, 860);
+            this.layoutControl1.Size = new System.Drawing.Size(915, 699);
             this.layoutControl1.TabIndex = 3;
             this.layoutControl1.Text = "+";
             // 
@@ -78,7 +76,7 @@
             this.emptySpaceItem1,
             this.layoutControlGroup1});
             this.Root.Name = "Root";
-            this.Root.Size = new System.Drawing.Size(1068, 860);
+            this.Root.Size = new System.Drawing.Size(915, 699);
             this.Root.TextVisible = false;
             // 
             // layoutControlItem1
@@ -86,23 +84,23 @@
             this.layoutControlItem1.Control = this.dropDownButton1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(209, 48);
+            this.layoutControlItem1.Size = new System.Drawing.Size(179, 40);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
             // emptySpaceItem1
             // 
             this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(209, 0);
+            this.emptySpaceItem1.Location = new System.Drawing.Point(179, 0);
             this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(839, 48);
+            this.emptySpaceItem1.Size = new System.Drawing.Size(718, 40);
             this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
             // 
             // layoutControlGroup1
             // 
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 48);
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 40);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1048, 792);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(897, 643);
             this.layoutControlGroup1.Text = "Script";
             // 
             // ribbonPage2
@@ -112,12 +110,11 @@
             // 
             // BatchValueBuilder
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.layoutControl1);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "BatchValueBuilder";
-            this.Size = new System.Drawing.Size(1068, 860);
+            this.Size = new System.Drawing.Size(915, 699);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();

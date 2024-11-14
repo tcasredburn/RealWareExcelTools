@@ -12,7 +12,10 @@ namespace RealWareExcelTools.Modules.Batch.Pages
         public SelectModulePage() : base()
         {
             InitializeComponent();
-            grpModuleType.EditValueChanged += (s, e) => RefreshPage();
+            grpModuleType.EditValueChanged += (s, e) =>
+            {
+                RefreshPage();
+            };
         }
 
         public void OnSavePage()
@@ -22,7 +25,8 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         public void OnRefreshPage(Direction? direction = null)
         {
-            grpModuleType.SelectedIndex = (int)Context.Script.Module;
+            if(direction == Direction.Forward)
+                grpModuleType.SelectedIndex = (int)Context.Script.Module;
         }
 
         public override bool OnValidatePage()
