@@ -1,5 +1,4 @@
 ﻿using Microsoft.Office.Core;
-using Newtonsoft.Json.Linq;
 using RealWare.Core.API;
 using RealWare.Core.API.Connection;
 using RealWareExcelTools.Controller;

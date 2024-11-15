@@ -48,7 +48,7 @@ namespace RealWareExcelTools.Modules.Batch.Providers
             {
                 // Account
                 case "Economic Area":
-                    result = adapter.EconomicAreaAdapter.GetAllActive().ToDictionary(x => x.EconomicAreaCode, x => x.EconomicAreaDescription);
+                    result = adapter.EconomicArea.GetAllActive().ToDictionary(x => x.EconomicAreaCode, x => x.EconomicAreaDescription);
                     break;
                 case "Land Economic Area":
                     result = adapter.LEAType.GetAllActive().ToDictionary(x => x.LEA, x => x.LEADescription);

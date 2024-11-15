@@ -1,45 +1,51 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using RealWare.Core.Database.Adapters.Table;
+using System;
+using System.Data.SqlClient;
 
 namespace RealWareExcelTools.Functions
 {
-    internal class GetSitusHandler
+    internal class GetSitusHandler : RWHandler
     {
         private readonly string _accountNo;
+        private readonly string _taxYear;
+        private readonly string _connectionString;
 
         public GetSitusHandler(string accountNo)
         {
             _accountNo = accountNo;
+
+            if(RWHandler.AddinSettings == null)
+                ReadSettingsFromFile();
+
+            _taxYear = AddinSettings?.GeneralSettings?.GetTaxYear();
+            _connectionString = AddinSettings?.RealWareDbConnectionSettings?.ConnectionString;
         }
 
         public string GetResult()
         {
-    //        try
-    //        {
-    //                string url = "http://aspa0201/Production/EncompassAPI/";
-    //#if DEBUG
-    //                url = "http://aspa0201/Test/EncompassAPI/";
-    //#endif
+            if(_connectionString == null)
+            {
+                return "ERR: INVALID SETTINGS";
+            }
 
-    //                var filePath = LoginToRealWareHelper.GetCredentialsFilePath();
-    //                var credentials = LoginToRealWareHelper.GetApiCredentialsFromFile(filePath);
-    //                var userName = credentials.UserName;
-    //                var connection = new RealWareApiConnection(url, credentials.Token);
-    //                var api = new RealWareApi(connection);
-    //                var result = api.GetRealAccount(account, DateTime.Now.Year.ToString());
-    //                return result.Account.PropertyAddresses.FirstOrDefault()?.ToString();
-    //            }
-    //            catch (Exception ex)
-    //            {
-    //                return $"ERR:{ex.Message}";
-    //            }
-    //        }
+            try
+            {
+                var connection = new SqlConnection(_connectionString);
+                var adapter = new AcctPropertyAddressAdapter(connection);
 
+                var result = adapter.GetByAccountNo(_accountNo, _taxYear);
 
-            return "TODO: " + _accountNo + " - Situs";
+                if(result == null)
+                {
+                    return "ERR: NO DATA";
+                }
+
+                return result.GetFormattedAddress();
+            }
+            catch (Exception ex)
+            {
+                return $"ERR:{ex.Message}";
+            }
         }
     }
 }
