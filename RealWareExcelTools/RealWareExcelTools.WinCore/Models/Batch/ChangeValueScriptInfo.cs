@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using RealWareExcelTools.WinCore.Views.Batch.Items;
+using System.Collections.Generic;
 
 namespace RealWareExcelTools.WinCore.Models.Batch
 {
@@ -12,6 +13,8 @@ namespace RealWareExcelTools.WinCore.Models.Batch
         /// Signifies that an API call is not provided for the specific lookup.
         /// </summary>
         public bool IsDatabaseOnly { get; set; }
+
+        public SinglePathBatchType ValueType { get; set; } = SinglePathBatchType.STRING;
     }
 
     public static class ChangeValueScriptInfoList
@@ -51,6 +54,23 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                     OptionCategory = "TlkpValueArea",
                     OptionName = "ValueAreaCode",
                     IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Land Appraiser",
+                    ApiPath = "LandAppraiser",
+                    //OptionCategory = "TlkpValueArea",
+                    //OptionName = "ValueAreaCode",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Land Appraisal Date",
+                    ApiPath = "LandAppraisalDate",
+                    //OptionCategory = "TlkpValueArea",
+                    //OptionName = "ValueAreaCode",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.DATE
                 },
             };
         }
@@ -98,6 +118,19 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                     OptionName = "RoofCover",
                     IsDatabaseOnly = true
                 },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Appraiser",
+                    ApiPath = "Appraiser",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Appraisal Date",
+                    ApiPath = "AppraisalDate",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.DATE
+                },
             };
         }
 
@@ -118,7 +151,75 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                     ApiPath = "ExcludeCode2",
                     OptionCategory = "Sales",
                     OptionName = "SaleExclude"
-                }
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "OTC Exclude Reason",
+#else
+                    ScriptName = "SaleOM1",
+#endif
+                    ApiPath = "SaleOM1",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "OTC Valid",
+#else
+                    ScriptName = "Valid 1 Flag",
+#endif
+                    ApiPath = "Valid1Flag",
+                    ValueType = SinglePathBatchType.BOOLEAN
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "Sale Price - FCV",
+#else
+                    ScriptName = "Valid 2 Flag",
+#endif
+                    ApiPath = "Valid2Flag",
+                    ValueType = SinglePathBatchType.BOOLEAN
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "Verified By",
+#else
+                    ScriptName = "Confirmed By",
+#endif
+                    ApiPath = "ConfirmBy",
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "Verified Date",
+#else
+                    ScriptName = "Confirm Date",
+#endif
+                    ApiPath = "ConfirmDate",
+                    ValueType = SinglePathBatchType.DATE
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "Verified",
+#else
+                    ScriptName = "Confirmed Flag",
+#endif
+                    ApiPath = "ConfirmedFlag",
+                    ValueType = SinglePathBatchType.BOOLEAN
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "Verified Method",
+#else
+                    ScriptName = "Confirm Method",
+#endif
+                    ApiPath = "ConfirmMethod",
+                },
             };
         }
     }

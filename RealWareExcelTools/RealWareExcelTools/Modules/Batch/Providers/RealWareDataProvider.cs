@@ -26,13 +26,14 @@ namespace RealWareExcelTools.Modules.Batch.Providers
 
         public Dictionary<string, string> GetLookup(string lookupName, bool useCachedValue = true)
         {
+            //TODO: This should allow for any custom data provider, not just Tulsa County
             return getDatabaseLookup(lookupName, useCachedValue);
 
             //if(isApiLookup)
             //    return getApiLookup(lookupName, useCachedValue);
             //else
             //    return getDatabaseLookup(lookupName, useCachedValue);
-        }
+        } 
 
         private Dictionary<string, string> getDatabaseLookup(string lookupName, bool useCachedValue)
         {
@@ -84,6 +85,12 @@ namespace RealWareExcelTools.Modules.Batch.Providers
                 case "Exclude Code 1":
                 case "Exclude Code 2":
                     result = adapter.SaleExclude.GetAllActive().ToDictionary(x => x.ExcludeCode, x => x.ExcludeDescription);
+                    break;
+#if TULSA_COUNTY
+                case "Verified Method":
+#endif
+                case "Confirm Method":
+                    result = adapter.SaleConfirmMethod.GetAllActive().ToDictionary(x => x.ConfirmMethod, x => x.ConfirmMethod);
                     break;
 
                 default: 

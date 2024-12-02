@@ -36,38 +36,41 @@
             this.txtName = new DevExpress.XtraEditors.LabelControl();
             this.toggleUseExcelValue = new DevExpress.XtraEditors.ToggleSwitch();
             this.drpValue2 = new DevExpress.XtraEditors.LookUpEdit();
+            this.drpDateValue = new DevExpress.XtraEditors.DateEdit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleUseExcelValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpValue2.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drpDateValue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drpDateValue.Properties.CalendarTimeProperties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
             // 
             this.txtName.Appearance.Font = new System.Drawing.Font("Segoe UI", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtName.Appearance.Options.UseFont = true;
-            this.txtName.Location = new System.Drawing.Point(18, 12);
-            this.txtName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtName.Location = new System.Drawing.Point(21, 15);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(76, 30);
+            this.txtName.Size = new System.Drawing.Size(94, 37);
             this.txtName.TabIndex = 1;
             this.txtName.Text = "Quality";
             // 
             // toggleUseExcelValue
             // 
-            this.toggleUseExcelValue.Location = new System.Drawing.Point(399, 50);
-            this.toggleUseExcelValue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.toggleUseExcelValue.Location = new System.Drawing.Point(465, 62);
+            this.toggleUseExcelValue.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.toggleUseExcelValue.Name = "toggleUseExcelValue";
             this.toggleUseExcelValue.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.toggleUseExcelValue.Properties.Appearance.Options.UseFont = true;
             this.toggleUseExcelValue.Properties.OffText = "Use static value";
             this.toggleUseExcelValue.Properties.OnText = "Use Excel value";
-            this.toggleUseExcelValue.Size = new System.Drawing.Size(261, 32);
+            this.toggleUseExcelValue.Size = new System.Drawing.Size(304, 39);
             this.toggleUseExcelValue.TabIndex = 2;
             this.toggleUseExcelValue.Toggled += new System.EventHandler(this.toggleUseExcelValue_Toggled);
             // 
             // drpValue2
             // 
-            this.drpValue2.Location = new System.Drawing.Point(26, 49);
-            this.drpValue2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.drpValue2.Location = new System.Drawing.Point(30, 60);
+            this.drpValue2.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.drpValue2.Name = "drpValue2";
             this.drpValue2.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
             this.drpValue2.Properties.Appearance.Options.UseFont = true;
@@ -75,22 +78,40 @@
             this.drpValue2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 50, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.drpValue2.Properties.NullText = "(Select a value)";
-            this.drpValue2.Size = new System.Drawing.Size(368, 34);
+            this.drpValue2.Size = new System.Drawing.Size(429, 42);
             this.drpValue2.TabIndex = 3;
+            // 
+            // drpDateValue
+            // 
+            this.drpDateValue.EditValue = null;
+            this.drpDateValue.Location = new System.Drawing.Point(30, 60);
+            this.drpDateValue.Name = "drpDateValue";
+            this.drpDateValue.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.drpDateValue.Properties.Appearance.Options.UseFont = true;
+            this.drpDateValue.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.drpDateValue.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.drpDateValue.Size = new System.Drawing.Size(428, 42);
+            this.drpDateValue.TabIndex = 4;
+            this.drpDateValue.Visible = false;
             // 
             // SinglePathBatch
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.drpDateValue);
             this.Controls.Add(this.drpValue2);
             this.Controls.Add(this.toggleUseExcelValue);
             this.Controls.Add(this.txtName);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(674, 106);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
+            this.MinimumSize = new System.Drawing.Size(786, 130);
             this.Name = "SinglePathBatch";
-            this.Size = new System.Drawing.Size(674, 106);
+            this.Size = new System.Drawing.Size(786, 130);
             ((System.ComponentModel.ISupportInitialize)(this.toggleUseExcelValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpValue2.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drpDateValue.Properties.CalendarTimeProperties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.drpDateValue.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -100,5 +121,6 @@
         private DevExpress.XtraEditors.LabelControl txtName;
         private DevExpress.XtraEditors.ToggleSwitch toggleUseExcelValue;
         private DevExpress.XtraEditors.LookUpEdit drpValue2;
+        private DevExpress.XtraEditors.DateEdit drpDateValue;
     }
 }

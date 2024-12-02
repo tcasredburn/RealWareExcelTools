@@ -1,4 +1,5 @@
-﻿using RealWareExcelTools.WinCore.Models.Batch;
+﻿using DevExpress.Utils.DPI;
+using RealWareExcelTools.WinCore.Models.Batch;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -16,6 +17,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
 
         private readonly string _apiPath;
         private readonly bool _isApiLookup;
+        private readonly SinglePathBatchType _valueType;
 
         public event EventHandler ScriptChangedEvent;
 
@@ -32,17 +34,51 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             drpValue2.Properties.DataSource = new List<LookupItem>();
             drpValue2.Properties.DisplayMember = "Key";
             drpValue2.Properties.ValueMember = "Key";
-            drpValue2.EditValueChanged += drpValue2_EditValueChanged; ;
+            drpValue2.EditValueChanged += drpValue2_EditValueChanged;
+            drpDateValue.EditValueChanged += drpDateValue_EditValueChanged;
         }
 
-        public SinglePathBatch(string name, string apiPath, bool isApiLookup, Core.Providers.IScriptDataProvider dataProvider) : this()
+        private void drpDateValue_EditValueChanged(object sender, EventArgs e)
+        {
+            if (_valueType == SinglePathBatchType.DATE && !toggleUseExcelValue.IsOn)
+            {
+                selectedStaticValue = drpDateValue.DateTime.ToString();
+                refreshView();
+                ScriptChangedEvent?.Invoke(this, new EventArgs());
+            }
+        }
+
+        public SinglePathBatch(string name, string apiPath, bool isApiLookup, 
+            SinglePathBatchType valueType, Core.Providers.IScriptDataProvider dataProvider) : this()
         {
             txtName.Text = name;
             _apiPath = apiPath;
             _isApiLookup = isApiLookup;
+            _valueType = valueType;
             this.dataProvider = dataProvider;
 
             refreshView();
+        }
+
+        private void refreshValueType()
+        {
+            switch (_valueType)
+            {
+                case SinglePathBatchType.BOOLEAN:
+                    break;
+                case SinglePathBatchType.NUMBER:
+                    throw new NotImplementedException();
+                case SinglePathBatchType.DATE:
+                    {
+                        drpDateValue.Visible = !toggleUseExcelValue.IsOn;
+                        drpValue2.Visible = toggleUseExcelValue.IsOn;
+                    }
+                    break;
+                case SinglePathBatchType.STRING:
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
         }
 
         public bool IsValid()
@@ -58,6 +94,8 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
 
         private void refreshView()
         {
+            refreshValueType();
+
             if (toggleUseExcelValue.IsOn)
             {
                 var data = dataProvider.ExcelProvider.GetValidColumnNames();
@@ -82,6 +120,23 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
 
         private Dictionary<string, string> getStaticData()
         {
+            if(_valueType == SinglePathBatchType.BOOLEAN)
+            {
+                return new Dictionary<string, string>()
+                {
+                    { "True", "true" },
+                    { "False", "false" }
+                };
+            }
+
+            if (_valueType != SinglePathBatchType.STRING)
+            {
+                var data = new Dictionary<string, string>();
+                if(selectedStaticValue != null)
+                    data.Add(selectedStaticValue, selectedStaticValue);
+                return data;
+            }
+
             try
             {
                 var result = dataProvider.DataProvider.GetLookup(txtName.Text, true);
