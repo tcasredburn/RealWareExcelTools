@@ -99,16 +99,28 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             if (toggleUseExcelValue.IsOn)
             {
                 var data = dataProvider.ExcelProvider.GetValidColumnNames();
+                drpValue2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.DisableTextEditor;
                 drpValue2.Properties.DataSource = data.Select(x=>new LookupItem() { Key = x, Value = x }).ToList();
                 if(!string.IsNullOrEmpty(selectedExcelValue))
                     drpValue2.EditValue = selectedExcelValue;
             }
             else
             {
-                var data = getStaticData();
-                drpValue2.Properties.DataSource = data.Select(x => new LookupItem() { Key = x.Key, Value = x.Value }).ToList();
-                if (!string.IsNullOrEmpty(selectedStaticValue))
-                    drpValue2.EditValue = selectedStaticValue;
+#if TULSA_COUNTY
+                if (_apiPath == "LandAppraiser" || _apiPath == "Appraiser")
+                {
+                    drpValue2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
+                    if (!string.IsNullOrEmpty(selectedStaticValue))
+                        drpValue2.EditValue = selectedStaticValue;
+                }
+                else
+#endif
+                {
+                    var data = getStaticData();
+                    drpValue2.Properties.DataSource = data.Select(x => new LookupItem() { Key = x.Key, Value = x.Value }).ToList();
+                    if (!string.IsNullOrEmpty(selectedStaticValue))
+                        drpValue2.EditValue = selectedStaticValue;
+                }
             }
             drpValue2.Properties.ForceInitialize();
             drpValue2.Properties.PopulateColumns();

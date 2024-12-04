@@ -87,13 +87,20 @@ namespace RealWareExcelTools.Modules.Batch.Providers
                     result = adapter.SaleExclude.GetAllActive().ToDictionary(x => x.ExcludeCode, x => x.ExcludeDescription);
                     break;
 #if TULSA_COUNTY
+                case "OTC Exclude Reason":
+#endif
+                case "SaleOM1":
+                    result = adapter.OptionField.GetAllByFieldName("SaleOM1")
+                        .Where(x=>x.IsActive).ToDictionary(x => x.FieldValue, x => x.FieldValue);
+                    break;
+#if TULSA_COUNTY
                 case "Verified Method":
 #endif
                 case "Confirm Method":
                     result = adapter.SaleConfirmMethod.GetAllActive().ToDictionary(x => x.ConfirmMethod, x => x.ConfirmMethod);
                     break;
 
-                default: 
+                default:
                     throw new Exception($"Lookup '{lookupName}' not found.");
             }
             AddResultToCache(lookupName, result);
