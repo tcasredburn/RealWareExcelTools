@@ -25,6 +25,8 @@ namespace RealWareExcelTools.WinCore.Forms
         /// </summary>
         public DataTable Result { get; private set; }
 
+        public bool ReplaceCurrentSheet => chkReplaceCurrentSheet.Checked;
+
         private readonly RealWareApi _api;
         private CancellationTokenSource _cancellationTokenSource;
         private readonly GeneralSettings _settings;

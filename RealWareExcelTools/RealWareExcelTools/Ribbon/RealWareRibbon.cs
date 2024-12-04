@@ -131,9 +131,17 @@ namespace RealWareExcelTools.Ribbon
 
             if (form.ShowDialog() == DialogResult.OK)
             {
+                string selectedSheetName = null;
+
+                if (form.ReplaceCurrentSheet)
+                    selectedSheetName = _addIn.ExcelController.GetSelectedSheetName();
+                    
                 _addIn.ExcelController.CreateNewSheet(
                     form.SelectedListBuilderItem.Name, 
                     form.Result);
+
+                if(selectedSheetName != null)
+                    _addIn.ExcelController.DeleteSheet(selectedSheetName);
             }
         }
 

@@ -30,7 +30,16 @@ namespace RealWareExcelTools.Controller
                 _addIn.Application.Workbooks.Add();
 
             Excel.Worksheet newWorksheet = _addIn.Application.Worksheets.Add();
-            newWorksheet.Name = formattedWorkSheetName;
+
+            // Fix double-naming issue
+            try
+            {
+                newWorksheet.Name = formattedWorkSheetName;
+            }
+            catch
+            {
+                newWorksheet.Name = FormatWorkSheetName("1-" + formattedWorkSheetName);
+            }
 
             if(data == null)
                 newWorksheet.Cells[1, 1] = "No results found";
@@ -113,6 +122,18 @@ namespace RealWareExcelTools.Controller
                 columnNames.RemoveAll(x => removeList.Contains(x));
 
             return columnNames;
+        }
+
+        internal void DeleteSheet(string selectedSheetName)
+        {
+            foreach (Excel.Worksheet sheet in _addIn.Application.Worksheets)
+            {
+                if(sheet.Name == selectedSheetName)
+                {
+                    sheet.Delete();
+                    return;
+                }
+            }
         }
     }
 }
