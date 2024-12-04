@@ -37,9 +37,10 @@
             // btnImport
             // 
             this.btnImport.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnImport.Location = new System.Drawing.Point(11, 812);
+            this.btnImport.Location = new System.Drawing.Point(13, 1125);
+            this.btnImport.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnImport.Name = "btnImport";
-            this.btnImport.Size = new System.Drawing.Size(94, 35);
+            this.btnImport.Size = new System.Drawing.Size(110, 43);
             this.btnImport.TabIndex = 1;
             this.btnImport.Text = "&Import";
             this.btnImport.Click += new System.EventHandler(this.btnImport_Click);
@@ -48,44 +49,49 @@
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Location = new System.Drawing.Point(1191, 812);
+            this.btnCancel.Location = new System.Drawing.Point(1499, 1125);
+            this.btnCancel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(94, 35);
+            this.btnCancel.Size = new System.Drawing.Size(110, 43);
             this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "&Cancel";
             // 
             // importProgressPanel
             // 
+            this.importProgressPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.importProgressPanel.Appearance.BackColor = System.Drawing.Color.Transparent;
             this.importProgressPanel.Appearance.Options.UseBackColor = true;
             this.importProgressPanel.Caption = "Processing query";
             this.importProgressPanel.Description = "Please wait...";
-            this.importProgressPanel.Location = new System.Drawing.Point(111, 803);
-            this.importProgressPanel.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.importProgressPanel.Location = new System.Drawing.Point(131, 1111);
+            this.importProgressPanel.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.importProgressPanel.Name = "importProgressPanel";
-            this.importProgressPanel.Size = new System.Drawing.Size(211, 54);
+            this.importProgressPanel.Size = new System.Drawing.Size(246, 66);
             this.importProgressPanel.TabIndex = 4;
             this.importProgressPanel.Text = "importProgressPanel";
             // 
             // listBuilderQueryGrid1
             // 
-            this.listBuilderQueryGrid1.Location = new System.Drawing.Point(11, 10);
-            this.listBuilderQueryGrid1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.listBuilderQueryGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.listBuilderQueryGrid1.Location = new System.Drawing.Point(13, 12);
+            this.listBuilderQueryGrid1.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.listBuilderQueryGrid1.Name = "listBuilderQueryGrid1";
-            this.listBuilderQueryGrid1.Size = new System.Drawing.Size(1274, 797);
+            this.listBuilderQueryGrid1.Size = new System.Drawing.Size(1595, 1107);
             this.listBuilderQueryGrid1.TabIndex = 3;
             // 
             // ListBuilderForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1296, 858);
+            this.ClientSize = new System.Drawing.Size(1621, 1182);
             this.Controls.Add(this.importProgressPanel);
             this.Controls.Add(this.listBuilderQueryGrid1);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnImport);
             this.IconOptions.SvgImage = global::RealWareExcelTools.WinCore.Properties.Resources.ico_realware_listbuilder;
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.Name = "ListBuilderForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ListBuilder Query Selection";
