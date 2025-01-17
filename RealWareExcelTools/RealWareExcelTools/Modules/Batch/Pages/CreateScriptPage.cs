@@ -3,10 +3,13 @@ using DevExpress.XtraEditors;
 using DevExpress.XtraRichEdit.Services;
 using DevExpress.XtraSplashScreen;
 using DevExpress.XtraWizard;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using RealWareExcelTools.Core;
 using RealWareExcelTools.Core.Modules.RealWareApiAssistant;
 using RealWareExcelTools.Modules.Batch.Controller;
 using System;
+using System.IO;
 
 namespace RealWareExcelTools.Modules.Batch.Pages
 {
@@ -19,11 +22,15 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         public string PageDescription => "View and evaluate RealWare Api Assistant script.";
 
+        string tempFilePath;
+        FileSystemWatcher fileWatcher;
         IOverlaySplashScreenHandle generateScriptHandle;
 
         public CreateScriptPage()
         {
             InitializeComponent();
+
+            errorStatusStrip.Visible = false;
 
             txtScriptLog.ReplaceService<ISyntaxHighlightService>(new Services.CustomSyntaxHighlightService(txtScriptLog.Document));
             txtScriptLog.Document.DefaultCharacterProperties.FontName = "Courier New";
@@ -33,8 +40,12 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         public void OnRefreshPage(Direction? direction = null)
         {
-            if(direction == Direction.Forward)
+            if (direction == Direction.Forward)
             {
+                errorStatusStrip.Visible = false;
+                tempFilePath = null;
+                cleanupWatcher();
+
                 generateRealWareApiAssistantScript();
             }
         }
@@ -68,7 +79,15 @@ namespace RealWareExcelTools.Modules.Batch.Pages
 
         public void SetScript(ApiScript apiScript)
         {
-            txtScriptLog.Text = Newtonsoft.Json.JsonConvert.SerializeObject(apiScript, Newtonsoft.Json.Formatting.Indented);
+            errorStatusStrip.Visible = false;
+            try
+            {
+                txtScriptLog.Text = Newtonsoft.Json.JsonConvert.SerializeObject(apiScript, Newtonsoft.Json.Formatting.Indented);
+            }
+            catch
+            {
+                errorStatusStrip.Visible = true;
+            }
         }
 
         public void LogInfo(string message)
@@ -108,6 +127,108 @@ namespace RealWareExcelTools.Modules.Batch.Pages
                 XtraMessageBox.Show($"Error saving script: {ex.Message}", "Error", 
                     System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
             }
+
+            // Cleanup
+            cleanupWatcher();
+        }
+
+        private void btnEditScript_ElementClick(object sender, DevExpress.XtraBars.Navigation.NavElementEventArgs e)
+        {
+            if (tempFilePath == null)
+            {
+                tempFilePath = System.IO.Path.GetTempFileName() + ".json";
+
+                // Create the script file
+                try
+                {
+                    System.IO.File.WriteAllText(tempFilePath, txtScriptLog.Text);
+                }
+                catch (Exception ex)
+                {
+                    XtraMessageBox.Show($"Error creating script: {ex.Message}", "Error",
+                        System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            // Open the script file
+            try
+            {
+                System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo
+                {
+                    FileName = tempFilePath,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                XtraMessageBox.Show($"Error opening script: {ex.Message}", "Error",
+                    System.Windows.Forms.MessageBoxButtons.OK, System.Windows.Forms.MessageBoxIcon.Error);
+            }
+
+            // Cancel if already watching file
+            if (fileWatcher != null)
+                return;
+
+            // Create file watcher and start monitoring
+            fileWatcher = new FileSystemWatcher
+            {
+                Path = System.IO.Path.GetDirectoryName(tempFilePath),
+                Filter = System.IO.Path.GetFileName(tempFilePath),
+                NotifyFilter = NotifyFilters.LastWrite
+            };
+
+            fileWatcher.Changed += (s, ev) =>
+            {
+                if (ev.ChangeType == WatcherChangeTypes.Changed)
+                {
+                    txtScriptLog.Invoke(new Action(() =>
+                    {
+                        updateScriptFromTempFile(tempFilePath);
+                    }));
+                }
+            };
+
+            fileWatcher.EnableRaisingEvents = true;
+        }
+
+        private void updateScriptFromTempFile(string tempFilePath)
+        {
+            errorStatusStrip.Visible = false;
+            try
+            {
+                txtScriptLog.Text = System.IO.File.ReadAllText(tempFilePath);
+            }
+            catch
+            {
+                return;
+            }
+
+            if(!isJsonValid(txtScriptLog.Text))
+                errorStatusStrip.Visible = true;
+        }
+
+        private bool isJsonValid(string jsonString)
+        {
+            try
+            {
+                JObject.Parse(jsonString);
+                return true;
+            }
+            catch (JsonReaderException)
+            {
+                return false;
+            }
+        }
+
+        private void cleanupWatcher()
+        {
+            if (fileWatcher == null)
+                return;
+
+            fileWatcher.EnableRaisingEvents = false;
+            fileWatcher.Dispose();
+            fileWatcher = null;
         }
     }
 }

@@ -30,18 +30,18 @@
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.Root = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.cmbIdValue = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.layoutControlItemHeader = new DevExpress.XtraLayout.LayoutControlItem();
             this.emptySpaceItem1 = new DevExpress.XtraLayout.EmptySpaceItem();
+            this.cmbIdValue = new DevExpress.XtraEditors.ComboBoxEdit();
             this.chkUseExcelValue = new DevExpress.XtraEditors.CheckEdit();
+            this.layoutControlItemHeader = new DevExpress.XtraLayout.LayoutControlItem();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Root)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbIdValue.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbIdValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkUseExcelValue.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeader)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,6 +70,14 @@
             this.Root.Size = new System.Drawing.Size(481, 122);
             this.Root.TextVisible = false;
             // 
+            // emptySpaceItem1
+            // 
+            this.emptySpaceItem1.AllowHotTrack = false;
+            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 73);
+            this.emptySpaceItem1.Name = "emptySpaceItem1";
+            this.emptySpaceItem1.Size = new System.Drawing.Size(461, 29);
+            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
+            // 
             // cmbIdValue
             // 
             this.cmbIdValue.Location = new System.Drawing.Point(12, 31);
@@ -80,6 +88,15 @@
             this.cmbIdValue.StyleController = this.layoutControl1;
             this.cmbIdValue.TabIndex = 4;
             // 
+            // chkUseExcelValue
+            // 
+            this.chkUseExcelValue.Location = new System.Drawing.Point(12, 57);
+            this.chkUseExcelValue.Name = "chkUseExcelValue";
+            this.chkUseExcelValue.Properties.Caption = "Use Excel Column Value";
+            this.chkUseExcelValue.Size = new System.Drawing.Size(457, 24);
+            this.chkUseExcelValue.StyleController = this.layoutControl1;
+            this.chkUseExcelValue.TabIndex = 5;
+            // 
             // layoutControlItemHeader
             // 
             this.layoutControlItemHeader.Control = this.cmbIdValue;
@@ -89,23 +106,6 @@
             this.layoutControlItemHeader.Text = "{Id Name}";
             this.layoutControlItemHeader.TextLocation = DevExpress.Utils.Locations.Top;
             this.layoutControlItemHeader.TextSize = new System.Drawing.Size(60, 16);
-            // 
-            // emptySpaceItem1
-            // 
-            this.emptySpaceItem1.AllowHotTrack = false;
-            this.emptySpaceItem1.Location = new System.Drawing.Point(0, 73);
-            this.emptySpaceItem1.Name = "emptySpaceItem1";
-            this.emptySpaceItem1.Size = new System.Drawing.Size(461, 29);
-            this.emptySpaceItem1.TextSize = new System.Drawing.Size(0, 0);
-            // 
-            // chkUseExcelValue
-            // 
-            this.chkUseExcelValue.Location = new System.Drawing.Point(12, 57);
-            this.chkUseExcelValue.Name = "chkUseExcelValue";
-            this.chkUseExcelValue.Properties.Caption = "Use Excel Column Value";
-            this.chkUseExcelValue.Size = new System.Drawing.Size(457, 24);
-            this.chkUseExcelValue.StyleController = this.layoutControl1;
-            this.chkUseExcelValue.TabIndex = 5;
             // 
             // layoutControlItem1
             // 
@@ -126,10 +126,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Root)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cmbIdValue.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.emptySpaceItem1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cmbIdValue.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chkUseExcelValue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.layoutControlItemHeader)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
             this.ResumeLayout(false);
 

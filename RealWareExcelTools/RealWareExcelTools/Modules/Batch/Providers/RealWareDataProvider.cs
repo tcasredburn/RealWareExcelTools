@@ -44,6 +44,7 @@ namespace RealWareExcelTools.Modules.Batch.Providers
 
             var result = new Dictionary<string, string>();
             var adapter = new RealWare.Core.Database.Adapters.LookupAdapter(_db);
+            var tbladapter = new RealWare.Core.Database.Adapters.TableAdapter(_db);
 
             switch (lookupName)
             {
@@ -61,6 +62,14 @@ namespace RealWareExcelTools.Modules.Batch.Providers
                 case "Visual Inspection Area":
                         result = adapter.ValueArea.GetAllActive().ToDictionary(x => x.ValueAreaCode, x => x.ValueAreaDescription);
                     break;
+#if TULSA_COUNTY
+                case "Property City":
+                        result = tbladapter.AcctPropertyAddress.GetAllDistinctCities(_taxYear).Where(x=>x != null).ToDictionary(x => x, x => x);
+                    break;
+                case "Property Zip Code":
+                        result = tbladapter.AcctPropertyAddress.GetAllDistinctZipCodes(_taxYear).Where(x => x != null).ToDictionary(x => x, x => x);
+                    break;
+#endif
 
                 // Improvements
                 case "Condition":

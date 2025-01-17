@@ -72,6 +72,18 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                     IsDatabaseOnly = true,
                     ValueType = SinglePathBatchType.DATE
                 },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Property City",
+                    ApiPath = "Account.PropertyAddresses[].PropertyCity",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Property Zip Code",
+                    ApiPath = "Account.PropertyAddresses[].PropertyZipCode",
+                    IsDatabaseOnly = true
+                },
             };
         }
 

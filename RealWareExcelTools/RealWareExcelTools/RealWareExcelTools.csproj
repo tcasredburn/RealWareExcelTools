@@ -36,7 +36,7 @@
     <PublishUrl>\\asprint\appupdates\AddIns\OneClick\</PublishUrl>
     <InstallUrl />
     <TargetCulture>en</TargetCulture>
-    <ApplicationVersion>1.0.0.7</ApplicationVersion>
+    <ApplicationVersion>1.0.0.8</ApplicationVersion>
     <AutoIncrementApplicationRevision>true</AutoIncrementApplicationRevision>
     <UpdateEnabled>true</UpdateEnabled>
     <UpdateInterval>7</UpdateInterval>
@@ -171,8 +171,8 @@
     <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RealWare.Core, Version=2.1.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\RealWare.Core.v5.2.1.9\lib\netstandard2.0\RealWare.Core.dll</HintPath>
+    <Reference Include="RealWare.Core, Version=2.1.16.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RealWare.Core.v5.2.1.16\lib\netstandard2.0\RealWare.Core.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -464,6 +464,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ico_view_batch_scripts_128x128.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit.svg" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
