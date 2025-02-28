@@ -1,6 +1,7 @@
 ﻿using RealWare.Core.Database.Adapters.Table;
 using System.Data.SqlClient;
 using System;
+using RealWare.Core.Database.Models.Encompass.Table;
 
 namespace RealWareExcelTools.Functions
 {
@@ -9,6 +10,8 @@ namespace RealWareExcelTools.Functions
         private readonly string _accountNo;
         private readonly string _taxYear;
         private readonly string _connectionString;
+
+        private AcctDto lastLoadedAccount;
 
         public GetSchoolDistrictHandler(string accountNo)
         {
@@ -30,10 +33,16 @@ namespace RealWareExcelTools.Functions
 
             try
             {
+                if(lastLoadedAccount?.AccountNo == _accountNo)
+                {
+                    return lastLoadedAccount.DefaultTaxDistrict;
+                }
+
                 var connection = new SqlConnection(_connectionString);
                 var adapter = new AcctAdapter(connection);
 
                 var result = adapter.GetByAccountNo(_accountNo, _taxYear);
+                lastLoadedAccount = result;
 
                 if (result == null)
                 {
