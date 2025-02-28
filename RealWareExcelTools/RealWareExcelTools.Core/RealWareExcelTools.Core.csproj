@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-    <PackageReference Include="RealWare.Core.v5" Version="2.1.16" />
+    <PackageReference Include="RealWare.Core.v5" Version="2.1.19" />
     <PackageReference Include="System.ComponentModel.Annotations" Version="5.0.0" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
