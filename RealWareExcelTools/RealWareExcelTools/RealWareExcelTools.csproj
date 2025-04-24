@@ -270,6 +270,7 @@
   -->
   <ItemGroup>
     <Compile Include="Controller\ExcelController.cs" />
+    <Compile Include="Functions\GetAcctTypeHandler.cs" />
     <Compile Include="Functions\GetSchoolDistrictHandler.cs" />
     <Compile Include="Functions\GetSitusHandler.cs" />
     <Compile Include="Functions\ReverseStringHandler.cs" />

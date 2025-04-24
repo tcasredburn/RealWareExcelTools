@@ -12,5 +12,7 @@ namespace RealWareExcelTools
 
         [ExcelFunction(Description = "Gets the Default School District from RealWare for the specified account and tax year.")] 
         public static string RWGETSCHOOLDISTRICT(string input) => new Functions.GetSchoolDistrictHandler(input).GetResult();
+        [ExcelFunction(Description = "Gets the Account Type from RealWare for the specified account and tax year.")]
+        public static string RWACCTTYPE(string input) => new Functions.GetAcctTypeHandler(input).GetResult();
     }
 }
