@@ -41,8 +41,8 @@ Global
 		{45D3D516-2D84-40E3-80E2-85426FDF9389}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{45D3D516-2D84-40E3-80E2-85426FDF9389}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45D3D516-2D84-40E3-80E2-85426FDF9389}.Release|Any CPU.Build.0 = Release|Any CPU
-		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Debug|Any CPU.ActiveCfg = TulsaCounty.Debug|Any CPU
+		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Debug|Any CPU.Build.0 = TulsaCounty.Debug|Any CPU
 		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{45D3D516-2D84-40E3-80E2-85426FDF9389}.TulsaCounty.Release|Any CPU.Build.0 = Release|Any CPU
 		{AF163B12-A4C7-4678-9203-0F290B3A704C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU

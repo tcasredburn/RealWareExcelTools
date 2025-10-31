@@ -36,6 +36,20 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             drpValue2.Properties.ValueMember = "Key";
             drpValue2.EditValueChanged += drpValue2_EditValueChanged;
             drpDateValue.EditValueChanged += drpDateValue_EditValueChanged;
+            spinNumeric.EditValueChanged += spinNumeric_EditValueChanged;
+        }
+
+        private void spinNumeric_EditValueChanged(object sender, EventArgs e)
+        {
+            if ((_valueType == SinglePathBatchType.PERCENT 
+                || _valueType == SinglePathBatchType.NUMBER 
+                || _valueType == SinglePathBatchType.INTEGER) 
+                    && !toggleUseExcelValue.IsOn)
+            {
+                selectedStaticValue = spinNumeric.EditValue.ToString();
+                refreshView();
+                ScriptChangedEvent?.Invoke(this, new EventArgs());
+            }
         }
 
         private void drpDateValue_EditValueChanged(object sender, EventArgs e)
@@ -57,6 +71,25 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             _valueType = valueType;
             this.dataProvider = dataProvider;
 
+            if(_valueType == SinglePathBatchType.INTEGER)
+            {
+                spinNumeric.Properties.IsFloatValue = false;
+
+                spinNumeric.Properties.Mask.EditMask = "N0";
+                spinNumeric.Properties.Mask.UseMaskAsDisplayFormat = true;
+                spinNumeric.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            }
+            else if(_valueType == SinglePathBatchType.PERCENT)
+            {
+                spinNumeric.Properties.IsFloatValue = true;
+                spinNumeric.Properties.Increment = 0.01m;
+                spinNumeric.Properties.MaxValue = 1;
+
+                spinNumeric.Properties.Mask.EditMask = "P2";
+                spinNumeric.Properties.Mask.UseMaskAsDisplayFormat = true;
+                spinNumeric.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.Numeric;
+            }
+
             refreshView();
         }
 
@@ -66,8 +99,14 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             {
                 case SinglePathBatchType.BOOLEAN:
                     break;
+                case SinglePathBatchType.INTEGER:
                 case SinglePathBatchType.NUMBER:
-                    throw new NotImplementedException();
+                case SinglePathBatchType.PERCENT:
+                    {
+                        spinNumeric.Visible = !toggleUseExcelValue.IsOn;
+                        drpValue2.Visible = toggleUseExcelValue.IsOn;
+                    }
+                    break;
                 case SinglePathBatchType.DATE:
                     {
                         drpDateValue.Visible = !toggleUseExcelValue.IsOn;
@@ -107,7 +146,8 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             else
             {
 #if TULSA_COUNTY
-                if (_apiPath == "LandAppraiser" || _apiPath == "Appraiser")
+                if (_apiPath == "LandAppraiser" || _apiPath == "Appraiser" 
+                    || _apiPath == "Account.BusinessName" || _apiPath == "Account.PropertyIdentifier")
                 {
                     drpValue2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
                     if (!string.IsNullOrEmpty(selectedStaticValue))
@@ -132,7 +172,15 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
 
         private Dictionary<string, string> getStaticData()
         {
-            if(_valueType == SinglePathBatchType.BOOLEAN)
+            if(_valueType == SinglePathBatchType.NUMBER 
+                || _valueType == SinglePathBatchType.INTEGER 
+                || _valueType == SinglePathBatchType.PERCENT)
+                return new Dictionary<string, string>()
+                {
+                    { selectedStaticValue, selectedStaticValue }
+                };
+
+            if (_valueType == SinglePathBatchType.BOOLEAN)
             {
                 return new Dictionary<string, string>()
                 {
@@ -167,6 +215,7 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
 
             refreshView();
             drpValue2.EditValue = null;
+            spinNumeric.EditValue = null;
             ScriptChangedEvent?.Invoke(this, new EventArgs());
         }
 

@@ -59,6 +59,10 @@ namespace RealWareExcelTools.Modules.Batch.Providers
                         result = adapter.NbhdAdjustment.GetAllActive(_taxYear).GroupBy(x=>x.NbhdCode)
                             .ToDictionary(g => g.Key, g => g.First().NbhdDescription);
                     break;
+                case "Neighborhood Extension":
+                    result = adapter.NbhdAdjustment.GetAllActive(_taxYear).GroupBy(x => x.NbhdExtension)
+                        .ToDictionary(g => g.Key, g => g.Key);
+                    break;
                 case "Visual Inspection Area":
                         result = adapter.ValueArea.GetAllActive().ToDictionary(x => x.ValueAreaCode, x => x.ValueAreaDescription);
                     break;
@@ -70,6 +74,40 @@ namespace RealWareExcelTools.Modules.Batch.Providers
                         result = tbladapter.AcctPropertyAddress.GetAllDistinctZipCodes(_taxYear).Where(x => x != null).ToDictionary(x => x, x => x);
                     break;
 #endif
+
+                case "Default Approach Type":
+                    result = adapter.ApproachType.GetAllActive()
+                        .ToDictionary(x => x.ApproachType, x => x.ApproachType);
+                    break;
+#if TULSA_COUNTY
+                case "Property Grade":
+#endif
+                case "AcctOM1":
+                    result = adapter.OptionField.GetAllByFieldName("AcctOM1")
+                        .Where(x => x.IsActive).ToDictionary(x => x.FieldValue, x => x.FieldValue);
+                    break;
+#if TULSA_COUNTY
+                case "Property Group":
+#endif
+                case "Property Class ID":
+                    result = adapter.PropertyClass
+                        .GetAllActive().ToDictionary(x => x.PropertyClassId.ToString(), x => x.PropertyClassDescription);
+                    break;
+                case "Primary Use Code":
+                    result = adapter.PrimaryUseCode.GetAllActive()
+                        .ToDictionary(x => x.PrimaryUseCode.ToString(), x => x.PrimaryUseDescription);
+                    break;
+#if TULSA_COUNTY
+                case "TIF":
+#endif
+                case "Local Number":
+                    result = adapter.OptionField.GetAllByFieldName("LOCALNO")
+                        .Where(x => x.IsActive).ToDictionary(x => x.FieldValue, x => x.FieldValue);
+                    break;
+                //case "Business Name":
+                //    throw new NotImplementedException("TODO");
+                //case "Property ID":
+                //    throw new NotImplementedException("TODO");
 
                 // Improvements
                 case "Condition":
@@ -89,11 +127,21 @@ namespace RealWareExcelTools.Modules.Batch.Providers
                     result = adapter.ImpsResRoofCoverType.GetAllActive().Select(x=>x.RoofCover)
                         .Distinct().ToDictionary(x => x, x => x);
                     break;
+                case "OCC Code":
+                    result = adapter.ImpsOccType.GetAllActive().ToDictionary(x => x.OccCode.ToString(), x => x.OccCodeDescription);
+                    break;
 
                 // Sales
                 case "Exclude Code 1":
                 case "Exclude Code 2":
                     result = adapter.SaleExclude.GetAllActive().ToDictionary(x => x.ExcludeCode, x => x.ExcludeDescription);
+                    break;
+#if TULSA_COUNTY
+                case "Status":
+#endif
+                case "SaleOM0":
+                    result = adapter.OptionField.GetAllByFieldName("SaleOM0")
+                        .Where(x => x.IsActive).ToDictionary(x => x.FieldValue, x => x.FieldValue);
                     break;
 #if TULSA_COUNTY
                 case "OTC Exclude Reason":

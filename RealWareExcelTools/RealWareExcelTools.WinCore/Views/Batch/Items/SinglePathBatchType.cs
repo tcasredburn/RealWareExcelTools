@@ -5,6 +5,8 @@
         STRING,
         NUMBER,
         DATE,
-        BOOLEAN
+        BOOLEAN,
+        PERCENT,
+        INTEGER
     }
 }

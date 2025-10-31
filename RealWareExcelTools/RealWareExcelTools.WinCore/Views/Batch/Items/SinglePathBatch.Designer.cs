@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions1 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject1 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject2 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject3 = new DevExpress.Utils.SerializableAppearanceObject();
-            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject4 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.XtraEditors.Controls.EditorButtonImageOptions editorButtonImageOptions2 = new DevExpress.XtraEditors.Controls.EditorButtonImageOptions();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject5 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject6 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject7 = new DevExpress.Utils.SerializableAppearanceObject();
+            DevExpress.Utils.SerializableAppearanceObject serializableAppearanceObject8 = new DevExpress.Utils.SerializableAppearanceObject();
             this.txtName = new DevExpress.XtraEditors.LabelControl();
             this.toggleUseExcelValue = new DevExpress.XtraEditors.ToggleSwitch();
             this.drpValue2 = new DevExpress.XtraEditors.LookUpEdit();
             this.drpDateValue = new DevExpress.XtraEditors.DateEdit();
+            this.spinNumeric = new DevExpress.XtraEditors.SpinEdit();
             ((System.ComponentModel.ISupportInitialize)(this.toggleUseExcelValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpValue2.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpDateValue.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpDateValue.Properties.CalendarTimeProperties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinNumeric.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // txtName
@@ -76,7 +78,7 @@
             this.drpValue2.Properties.Appearance.Options.UseFont = true;
             this.drpValue2.Properties.BestFitMode = DevExpress.XtraEditors.Controls.BestFitMode.BestFitResizePopup;
             this.drpValue2.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 50, true, true, false, editorButtonImageOptions1, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject1, serializableAppearanceObject2, serializableAppearanceObject3, serializableAppearanceObject4, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo, "", 50, true, true, false, editorButtonImageOptions2, new DevExpress.Utils.KeyShortcut(System.Windows.Forms.Keys.None), serializableAppearanceObject5, serializableAppearanceObject6, serializableAppearanceObject7, serializableAppearanceObject8, "", null, null, DevExpress.Utils.ToolTipAnchor.Default)});
             this.drpValue2.Properties.NullText = "(Select a value)";
             this.drpValue2.Size = new System.Drawing.Size(429, 42);
             this.drpValue2.TabIndex = 3;
@@ -96,10 +98,28 @@
             this.drpDateValue.TabIndex = 4;
             this.drpDateValue.Visible = false;
             // 
+            // spinNumeric
+            // 
+            this.spinNumeric.EditValue = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.spinNumeric.Location = new System.Drawing.Point(30, 61);
+            this.spinNumeric.Name = "spinNumeric";
+            this.spinNumeric.Properties.Appearance.Font = new System.Drawing.Font("Segoe UI", 15F);
+            this.spinNumeric.Properties.Appearance.Options.UseFont = true;
+            this.spinNumeric.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.spinNumeric.Size = new System.Drawing.Size(428, 42);
+            this.spinNumeric.TabIndex = 5;
+            this.spinNumeric.Visible = false;
+            // 
             // SinglePathBatch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.spinNumeric);
             this.Controls.Add(this.drpDateValue);
             this.Controls.Add(this.drpValue2);
             this.Controls.Add(this.toggleUseExcelValue);
@@ -112,6 +132,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.drpValue2.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpDateValue.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.drpDateValue.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.spinNumeric.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -122,5 +143,6 @@
         private DevExpress.XtraEditors.ToggleSwitch toggleUseExcelValue;
         private DevExpress.XtraEditors.LookUpEdit drpValue2;
         private DevExpress.XtraEditors.DateEdit drpDateValue;
+        private DevExpress.XtraEditors.SpinEdit spinNumeric;
     }
 }

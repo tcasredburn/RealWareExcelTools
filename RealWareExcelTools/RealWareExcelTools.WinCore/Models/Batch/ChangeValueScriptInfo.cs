@@ -41,6 +41,14 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 },
                 new ChangeValueScriptInfo
                 {
+                    ScriptName = "Neighborhood Extension",
+                    ApiPath = "Account.Neighborhoods[].NbhdExtension",
+                    //OptionCategory = "TblAcctNbhd",
+                    //OptionName = "NbhdCode",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
                     ScriptName = "Economic Area",
                     ApiPath = "Account.EconomicAreaCode",
                     OptionCategory = "TlkpEconomicArea",
@@ -82,6 +90,62 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 {
                     ScriptName = "Property Zip Code",
                     ApiPath = "Account.PropertyAddresses[].PropertyZipCode",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Default Approach Type",
+                    ApiPath = "Account.DefaultApproachType",
+                    OptionCategory = "TlkpApproachType",
+                    OptionName = "ApproachType",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "Property Group",
+#else
+                    ScriptName = "Property Class ID",
+#endif       
+                    ApiPath = "Account.PropertyClassID",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "Property Grade",
+#else
+                    ScriptName = "AcctOM1",
+#endif       
+                    ApiPath = "Account.AcctOM1",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Primary Use Code",
+                    ApiPath = "Account.PrimaryUseCode",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Property ID",
+                    ApiPath = "Account.PropertyIdentifier",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "TIF",
+#else
+                    ScriptName = "Local Number",
+#endif        
+                    ApiPath = "Account.LocalNo",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Business Name",
+                    ApiPath = "Account.BusinessName",
                     IsDatabaseOnly = true
                 },
             };
@@ -143,6 +207,21 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                     IsDatabaseOnly = true,
                     ValueType = SinglePathBatchType.DATE
                 },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "OCC Code",
+                    ApiPath = "Occupancies[].OccCode",
+                    OptionCategory = "TlkpImpsOccType",                 //TODO
+                    OptionName = "OccCode",
+                    IsDatabaseOnly = true
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Land Attributed Percentage",
+                    ApiPath = "LandAttributedPct",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.PERCENT
+                },
             };
         }
 
@@ -163,6 +242,16 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                     ApiPath = "ExcludeCode2",
                     OptionCategory = "Sales",
                     OptionName = "SaleExclude"
+                },
+                new ChangeValueScriptInfo
+                {
+#if TULSA_COUNTY
+                    ScriptName = "Status",
+#else
+                    ScriptName = "SaleOM0",
+#endif
+                    ApiPath = "SaleOM0",
+                    IsDatabaseOnly = true
                 },
                 new ChangeValueScriptInfo
                 {
