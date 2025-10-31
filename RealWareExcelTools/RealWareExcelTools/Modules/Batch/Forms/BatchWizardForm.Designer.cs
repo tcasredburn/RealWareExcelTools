@@ -52,7 +52,7 @@
             this.wizardControl1.Pages.AddRange(new DevExpress.XtraWizard.BaseWizardPage[] {
             this.pageWelcome,
             this.completionWizardPage1});
-            this.wizardControl1.Size = new System.Drawing.Size(973, 644);
+            this.wizardControl1.Size = new System.Drawing.Size(1064, 736);
             // 
             // pageWelcome
             // 
@@ -61,7 +61,7 @@
     "ormation using the RealWare API.";
             this.pageWelcome.Margin = new System.Windows.Forms.Padding(4);
             this.pageWelcome.Name = "pageWelcome";
-            this.pageWelcome.Size = new System.Drawing.Size(717, 480);
+            this.pageWelcome.Size = new System.Drawing.Size(808, 572);
             this.pageWelcome.Text = "Welcome to the RealWare batch wizard";
             // 
             // chkSkipFirstPage
@@ -80,7 +80,7 @@
             this.completionWizardPage1.Margin = new System.Windows.Forms.Padding(4);
             this.completionWizardPage1.Name = "completionWizardPage1";
             this.completionWizardPage1.ProceedText = "To close this wizard and start the script, click Finish";
-            this.completionWizardPage1.Size = new System.Drawing.Size(717, 480);
+            this.completionWizardPage1.Size = new System.Drawing.Size(808, 572);
             // 
             // pageSelectModule
             // 
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(973, 644);
+            this.ClientSize = new System.Drawing.Size(1064, 736);
             this.Controls.Add(this.wizardControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
