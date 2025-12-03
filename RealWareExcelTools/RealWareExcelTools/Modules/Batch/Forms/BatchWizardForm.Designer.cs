@@ -45,42 +45,36 @@
             this.wizardControl1.Controls.Add(this.pageWelcome);
             this.wizardControl1.Controls.Add(this.completionWizardPage1);
             this.wizardControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.wizardControl1.ImageOptions.ImageWidth = 216;
-            this.wizardControl1.Margin = new System.Windows.Forms.Padding(4);
-            this.wizardControl1.MinimumSize = new System.Drawing.Size(117, 123);
             this.wizardControl1.Name = "wizardControl1";
             this.wizardControl1.Pages.AddRange(new DevExpress.XtraWizard.BaseWizardPage[] {
             this.pageWelcome,
             this.completionWizardPage1});
-            this.wizardControl1.Size = new System.Drawing.Size(1064, 736);
+            this.wizardControl1.Size = new System.Drawing.Size(912, 598);
             // 
             // pageWelcome
             // 
             this.pageWelcome.Controls.Add(this.chkSkipFirstPage);
             this.pageWelcome.IntroductionText = "This wizard simplifies the batching of basic account, permit, sale, or appeal inf" +
     "ormation using the RealWare API.";
-            this.pageWelcome.Margin = new System.Windows.Forms.Padding(4);
             this.pageWelcome.Name = "pageWelcome";
-            this.pageWelcome.Size = new System.Drawing.Size(808, 572);
+            this.pageWelcome.Size = new System.Drawing.Size(695, 466);
             this.pageWelcome.Text = "Welcome to the RealWare batch wizard";
             // 
             // chkSkipFirstPage
             // 
-            this.chkSkipFirstPage.Location = new System.Drawing.Point(6, 415);
-            this.chkSkipFirstPage.Margin = new System.Windows.Forms.Padding(4);
+            this.chkSkipFirstPage.Location = new System.Drawing.Point(5, 337);
             this.chkSkipFirstPage.Name = "chkSkipFirstPage";
             this.chkSkipFirstPage.Properties.Caption = "Skip this page";
-            this.chkSkipFirstPage.Size = new System.Drawing.Size(204, 24);
+            this.chkSkipFirstPage.Size = new System.Drawing.Size(175, 20);
             this.chkSkipFirstPage.TabIndex = 0;
             this.chkSkipFirstPage.CheckedChanged += new System.EventHandler(this.chkSkipFirstPage_CheckedChanged);
             // 
             // completionWizardPage1
             // 
             this.completionWizardPage1.FinishText = "You have successfully completed the RealWare batch wizard.\r\n\r\n";
-            this.completionWizardPage1.Margin = new System.Windows.Forms.Padding(4);
             this.completionWizardPage1.Name = "completionWizardPage1";
             this.completionWizardPage1.ProceedText = "To close this wizard and start the script, click Finish";
-            this.completionWizardPage1.Size = new System.Drawing.Size(808, 572);
+            this.completionWizardPage1.Size = new System.Drawing.Size(695, 466);
             // 
             // pageSelectModule
             // 
@@ -99,12 +93,11 @@
             // 
             // BatchWizardForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1064, 736);
+            this.ClientSize = new System.Drawing.Size(912, 598);
             this.Controls.Add(this.wizardControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "BatchWizardForm";

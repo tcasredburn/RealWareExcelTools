@@ -1,5 +1,4 @@
-﻿using DevExpress.Utils.DPI;
-using RealWareExcelTools.WinCore.Models.Batch;
+﻿using RealWareExcelTools.WinCore.Models.Batch;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -41,12 +40,15 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
 
         private void spinNumeric_EditValueChanged(object sender, EventArgs e)
         {
-            if ((_valueType == SinglePathBatchType.PERCENT 
-                || _valueType == SinglePathBatchType.NUMBER 
-                || _valueType == SinglePathBatchType.INTEGER) 
-                    && !toggleUseExcelValue.IsOn)
+            if (!toggleUseExcelValue.IsOn)
             {
-                selectedStaticValue = spinNumeric.EditValue.ToString();
+                if(_valueType == SinglePathBatchType.NUMBER
+                || _valueType == SinglePathBatchType.INTEGER)
+                    selectedStaticValue = Convert.ToInt32(spinNumeric.EditValue).ToString();
+                else if (_valueType == SinglePathBatchType.PERCENT)
+                    selectedStaticValue = (((decimal)spinNumeric.EditValue) / 100.0m).ToString();
+                else
+                    selectedStaticValue = spinNumeric.EditValue.ToString();
                 refreshView();
                 ScriptChangedEvent?.Invoke(this, new EventArgs());
             }
@@ -83,7 +85,8 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             {
                 spinNumeric.Properties.IsFloatValue = true;
                 spinNumeric.Properties.Increment = 0.01m;
-                spinNumeric.Properties.MaxValue = 1;
+                spinNumeric.Properties.MinValue = 0m;
+                spinNumeric.Properties.MaxValue = 100m;
 
                 spinNumeric.Properties.Mask.EditMask = "P2";
                 spinNumeric.Properties.Mask.UseMaskAsDisplayFormat = true;
@@ -147,7 +150,9 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             {
 #if TULSA_COUNTY
                 if (_apiPath == "LandAppraiser" || _apiPath == "Appraiser" 
-                    || _apiPath == "Account.BusinessName" || _apiPath == "Account.PropertyIdentifier")
+                    || _apiPath == "Account.BusinessName" || _apiPath == "Account.PropertyIdentifier"
+                    || _apiPath == "Occupancies[].AbstractCode" || _apiPath == "ImpDescription"
+                    || _apiPath == "CostValueBy" || _apiPath == "MarketValueBy" || _apiPath == "IncomeValueBy")
                 {
                     drpValue2.Properties.TextEditStyle = DevExpress.XtraEditors.Controls.TextEditStyles.Standard;
                     if (!string.IsNullOrEmpty(selectedStaticValue))
@@ -192,10 +197,16 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             if (_valueType != SinglePathBatchType.STRING)
             {
                 var data = new Dictionary<string, string>();
-                if(selectedStaticValue != null)
+                if (selectedStaticValue != null)
                     data.Add(selectedStaticValue, selectedStaticValue);
                 return data;
             }
+            else if (_valueType == SinglePathBatchType.STRING
+                    && _apiPath.EndsWith("ValueBy"))
+                return getValueByData();
+            else if (_valueType == SinglePathBatchType.STRING
+                    && _apiPath.EndsWith("Method"))
+                return getMethodData(_apiPath);
 
             try
             {
@@ -206,6 +217,54 @@ namespace RealWareExcelTools.WinCore.Views.Batch.Items
             {
                 MessageBox.Show(ex.Message);
                 return new Dictionary<string, string>();
+            }
+        }
+
+        private Dictionary<string, string> getValueByData()
+            => new Dictionary<string, string>()
+                    {
+                        { "SF", "SF" },
+                        { "Units", "Units" },   
+                        { "Other", "Other" },
+                        { "Rooms", "Rooms" }
+                    };
+
+        private Dictionary<string, string> getMethodData(string apiPath)
+        {
+            switch (apiPath)
+            {
+                case "CostValueBy":
+                    return new Dictionary<string, string>()
+                    {
+                        { "External Cost Value", "External Cost Value" },
+                        { "Override", "Override" },
+                        { "MLPLD", "MLPLD" },
+                        { "RCNLD", "RCNLD" }
+                    };
+                case "MarketValueBy":
+                    return new Dictionary<string, string>()
+                    {
+                        { "External Market Value", "External Market Value" },
+                        { "Override", "Override" },
+                        { "Regression", "Regression" },
+                        { "RegressionOverride", "RegressionOverride" }
+                    };
+                case "IncomeValueBy":
+                    return new Dictionary<string, string>()
+                    {
+                        { "Direct Cap", "Direct Cap" },
+                        { "Direct Cap Override", "Direct Cap Override" },
+                        { "GIM", "GIM" },
+                        { "GIM Override", "GIM Override" },
+                        { "GRM", "GRM" },
+                        { "GRM Override", "GRM Override" },
+                        { "Mortgage Equity", "Mortgage Equity" },
+                        { "Override", "Override" },
+                        { "Regression", "Regression" },
+                        { "Regression Override", "Regression Override" }
+                    };
+                default:
+                    return new Dictionary<string, string>();
             }
         }
 

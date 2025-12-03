@@ -74,7 +74,7 @@ namespace RealWareExcelTools.Modules.Batch.Providers
                         result = tbladapter.AcctPropertyAddress.GetAllDistinctZipCodes(_taxYear).Where(x => x != null).ToDictionary(x => x, x => x);
                     break;
 #endif
-
+                case "Approach Type":
                 case "Default Approach Type":
                     result = adapter.ApproachType.GetAllActive()
                         .ToDictionary(x => x.ApproachType, x => x.ApproachType);
@@ -103,6 +103,11 @@ namespace RealWareExcelTools.Modules.Batch.Providers
                 case "Local Number":
                     result = adapter.OptionField.GetAllByFieldName("LOCALNO")
                         .Where(x => x.IsActive).ToDictionary(x => x.FieldValue, x => x.FieldValue);
+                    break;
+                case "Tax District":
+                case "OCC Tax District":
+                    result = adapter.TaxDistrict.GetAllActive()
+                        .ToDictionary(x => x.TaxDistrictName, x => x.TaxDistrictName);
                     break;
                 //case "Business Name":
                 //    throw new NotImplementedException("TODO");

@@ -27,14 +27,14 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Land Economic Area",
-                    ApiPath = "Account.LandAbstracts[].LEA",
+                    ApiPath = "LandAbstracts[].LEA",
                     OptionCategory = "RealAccount",
                     OptionName = "LEA"
                 },
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Neighborhood",
-                    ApiPath = "Account.Neighborhoods[].NbhdCode",
+                    ApiPath = "Neighborhoods[].NbhdCode",
                     OptionCategory = "TblAcctNbhd",
                     OptionName = "NbhdCode",
                     IsDatabaseOnly = true
@@ -42,7 +42,7 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 new ChangeValueScriptInfo
                 {
                     ScriptName = "Neighborhood Extension",
-                    ApiPath = "Account.Neighborhoods[].NbhdExtension",
+                    ApiPath = "Neighborhoods[].NbhdExtension",
                     //OptionCategory = "TblAcctNbhd",
                     //OptionName = "NbhdCode",
                     IsDatabaseOnly = true
@@ -217,10 +217,102 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                 },
                 new ChangeValueScriptInfo
                 {
+                    ScriptName = "OCC Percent",
+                    ApiPath = "Occupancies[].OccPercent",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.PERCENT
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "OCC Abstract Code",
+                    ApiPath = "Occupancies[].AbstractCode",
+                    IsDatabaseOnly = true, 
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "OCC Tax District",
+                    ApiPath = "Occupancies[].TaxDistrict",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "OCC Completed Percent",
+                    ApiPath = "Occupancies[].OccCompletedPct",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.PERCENT
+                },
+                new ChangeValueScriptInfo
+                {
                     ScriptName = "Land Attributed Percentage",
                     ApiPath = "LandAttributedPct",
                     IsDatabaseOnly = true,
                     ValueType = SinglePathBatchType.PERCENT
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Imp Description",
+                    ApiPath = "ImpDescription",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Imp Net SF",
+                    ApiPath = "ImpNetSF",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.NUMBER
+                },
+                // Methods
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Approach Type",
+                    ApiPath = "ApproachType",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Cost Method",
+                    ApiPath = "CostMethod",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Market Method",
+                    ApiPath = "MarketMethod",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Income Method",
+                    ApiPath = "IncomeMethod",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Cost Value By",
+                    ApiPath = "CostValueBy",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Market Value By",
+                    ApiPath = "MarketValueBy",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
+                },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Income Value By",
+                    ApiPath = "IncomeValueBy",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.STRING
                 },
             };
         }

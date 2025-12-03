@@ -213,6 +213,7 @@ namespace RealWareExcelTools.Ribbon
                 _addIn.Settings.RealWareApiConnectionSettings, 
                 _addIn.Settings.BatchWizardSettings,
                 _addIn.Settings.RealWareDbConnectionSettings,
+                _addIn.Settings.GeneralSettings,
                 excelFileName);
 
             var form = new BatchWizardForm(context);

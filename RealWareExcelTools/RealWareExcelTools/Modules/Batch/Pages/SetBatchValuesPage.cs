@@ -30,7 +30,7 @@ namespace RealWareExcelTools.Modules.Batch.Pages
             Context.DataProvider = new RealWareDataProvider(
                 Context.ApiSettings.GetRealWareApiConnection(),
                 Context.DbSettings.ConnectionString,
-                DateTime.Now.Year.ToString());
+                Context.GeneralSettings.GetTaxYear());
         }
 
         public void OnSavePage()

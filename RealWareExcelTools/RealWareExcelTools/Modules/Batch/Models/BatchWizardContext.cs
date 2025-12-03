@@ -1,9 +1,9 @@
 ﻿using DevExpress.XtraBars;
-using DevExpress.XtraSplashScreen;
 using RealWareExcelTools.Controller;
 using RealWareExcelTools.Core.Providers;
 using RealWareExcelTools.Core.Settings.API;
 using RealWareExcelTools.Core.Settings.Database;
+using RealWareExcelTools.Core.Settings.General;
 using RealWareExcelTools.Core.Settings.Plugins;
 using RealWareExcelTools.Modules.Batch.Controller;
 using RealWareExcelTools.Modules.Batch.Forms;
@@ -25,11 +25,13 @@ namespace RealWareExcelTools.Modules.Batch.Models
         public readonly RealWareApiConnectionSettings ApiSettings;
         public readonly RealWareDbConnectionSettings DbSettings;
         public readonly BatchWizardSettings Settings;
+        public readonly GeneralSettings GeneralSettings;
 
         public readonly string BatchScriptDirectory;
 
         public BatchWizardContext(ExcelController controller, RealWareApiConnectionSettings apiSettings,
-            BatchWizardSettings settings, RealWareDbConnectionSettings dbSettings, string excelFileName)
+            BatchWizardSettings settings, RealWareDbConnectionSettings dbSettings,
+            GeneralSettings generalSettings, string excelFileName)
         {
             Script = new BatchConfigurationScript()
             {
@@ -43,6 +45,7 @@ namespace RealWareExcelTools.Modules.Batch.Models
             ApiSettings = apiSettings;
             Settings = settings;
             DbSettings = dbSettings;
+            GeneralSettings = generalSettings;
         }
 
         public void SetController(BatchWizardForm controller)
