@@ -11,7 +11,7 @@ using System.Security;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Tulsa County")]
 [assembly: AssemblyProduct("RealWareExcelTools")]
-[assembly: AssemblyCopyright("Copyright © Tulsa County 2024")]
+[assembly: AssemblyCopyright("Copyright © Tulsa County 2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
