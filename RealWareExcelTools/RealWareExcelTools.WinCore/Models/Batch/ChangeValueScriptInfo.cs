@@ -314,6 +314,13 @@ namespace RealWareExcelTools.WinCore.Models.Batch
                     IsDatabaseOnly = true,
                     ValueType = SinglePathBatchType.STRING
                 },
+                new ChangeValueScriptInfo
+                {
+                    ScriptName = "Built As Story Height",
+                    ApiPath = "BuiltAs[].BltAsStoryHeight",
+                    IsDatabaseOnly = true,
+                    ValueType = SinglePathBatchType.NUMBER
+                },
             };
         }
 
